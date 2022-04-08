@@ -1,23 +1,17 @@
 import type { NextPage, GetServerSideProps } from 'next'
+import { ProductsData, UserData } from '../components/types';
 import Head from 'next/head'
 import UserList from '../components/list/UserList';
 import styles from '../styles/Home.module.css'
+import fetchData from '../components/fetchData';
+import ProductList from '../components/list/ProductsList';
 
 type AppProps = {
-  data: Data;
-}
-interface RedeemHistory {
-  productId: string
-}
-interface Data {
-  _id: string;
-  name: string;
-  points: number;
-  createDate: Date;
-  redeemHistory: RedeemHistory[];
+  userData: UserData;
+  productsData: ProductsData;
 }
 
-const Home: NextPage<AppProps> = ({ data }) => {
+const Home: NextPage<AppProps> = ({ userData, productsData }) => {
   return (
     <div className={styles.container}>
       <Head>
@@ -27,7 +21,8 @@ const Home: NextPage<AppProps> = ({ data }) => {
       </Head>
 
       <main className={styles.main}>
-        <UserList data={data} />
+        <UserList userData={userData} />
+        <ProductList productsData={productsData} />
       </main>
 
       <footer className={styles.footer}>
@@ -37,14 +32,13 @@ const Home: NextPage<AppProps> = ({ data }) => {
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  let headers = new Headers()
-  headers.append("Content-Type", 'application/json')
-  headers.append('Accept', 'application/json')
-  headers.append('Authorization', 'Bearer ' + process.env.USERTOKEN)
-  const res = await fetch('https://coding-challenge-api.aerolab.co/user/me', { headers })
-  const data = await res.json()
-
-  return { props: { data } }
+  let userFetch = fetchData(process.env.USERURL, "GET", process.env.USERTOKEN)
+  let productsFetch = fetchData(process.env.PRODUCTURL, "GET", process.env.USERTOKEN)
+  return await Promise.all([userFetch, productsFetch])
+    .then(values => {
+      let [userData, productsData] = values
+      return { props: { userData, productsData } }
+    })
 }
 
 export default Home

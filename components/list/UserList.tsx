@@ -1,15 +1,16 @@
-import { Data } from '../types'
+import { UserData } from '../types'
+
 type AppProps = {
-    data: Data;
+    userData: UserData;
 }
 
-const UserList = ({ data }: AppProps): JSX.Element => {
+const UserList = ({ userData }: AppProps): JSX.Element => {
     return (
         <div>
-            <p>{data._id}</p>
-            <p>{data.createDate}</p>
-            <p>{data.name}</p>
-            <p>{data.points}</p>
+            <p>{userData._id}</p>
+            <p>{userData.createDate}</p>
+            <p>{userData.name}</p>
+            <p>{userData.points}</p>
             <p>Redeem history:</p>
         </div>
     )
