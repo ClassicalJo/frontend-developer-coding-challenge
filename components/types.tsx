@@ -24,3 +24,4 @@ export interface ProductImage {
 }
 export type FilterMethod = 'all' | 'Gaming' | 'Audio' | 'Smart Home' | 'Monitors & TV'
 export type SortMethod = 'recent' | 'lowest-price' | 'highest-price'
+export type ValidCharge =  1000 | 5000 | 7500
