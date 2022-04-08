@@ -5,7 +5,7 @@ export interface UserData {
     _id: string;
     name: string;
     points: number;
-    createDate: string;
+    createDate: Date;
     redeemHistory: RedeemHistory[];
 }
 export type ProductsData = Product[]
@@ -22,3 +22,5 @@ export interface ProductImage {
     url: string;
     hdUrl: string;
 }
+export type FilterMethod = 'all' | 'Gaming' | 'Audio' | 'Smart Home' | 'Monitors & TV'
+export type SortMethod = 'recent' | 'lowest-price' | 'highest-price'
