@@ -1,4 +1,6 @@
-export default async function fetchData(url: string, method: string, token: string) {
+import { FetchData } from "./types"
+
+export default async function fetchData(url: string, method: string, token: string): Promise<FetchData> {
     let headers = new Headers()
     headers.append("Content-Type", 'application/json')
     headers.append('Accept', 'application/json')
@@ -9,6 +11,7 @@ export default async function fetchData(url: string, method: string, token: stri
         return data
     }
     catch (err) {
-        console.log(err)
+        let error = new Error("Error while fetching data on url " + url)
+        return { error: error.message }
     }
 }

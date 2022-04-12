@@ -1,36 +1,54 @@
 import { SyntheticEvent, useState } from 'react';
-import { UserData, ValidCharge } from '../types'
-import Loading from '../Loading'
-import fetchData from '../fetchData';
+import { ValidCharge, EffectUserData } from '../types'
+import fetchPoints from '../fetchPoints';
+
 type AppProps = {
-    userData: UserData;
+    userData: EffectUserData
+    refreshUserData: Function
 }
 
-const UserList = ({ userData }: AppProps): JSX.Element => {
+const UserList = ({ userData, refreshUserData }: AppProps): JSX.Element => {
     let [loading, setLoading] = useState(false)
+    let [currentCharge, setCurrentCharge] = useState<ValidCharge>(1000)
+    if (!userData || loading) return <p>Is loading</p>
 
-    function chargePoints(e: SyntheticEvent) {
+    let { _id, createDate, name, points } = userData
+    let chargeValues: ValidCharge[] = [1000, 5000, 7500]
+    function setCharge(e: SyntheticEvent) {
         let { value } = e.target as HTMLInputElement
         let amount: ValidCharge = Number(value) as ValidCharge
+        setCurrentCharge(amount)
+    }
+    function chargePoints() {
         setLoading(true)
-        fetch('api/points', { method: "POST", body: JSON.stringify({ amount }) })
-            .then(() => setLoading(false))
-            .catch(() => setLoading(false))
+        fetchPoints(currentCharge)
+            .then(() => refreshUserData())
+            .catch(err => console.log("This is where the error label should trigger", err))
+            .finally(() => setLoading(false))
     }
 
     return (
         <div>
-            <p>{userData._id}</p>
-            <p>{userData.createDate}</p>
-            <p>{userData.name}</p>
-            <p>{userData.points}</p>
+            <p>{_id}</p>
+            <p>{createDate}</p>
+            <p>{name}</p>
+            <p>{points}</p>
             <p>Redeem history:</p>
-            <Loading loading={loading}>
-                <input type='button' value={1000} onClick={chargePoints} />
-                <input type="button" value={5000} onClick={chargePoints} />
-                <input type='button' value={7500} onClick={chargePoints} />
-                <input type='button' value="Add Points" />
-            </Loading>
+            {chargeValues.map((key, index) => (
+                <div
+                    key={`radioInput${index}`}>
+                    <input
+                        type="radio"
+                        value={key}
+                        checked={key === currentCharge}
+                        onChange={setCharge}
+                    />
+                    <label>{key}</label>
+                </div>
+            ))}
+            <p>
+                <input type='button' value="Add Points" onClick={chargePoints} />
+            </p>
         </div>
     )
 }

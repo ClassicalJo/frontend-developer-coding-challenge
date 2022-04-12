@@ -3,6 +3,7 @@ declare global {
         interface ProcessEnv {
             USERURL: string;
             PRODUCTURL: string;
+            POINTSURL: string;
             USERTOKEN: string;
             NODE_ENV: 'development' | 'production' ;
             PORT?: string;

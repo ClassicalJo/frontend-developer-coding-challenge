@@ -1,16 +1,27 @@
 import type { NextPage, GetServerSideProps } from 'next'
-import { ProductsData, UserData } from '../components/types';
+import { EffectUserData, ProductsData, UserData, ValidCharge } from '../components/types';
 import Head from 'next/head'
 import UserList from '../components/list/UserList';
 import fetchData from '../components/fetchData';
 import ProductList from '../components/list/ProductsList';
+import { useCallback, useEffect, useState } from 'react';
 
 type AppProps = {
-  userData: UserData;
   productsData: ProductsData;
 }
 
-const Home: NextPage<AppProps> = ({ userData, productsData }) => {
+const Home: NextPage<AppProps> = ({ productsData }) => {
+  let [userData, setUserData] = useState<EffectUserData>(null)
+  let fetchUser = useCallback(async () => {
+    let res = await fetch("api/user")
+    let data = await res.json()
+    setUserData(data)
+  }, [])
+
+  useEffect(() => {
+    fetchUser()
+  }, [fetchUser])
+
   return (
     <div >
       <Head>
@@ -20,8 +31,8 @@ const Home: NextPage<AppProps> = ({ userData, productsData }) => {
       </Head>
 
       <main >
-        <UserList userData={userData} />
-        <ProductList productsData={productsData} />
+        <UserList userData={userData} refreshUserData={fetchUser} />
+        <ProductList productsData={productsData} userData={userData} />
       </main>
 
       <footer>
@@ -31,13 +42,8 @@ const Home: NextPage<AppProps> = ({ userData, productsData }) => {
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  let userFetch = fetchData(process.env.USERURL, "GET", process.env.USERTOKEN)
-  let productsFetch = fetchData(process.env.PRODUCTURL, "GET", process.env.USERTOKEN)
-  return await Promise.all([userFetch, productsFetch])
-    .then(values => {
-      let [userData, productsData] = values
-      return { props: { userData, productsData } }
-    })
+  let productsData = await fetchData(process.env.PRODUCTURL, "GET", process.env.USERTOKEN)
+  return { props: { productsData } }
 }
 
 export default Home

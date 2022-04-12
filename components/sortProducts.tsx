@@ -1,10 +1,10 @@
 import { FilterMethod, Product, ProductsData, SortMethod } from "./types";
 
-export default function sortAndFilterProducts(products: ProductsData, sort: SortMethod, filter: FilterMethod): ProductsData {
+export default function sortAndFilterProducts(products: Product[], sort: SortMethod, filter: FilterMethod): Product[] {
     return filterProducts(products, filter).sort(sortProducts(sort))
 }
 
-function filterProducts(products: ProductsData, filterMethod: FilterMethod): ProductsData {
+function filterProducts(products: Product[], filterMethod: FilterMethod): Product[] {
     if (filterMethod === 'all') return products
     return products.filter(k => k.category === filterMethod)
 }
