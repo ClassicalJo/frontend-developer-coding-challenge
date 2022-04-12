@@ -36,6 +36,7 @@ const Home: NextPage<AppProps> = ({ productsData }) => {
       </main>
 
       <footer>
+        <a href="https://github.com/ClassicalJo/frontend-developer-coding-challenge">Link to the repo</a>
       </footer>
     </div>
   )
