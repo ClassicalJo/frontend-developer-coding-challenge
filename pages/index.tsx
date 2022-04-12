@@ -32,7 +32,7 @@ const Home: NextPage<AppProps> = ({ productsData }) => {
 
       <main >
         <UserList userData={userData} refreshUserData={fetchUser} />
-        <ProductList productsData={productsData} userData={userData} />
+        <ProductList productsData={productsData} userData={userData} refreshUserData={fetchUser} />
       </main>
 
       <footer>

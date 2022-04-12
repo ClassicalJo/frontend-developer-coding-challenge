@@ -7,7 +7,7 @@ import { UserHandler } from '../../components/api/UserHandler'
 let user = new UserHandler(process.env.USERURL, process.env.USERTOKEN, new UserFetch())
 let points = new PointHandler(process.env.POINTSURL, process.env.USERTOKEN, new PointsCharge())
 
-export default async function handler(
+export default async function userHandler(
     req: NextApiRequest,
     res: NextApiResponse
 ) {

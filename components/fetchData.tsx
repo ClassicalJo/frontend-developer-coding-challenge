@@ -1,10 +1,8 @@
+import authHeader from "./authHeader"
 import { FetchData } from "./types"
 
 export default async function fetchData(url: string, method: string, token: string): Promise<FetchData> {
-    let headers = new Headers()
-    headers.append("Content-Type", 'application/json')
-    headers.append('Accept', 'application/json')
-    headers.append('Authorization', 'Bearer ' + token)
+    let headers = authHeader(token)
     try {
         const res = await fetch(url, { headers, method })
         const data = await res.json()

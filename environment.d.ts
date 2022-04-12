@@ -5,6 +5,7 @@ declare global {
             PRODUCTURL: string;
             POINTSURL: string;
             USERTOKEN: string;
+            REDEEMURL: string;
             NODE_ENV: 'development' | 'production' ;
             PORT?: string;
             PWD: string;

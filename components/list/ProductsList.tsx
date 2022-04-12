@@ -1,14 +1,16 @@
-import React, { useMemo, useState } from "react"
+import React, { SyntheticEvent, useMemo, useState } from "react"
 import sortAndFilterProducts from "../sortProducts"
 import ProductComponent from "./ProductComponent"
 import { EffectUserData, FilterMethod, ProductsData, SortMethod } from "../types"
+import fetchRedeem from "../fetchRedeem"
 
 type AppProps = {
     productsData: ProductsData
     userData: EffectUserData
+    refreshUserData: Function
 }
 
-const ProductList = ({ productsData, userData }: AppProps): JSX.Element => {
+const ProductList = ({ productsData, userData, refreshUserData }: AppProps): JSX.Element => {
     let productsPerPage = 16
     let [currentPage, setCurrentPage] = useState<number>(0)
     let [sortMethod, setSortMethod] = useState<SortMethod>('recent')
@@ -16,6 +18,12 @@ const ProductList = ({ productsData, userData }: AppProps): JSX.Element => {
     let products = useMemo(() => sortAndFilterProducts(productsData, sortMethod, filterMethod), [productsData, sortMethod, filterMethod])
     let startingIndex = currentPage * productsPerPage
     let endIndex = startingIndex + productsPerPage
+    let redeemItem = (productId: string) => {
+        fetchRedeem(productId)
+            .then(() => refreshUserData())
+            .catch(err => console.log("This is where the error label is triggered", err))
+
+    }
     return (
         <div>
             <input type='button' onClick={() => setCurrentPage(currentPage - 1)} defaultValue="-" />
@@ -41,6 +49,7 @@ const ProductList = ({ productsData, userData }: AppProps): JSX.Element => {
                     key={`product${index}`}
                     product={k}
                     userData={userData}
+                    redeem={redeemItem}
                 />
             ))}
         </div>
