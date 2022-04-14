@@ -1,3 +1,12 @@
-export default function ViewAllProducts(): JSX.Element {
-    return <div><input type="button" value="VIEW ALL PRODUCTS "></input></div>
+interface AppProps {
+    className?: string,
+    children: React.ReactNode
+}
+
+export default function ViewAllProducts({ className, children }: AppProps): JSX.Element {
+    return (
+        <div className={className}>
+            {children}
+        </div>
+    )
 }
