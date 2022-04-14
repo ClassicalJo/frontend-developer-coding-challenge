@@ -1,29 +1,15 @@
 import type { NextPage, GetServerSideProps } from 'next'
-import { EffectUserData, ProductsData, UserData, ValidCharge } from '../components/types';
+import { ProductsData } from '../components/types';
 import Head from 'next/head'
-import UserList from '../components/list/UserList';
-import fetchData from '../components/fetchData';
-import ProductList from '../components/list/ProductsList';
-import { useCallback, useEffect, useState } from 'react';
-import Hero from '../components/hero';
 import GlobalStyles from '../components/globalStyles';
+import Main from '../components/main'
+import fetchData from '../components/fetchData'
 
 type AppProps = {
   productsData: ProductsData;
 }
 
 const Home: NextPage<AppProps> = ({ productsData }) => {
-  let [userData, setUserData] = useState<EffectUserData>(null)
-  let fetchUser = useCallback(async () => {
-    let res = await fetch("api/user")
-    let data = await res.json()
-    setUserData(data)
-  }, [])
-
-  useEffect(() => {
-    fetchUser()
-  }, [fetchUser])
-
   return (
     <div >
       <Head>
@@ -33,11 +19,7 @@ const Home: NextPage<AppProps> = ({ productsData }) => {
       </Head>
       <GlobalStyles />
       <main >
-
-        <Hero />
-
-        <UserList userData={userData} refreshUserData={fetchUser} />
-        <ProductList productsData={productsData} userData={userData} refreshUserData={fetchUser} />
+        <Main productsData={productsData} />
       </main>
 
       <footer>
