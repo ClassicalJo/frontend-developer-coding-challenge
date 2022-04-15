@@ -13,4 +13,8 @@ export default createGlobalStyle`
     #root{
         margin:0 auto;
     }
+    html{
+        overflow-y: scroll; 
+        overflow-x: hidden;
+    }
 `

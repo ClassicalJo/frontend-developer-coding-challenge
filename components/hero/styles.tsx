@@ -16,6 +16,7 @@ export const StyledTextArea = styled.div`
     flex-direction: column;
     margin-right: 140px;
     flex:1 
+    
 
 `
 export const StyledColumns = styled.div`
@@ -105,16 +106,17 @@ export const StyledIconWrapper = styled.div`
 `
 
 export const StyledWaves = styled(Waves)`
-    position:relative;
-    top:100px;
-    left: calc((1920px - 1464px) /-2);
-    
-    
-
+    position:absolute;
+    width:1920px;
+    height:1400px;
+    z-index: -2;  
 `
 export const StyledWavesWrapper = styled.div`
-    top: 120px;
+    top: -40px;
+    position: relative;
+`
+export const StyledWavesOverflow = styled.div`
+    width:100vw;
     position: absolute;
-    z-index: -2;
-    /* background-color: red; */
+    left:calc((1935px - 1464px) /-2);
 `

@@ -1,7 +1,7 @@
 import ViewAllProducts from "./ViewAllProducts";
 import heroDesktop from '../../assets/illustrations/hero-desktop.png'
 import icon from '../../assets/icons/Icons.svg'
-import { StyledColumns, StyledExplore, StyledIconWrapper, StyledPicture, StyledPictureWrapper, StyledProductButton, StyledProductButtonText, StyledProductButtonWrapper, StyledSubtitle, StyledTech, StyledTextArea, StyledWaves, StyledWavesWrapper, StyledZone } from "./styles";
+import { StyledColumns, StyledExplore, StyledIconWrapper, StyledPicture, StyledPictureWrapper, StyledProductButton, StyledProductButtonText, StyledProductButtonWrapper, StyledSubtitle, StyledTech, StyledTextArea, StyledWaves, StyledWavesOverflow, StyledWavesWrapper, StyledZone } from "./styles";
 import Image from 'next/image'
 import Waves from "./Waves";
 
@@ -9,7 +9,9 @@ export default function Hero(): JSX.Element {
     return (
         <StyledColumns>
             <StyledWavesWrapper>
-                <StyledWaves />
+                <StyledWavesOverflow>
+                    <StyledWaves />
+                </StyledWavesOverflow>
             </StyledWavesWrapper>
             <StyledTextArea>
                 <StyledExplore />
@@ -30,7 +32,7 @@ export default function Hero(): JSX.Element {
                     <Image src={heroDesktop} width={1080} height={1080} objectFit='cover' />
                 </StyledPictureWrapper>
             </StyledPicture>
-            
+
         </StyledColumns>
     )
 }
