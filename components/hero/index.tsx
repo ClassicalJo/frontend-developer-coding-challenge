@@ -1,12 +1,16 @@
 import ViewAllProducts from "./ViewAllProducts";
 import heroDesktop from '../../assets/illustrations/hero-desktop.png'
 import icon from '../../assets/icons/Icons.svg'
-import { StyledColumns, StyledExplore, StyledIconWrapper, StyledPicture, StyledProductButton, StyledProductButtonText, StyledProductButtonWrapper, StyledSubtitle, StyledTech, StyledTextArea, StyledZone } from "./styles";
+import { StyledColumns, StyledExplore, StyledIconWrapper, StyledPicture, StyledPictureWrapper, StyledProductButton, StyledProductButtonText, StyledProductButtonWrapper, StyledSubtitle, StyledTech, StyledTextArea, StyledWaves, StyledWavesWrapper, StyledZone } from "./styles";
 import Image from 'next/image'
+import Waves from "./Waves";
 
 export default function Hero(): JSX.Element {
     return (
         <StyledColumns>
+            <StyledWavesWrapper>
+                <StyledWaves />
+            </StyledWavesWrapper>
             <StyledTextArea>
                 <StyledExplore />
                 <StyledTech />
@@ -17,13 +21,16 @@ export default function Hero(): JSX.Element {
                         <StyledProductButtonText>
                             VIEW ALL PRODUCTS
                         </StyledProductButtonText>
-                        <Image width={32} height={32} src={icon} />
+                        <Image width={24} height={24} src={icon} />
                     </StyledProductButtonWrapper>
                 </StyledProductButton>
             </StyledTextArea>
             <StyledPicture >
-                <Image src={heroDesktop} width={1080} height={1080} />
+                <StyledPictureWrapper>
+                    <Image src={heroDesktop} width={1080} height={1080} objectFit='cover' />
+                </StyledPictureWrapper>
             </StyledPicture>
+            
         </StyledColumns>
     )
 }

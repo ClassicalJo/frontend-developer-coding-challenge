@@ -23,9 +23,9 @@ const colors = {
         light: "#FFDFD9",
     },
     specials: {
-        illustrationBG: "linear-gradient(90deg, #7296EB 0%, #EAC0E9 100%)",
-        sectionBG: "linear-gradient(90deg, rgba(23,111,235,.5) 0%, rgba(255,128,255,.5) 100%)",
-        aerolab: "linear-gradient(90deg, #FF8800 0%, #FF6600 100%)",
+        illustrationBG: "linear-gradient(120deg, #7296EB 0%, #EAC0E9 100%)",
+        sectionBG: "linear-gradient(120deg, rgba(23,111,235,.5) 0%, rgba(255,128,255,.5) 100%)",
+        aerolab: "linear-gradient(120deg, #FF8800 0%, #FF6600 100%)",
     }
 
 }

@@ -3,7 +3,8 @@ import Hero from "../hero"
 import UserList from "../list/UserList"
 import ProductList from "../list/ProductsList"
 import { Product, EffectUserData } from "../types"
-import { StyledMain } from "./styles"
+import { StyledMain, StyledMainWrapper } from "./styles"
+import NavBar from "../nav"
 
 interface AppProps {
     productsData: Product[]
@@ -23,9 +24,12 @@ export default function Main({ productsData }: AppProps): JSX.Element {
 
     return (
         <StyledMain>
-            <Hero />
-            <UserList userData={userData} refreshUserData={fetchUser} />
-            <ProductList productsData={productsData} userData={userData} refreshUserData={fetchUser} />
+            <StyledMainWrapper>
+                <NavBar />
+                <Hero />
+                <UserList userData={userData} refreshUserData={fetchUser} />
+                <ProductList productsData={productsData} userData={userData} refreshUserData={fetchUser} />
+            </StyledMainWrapper>
         </StyledMain>
     )
 }
