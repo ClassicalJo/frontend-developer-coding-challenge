@@ -4,6 +4,7 @@ import Head from 'next/head'
 import GlobalStyles from '../components/globalStyles';
 import Main from '../components/main'
 import fetchData from '../components/fetchData'
+import authHeader from '../components/authHeader';
 
 type AppProps = {
   productsData: ProductsData;
@@ -29,10 +30,12 @@ const Home: NextPage<AppProps> = ({ productsData }) => {
 
 export const getServerSideProps: GetServerSideProps = async () => {
   try {
-    let productsData = await fetchData(process.env.PRODUCTURL, "GET", process.env.USERTOKEN)
+    let headers = authHeader(process.env.USERTOKEN)
+    let res = await fetch(process.env.PRODUCTURL, { headers })
+    let productsData = await res.json()
     return { props: { productsData } }
   } catch (error) {
-    return { props: { productData: [] } }
+    return { props: { productsData: [] } }
   }
 }
 
