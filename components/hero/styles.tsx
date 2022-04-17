@@ -10,27 +10,24 @@ import textStyles from "../commonStyles/text"
 import colors from "../commonStyles/colors"
 import breakpoints from "../breakpoints"
 
-
 export const StyledTextArea = styled.div`
     display: flex;
     flex-direction: column;
     margin-right: 140px;
     flex:1 
-    
-
 `
 export const StyledColumns = styled.div`
     margin-top: 100px;
     display: flex;
 `
 export const StyledPicture = styled(Picture)`
+    box-shadow: 5px 5px 20px ${colors.neutrals["100"]};
     flex:1;
     position: relative;
     min-width: 720px;
     height:600px;
     background: ${colors.specials.sectionBG};
     border-radius:15%;
-    
     
 `
 export const StyledPictureWrapper = styled.div`
