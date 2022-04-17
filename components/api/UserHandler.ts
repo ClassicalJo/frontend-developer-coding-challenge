@@ -34,9 +34,8 @@ export class UserHandler {
         return new Promise<void>(resolve => {
             this.userFetch.get(this.user, this.token)
                 .then(data => res.json(data))
-                .catch(err => res.json({ error: err }))
+                .catch(err => res.json(err))
                 .finally(resolve)
         })
     }
 }
-    
