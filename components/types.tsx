@@ -1,3 +1,5 @@
+import { StaticImageData } from "next/image";
+
 export interface RedeemHistory {
     productId: string
 }
@@ -33,6 +35,15 @@ export interface ProductImage {
 export type FilterMethod = 'all' | 'Gaming' | 'Audio' | 'Smart Home' | 'Monitors & TV'
 export type SortMethod = 'recent' | 'lowest-price' | 'highest-price'
 export type ValidCharge = 1000 | 5000 | 7500
+
 export interface StyledProplessComponent {
     className?: string
+}
+
+export interface CardElement {
+    title: string
+    subtitle: string
+    desktop: StaticImageData
+    responsive: StaticImageData
+    icon: StaticImageData
 }
