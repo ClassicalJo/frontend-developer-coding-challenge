@@ -5,8 +5,6 @@ import mixins from "../commonStyles/mixins";
 import UnstyledNextImage from "../commonStyles/StyledNextImage";
 import textStyles from "../commonStyles/text";
 
-let cardBorderRadius = "5%"
-
 export const StyledBrowse = styled.div`
     display: flex;
     height: 900px;
@@ -71,9 +69,8 @@ export const StyledTitleWrapper = styled.div`
 export const StyledTitle = styled.p`
     ${textStyles.desktop.titles.l3}
     background: ${colors.brand.default};
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    ${mixins.gradientText(colors.brand.default)}
+    
 `
 
 export const StyledSubtitle = styled.p`

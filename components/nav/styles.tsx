@@ -20,10 +20,7 @@ export const StyledBalance = styled.div`
 export const StyledBalancePoints = styled(Balance)`
     ${textStyles.mobile.texts.l1.default}
     ${mixins.centerDiv}
-    background: ${colors.brand.default};
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    ${mixins.gradientText(colors.brand.default)}
 
     @media (min-width: ${breakpoints.desktop}){
         ${textStyles.desktop.texts.l1.default}

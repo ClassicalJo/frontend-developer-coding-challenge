@@ -5,6 +5,11 @@ const centerDiv = css`
     align-items: center;
     justify-content: center;
 `
-
-const mixins = { centerDiv }
-export default mixins
+const gradientText = (gradient: string) => css`
+    background: ${gradient};
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+`
+const mixins = { centerDiv, gradientText }
+export default mixins   

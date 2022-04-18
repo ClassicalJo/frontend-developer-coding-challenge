@@ -9,7 +9,7 @@ import Waves from './Waves'
 import textStyles from "../commonStyles/text"
 import colors from "../commonStyles/colors"
 import breakpoints from "../breakpoints"
-
+import mixins from '../commonStyles/mixins'
 export const StyledTextArea = styled.div`
     display: flex;
     flex-direction: column;
@@ -48,10 +48,7 @@ export const StyledExplore = styled(Explore)`
 `
 export const StyledTech = styled(Tech)`
     ${textStyles.desktop.titles.l1}
-    background: ${colors.brand.default};
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    ${mixins.gradientText(colors.brand.default)}
     max-width: 750px;
 `
 export const StyledZone = styled(Zone)`
