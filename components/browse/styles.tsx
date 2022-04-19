@@ -14,7 +14,7 @@ export const StyledBrowse = styled.div`
 
 export const StyledCard = styled.div`
     box-shadow: 2.5px 2.5px 10px rgba(0,0,0,0.05);
-    border: solid 1px ${colors.neutrals["200"]};
+    border: solid 1px ${colors.neutrals["300"]};
     border-radius: 35px;
     background-color: white;
     display: flex;
@@ -54,7 +54,7 @@ export const StyledWalkImage = styled(UnstyledNextImage)`
 `
 export const StyledWalkImageWrapper = styled.div`
     border-radius:27.5px 27.5px 0 0;
-    border: 1px solid ${colors.neutrals["200"]};
+    border: 1px solid ${colors.neutrals["300"]};
     position: relative;
     overflow: hidden;
     flex:1;
@@ -94,8 +94,8 @@ export const StyledIconWrapper = styled.div`
 
 export const StyledTextArea = styled.div`
     padding: 16px 23px;
-    border: 1px solid ${colors.neutrals["200"]};
-    border-radius: 0px 0px 10px 10px;
+    border: 1px solid ${colors.neutrals["300"]};
+    border-radius: 0px 0px 27.5px 27.5px;
     border-top: 0px;
 `
 export const StyledBackground = styled.div`
