@@ -53,9 +53,10 @@ export const StyledTech = styled(Tech)`
 `
 export const StyledZone = styled(Zone)`
     ${textStyles.desktop.titles.l1}
+    color: ${colors.neutrals["900"]}
 `
 export const StyledSubtitle = styled(Subtitle)`
-    ${textStyles.desktop.texts.l1.default}
+    
     color: ${colors.neutrals["600"]};
     margin: 35px 0;
 
@@ -66,6 +67,7 @@ export const StyledSubtitle = styled(Subtitle)`
         
     }
     @media (min-width: ${breakpoints.desktop}){
+        ${textStyles.desktop.texts.l1.default}
         max-width: 510px;
         text-align: left;
     }
