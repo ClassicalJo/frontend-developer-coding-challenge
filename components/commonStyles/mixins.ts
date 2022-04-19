@@ -11,5 +11,8 @@ const gradientText = (gradient: string) => css`
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 `
-const mixins = { centerDiv, gradientText }
+const fullRow = css`
+    grid-column: 1 span 12;
+`
+const mixins = { centerDiv, gradientText, fullRow }
 export default mixins   
