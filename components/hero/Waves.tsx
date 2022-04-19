@@ -3,7 +3,7 @@ import wave from '../../assets/illustrations/single-wave-pattern.svg'
 import { StyledProplessComponent } from '../types'
 
 function Waves({ className }: StyledProplessComponent): JSX.Element {
-    let waveMargin = 14
+    let waveMargin = 15
     let totalArea = 1300
     let waveWidth = 650
 
