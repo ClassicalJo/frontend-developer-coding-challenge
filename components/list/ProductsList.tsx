@@ -14,7 +14,7 @@ const ProductList = ({ productsData, userData, refreshUserData }: AppProps): JSX
     let productsPerPage = 16
     let [currentPage, setCurrentPage] = useState<number>(0)
     let [sortMethod, setSortMethod] = useState<SortMethod>('recent')
-    let [filterMethod, setFilterMethod] = useState<FilterMethod>('all')
+    let [filterMethod, setFilterMethod] = useState<FilterMethod>('All products')
     let products = useMemo(() => sortAndFilterProducts(productsData, sortMethod, filterMethod), [productsData, sortMethod, filterMethod])
     let startingIndex = currentPage * productsPerPage
     let endIndex = startingIndex + productsPerPage

@@ -32,7 +32,7 @@ export interface ProductImage {
     url: string;
     hdUrl: string;
 }
-export type FilterMethod = 'all' | 'Gaming' | 'Audio' | 'Smart Home' | 'Monitors & TV'
+export type FilterMethod = 'All products' | 'Gaming' | 'Audio' | 'Smart Home' | 'Monitors & TV'
 export type SortMethod = 'recent' | 'lowest-price' | 'highest-price'
 export type ValidCharge = 1000 | 5000 | 7500
 

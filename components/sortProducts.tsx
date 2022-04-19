@@ -5,7 +5,7 @@ export default function sortAndFilterProducts(products: Product[], sort: SortMet
 }
 
 function filterProducts(products: Product[], filterMethod: FilterMethod): Product[] {
-    if (filterMethod === 'all') return products
+    if (filterMethod === 'All products') return products
     return products.filter(k => k.category === filterMethod)
 }
 function sortProducts(sort: SortMethod) {
