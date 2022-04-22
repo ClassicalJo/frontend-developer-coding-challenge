@@ -6,7 +6,6 @@ function Waves({ className }: StyledProplessComponent): JSX.Element {
     let waveMargin = 15
     let totalArea = 1300
     let waveWidth = 650
-
     let xOffSet = 2
     let yOffSet = 14
     let waveArray = new Array(Math.floor(totalArea / waveMargin)).fill("")
