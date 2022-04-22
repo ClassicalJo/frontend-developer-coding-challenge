@@ -31,8 +31,9 @@ export const StyledFilterSelect = styled.select`
     ${textStyles.desktop.texts.l1.default}
     color: ${colors.neutrals["600"]};
     border: 1px solid ${colors.neutrals["300"]};
+    margin-left: 10px;
     border-radius: 16px;
-    padding: 18px;
+    padding: 16px 22px;
     padding-right: 90px;
     -webkit-appearance: none;
     appearance: none;
@@ -101,7 +102,9 @@ export const StyledPageSelector = styled.div`
 export const StyledPageText = styled.p`
     ${textStyles.desktop.texts.l1.lightweight}    
     ${mixins.gradientText(colors.brand.default)}
-    padding: 0 24px;
+    min-width: 150px;
+    text-align: center;
+    
 `
 export const StyledPageSpan = styled.span`
     color: ${colors.neutrals["600"]};

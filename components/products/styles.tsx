@@ -2,7 +2,6 @@ import styled, { css } from "styled-components";
 import colors from "../commonStyles/colors";
 import mixins from "../commonStyles/mixins";
 import textStyles from "../commonStyles/text";
-import ProductCard from "./ProductCard";
 
 const fullRow = css`
     grid-column: 1 span 12 ;
@@ -18,13 +17,9 @@ export const StyledGrid = styled.div`
     margin: 60px 0;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: auto;
+    gap:25px;
 `
-export const StyledProductCard = styled(ProductCard)`
-    border: 5px solid lightcoral;
-    width: 100%;
-    height: 100%;
-    grid-column: span 3;
-`
+
 
 export const StyledTitle = styled.p`
     ${fullRow}
