@@ -12,7 +12,7 @@ export const StyledNavBar = styled.div`
 `
 export const StyledBalance = styled.div`
     box-shadow: 0px 0px 20px ${colors.neutrals["200"]};
-    border:1px solid ${colors.neutrals["200"]};
+    border:1px solid ${colors.neutrals["300"]};
     display: flex;
     border-radius:10px;
     padding: .5em;
