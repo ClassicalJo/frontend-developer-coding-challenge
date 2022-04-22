@@ -30,7 +30,7 @@ export default function Main({ productsData }: AppProps): JSX.Element {
                 <NavBar />
                 <Hero />
                 <Browse />
-                <Products products={productsData} />
+                <Products products={productsData} userData={userData} refreshUserData={fetchUser} />
                 <UserList userData={userData} refreshUserData={fetchUser} />
                 {/* <ProductList productsData={productsData} userData={userData} refreshUserData={fetchUser} /> */}
             </StyledMainWrapper>
