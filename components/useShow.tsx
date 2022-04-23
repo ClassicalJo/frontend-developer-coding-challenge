@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-export default function useShow() {
+export default function useShow(time: number) {
     let [show, setShow] = useState<Boolean>(false)
     let [hide, setHide] = useState<Boolean>(false)
     let timeouts: NodeJS.Timeout[] = []
@@ -15,7 +15,7 @@ export default function useShow() {
             let timeout = setTimeout(() => {
                 setShow(false)
                 setHide(false)
-            }, 500)
+            }, time)
             timeouts.push(timeout)
         }
     }
