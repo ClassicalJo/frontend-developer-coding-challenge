@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import normalize from "styled-normalize";
+import { appear, disappear, expandUserCard, shrinkUserCard } from "./commonStyles/animations";
 
 export default createGlobalStyle`
     ${normalize}
@@ -16,4 +17,8 @@ export default createGlobalStyle`
         overflow-y: scroll; 
         overflow-x: hidden;
     }
+    ${expandUserCard}
+    ${shrinkUserCard}
+    ${appear}
+    ${disappear}
 `
