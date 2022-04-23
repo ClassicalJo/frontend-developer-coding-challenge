@@ -28,6 +28,7 @@ export const StyledPicture = styled(Picture)`
     height:600px;
     background: ${colors.specials.sectionBG};
     border-radius:15%;
+    pointer-events: none;
     
 `
 export const StyledPictureWrapper = styled.div`
