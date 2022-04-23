@@ -5,6 +5,7 @@ import GlobalStyles from '../components/globalStyles';
 import Main from '../components/main'
 import fetchData from '../components/fetchData'
 import authHeader from '../components/authHeader';
+import Footer from '../components/footer';
 
 type AppProps = {
   productsData: ProductsData;
@@ -17,13 +18,8 @@ const Home: NextPage<AppProps> = ({ productsData }) => {
         <title>Create Next App</title>
       </Head>
       <GlobalStyles />
-      <main >
-        <Main productsData={productsData} />
-      </main>
-
-      <footer>
-        <a href="https://github.com/ClassicalJo/frontend-developer-coding-challenge">Link to the repo</a>
-      </footer>
+      <Main productsData={productsData} />
+      <Footer />
     </div>
   )
 }
