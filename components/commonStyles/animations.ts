@@ -1,4 +1,5 @@
 import { css } from "styled-components"
+import colors from "./colors"
 
 export const expandUserCard = css`
     @keyframes expandUserCard {
@@ -54,4 +55,27 @@ export const disappear = css`
         }
     }
 `
+
+export const rotateDown = css`
+    @keyframes rotateDown {
+        0% {
+            transform:rotate(90deg)
+        }
+        100% {
+            transform:rotate(270deg)
+        }
+    }
+`
+
+export const rotateUp = css`
+    @keyframes rotateUp {
+        0% {
+            transform:rotate(270deg)
+        }
+        100% {
+            transform: rotate(450deg);
+        }
+    }
+`
+
 export default { expandUserCard, shrinkUserCard, appear, disappear }
