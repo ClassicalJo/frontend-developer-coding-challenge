@@ -11,10 +11,11 @@ export const StyledProducts = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
+    margin-bottom: 160px;
 `
 export const StyledGrid = styled.div`
     display: grid;
-    margin: 60px 0;
+    margin: 64px 0;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: auto;
     gap:25px;
