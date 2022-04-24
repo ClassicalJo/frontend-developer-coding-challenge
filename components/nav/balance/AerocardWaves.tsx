@@ -1,5 +1,4 @@
 import React from 'react'
-import wave from '../../../assets/illustrations/single-wave-pattern.svg'
 import { StyledProplessComponent } from '../../types'
 
 interface WaveProps {
@@ -42,12 +41,10 @@ function AerocardWaves({ className }: StyledProplessComponent): JSX.Element {
                     <animateTransform
                         attributeName='transform'
                         type="translate"
-
                         dur="5s"
                         repeatCount="indefinite"
                         values={`${xOffSet} ; -200`}
                         keyTimes="0;1"
-
                     />
                 </use>
             ))}
