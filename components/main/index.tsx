@@ -1,7 +1,5 @@
 import { useCallback, useState, useEffect } from "react"
 import Hero from "../hero"
-import UserList from "../list/UserList"
-import ProductList from "../list/ProductsList"
 import { Product, EffectUserData } from "../types"
 import { StyledMain, StyledMainWrapper } from "./styles"
 import NavBar from "../nav"
@@ -25,15 +23,15 @@ export default function Main({ productsData }: AppProps): JSX.Element {
     }, [fetchUser])
 
     return (
-        <StyledMain>
-            <StyledMainWrapper>
-                <NavBar userData={userData}/>
-                <Hero />
-                <Browse />
-                <Products products={productsData} userData={userData} refreshUserData={fetchUser} />
-                
-                
-            </StyledMainWrapper>
-        </StyledMain>
+        <main>
+            <StyledMain>
+                <StyledMainWrapper>
+                    <NavBar userData={userData} refreshUserData={fetchUser} />
+                    <Hero />
+                    <Browse />
+                    <Products products={productsData} userData={userData} refreshUserData={fetchUser} />
+                </StyledMainWrapper>
+            </StyledMain>
+        </main>
     )
 }
