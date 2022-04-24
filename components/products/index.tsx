@@ -4,6 +4,7 @@ import FilterBar from "./filter";
 import { StyledProducts, StyledTitle, StyledSpan, StyledGrid } from "./styles";
 import useFilter from "./useFilter";
 import fetchRedeem from "../fetchRedeem";
+import NavigationBar from "./navigation";
 
 interface AppProps {
     products: ProductsData
@@ -12,13 +13,14 @@ interface AppProps {
 }
 export default function Products({ products, userData, refreshUserData }: AppProps): JSX.Element {
     let { products: filteredProducts, startingIndex, endIndex, ...filterProps } = useFilter(products)
+    let { changePage, totalPages, currentPage } = filterProps
     let slicedProducts = filteredProducts.slice(startingIndex, endIndex)
     let redeemItem = (productId: string) => new Promise<void>(async (resolve, reject) => {
         try {
             await fetchRedeem(productId)
             refreshUserData()
             resolve()
-        } catch(error) {
+        } catch (error) {
             console.log("This is where we handle the error message")
             reject()
         }
@@ -44,6 +46,13 @@ export default function Products({ products, userData, refreshUserData }: AppPro
                     />
                 ))}
             </StyledGrid>
+            <NavigationBar
+                showing={slicedProducts.length}
+                total={products.length}
+                changePage={changePage}
+                totalPages={totalPages}
+                currentPage={currentPage}
+            />
         </StyledProducts>
     )
 }

@@ -1,7 +1,7 @@
 import { Dispatch, SyntheticEvent } from "react";
 import { FilterMethod, SortMethod } from "../../types";
+import PageSelector from "./PageSelector";
 import SelectionButton from "./SelectionButton";
-import chevron from '../../../assets/icons/chevron-default.svg'
 import {
     StyledFilterBar,
     StyledFilterBarContainer,
@@ -9,11 +9,6 @@ import {
     StyledFilterSelectWrapper,
     StyledFilterText,
     StyledOption,
-    StyledPageButtonRight,
-    StyledPageButtonLeft,
-    StyledPageSelector,
-    StyledPageSpan,
-    StyledPageText,
     StyledVerticalSeparator
 } from './styles'
 
@@ -22,10 +17,11 @@ interface AppProps {
     setSortMethod: Dispatch<SortMethod>;
     setFilterMethod: Dispatch<FilterMethod>;
     setCurrentPage: Dispatch<number>;
+    changePage: Dispatch<number>;
     totalPages: number;
     currentPage: number;
 }
-export default function FilterBar({ sortMethod, setSortMethod, setFilterMethod, totalPages, currentPage, setCurrentPage }: AppProps): JSX.Element {
+export default function FilterBar({ changePage, sortMethod, setSortMethod, setFilterMethod, totalPages, currentPage, setCurrentPage }: AppProps): JSX.Element {
     let onClick = (sortMethod: SortMethod) => {
         setSortMethod(sortMethod)
         setCurrentPage(0)
@@ -35,7 +31,7 @@ export default function FilterBar({ sortMethod, setSortMethod, setFilterMethod, 
         setFilterMethod(value as FilterMethod)
         setCurrentPage(0)
     }
-    let changePage = (int: number) => currentPage + int >= 0 && currentPage + int < totalPages && setCurrentPage(currentPage + int)
+
     let methods: FilterMethod[] = ['All products', 'Gaming', 'Audio', 'Smart Home', 'Monitors & TV']
     return (
         <StyledFilterBar>
@@ -75,14 +71,7 @@ export default function FilterBar({ sortMethod, setSortMethod, setFilterMethod, 
                     onClick={onClick}
                 />
             </StyledFilterBarContainer>
-            <StyledPageSelector>
-                <StyledPageButtonLeft src={chevron} onClick={() => changePage(-1)} />
-                <StyledPageText>
-                    <StyledPageSpan>{`Page ${currentPage + 1}`}</StyledPageSpan>
-                    {` of ${totalPages}`}
-                </StyledPageText>
-                <StyledPageButtonRight src={chevron} onClick={() => changePage(1)} />
-            </StyledPageSelector>
+            <PageSelector changePage={changePage} totalPages={totalPages} currentPage={currentPage} />
         </StyledFilterBar>
     )
 }

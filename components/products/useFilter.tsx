@@ -8,6 +8,7 @@ import { SortMethod, FilterMethod } from '../types'
 interface FilterProps {
     currentPage: number;
     setCurrentPage: Dispatch<number>;
+    changePage: Dispatch<number>;
     sortMethod: SortMethod;
     setSortMethod: Dispatch<SortMethod>;
     filterMethod: FilterMethod;
@@ -26,5 +27,6 @@ export default function useFilter(productsData: Product[]): FilterProps {
     let startingIndex = currentPage * productsPerPage
     let endIndex = startingIndex + productsPerPage
     let totalPages = Math.ceil(productsData.length / productsPerPage)
-    return { currentPage, setCurrentPage, sortMethod, setSortMethod, filterMethod, setFilterMethod, products, startingIndex, endIndex, totalPages }
+    let changePage = (int: number) => currentPage + int >= 0 && currentPage + int < totalPages && setCurrentPage(currentPage + int)
+    return { currentPage, setCurrentPage, changePage, sortMethod, setSortMethod, filterMethod, setFilterMethod, products, startingIndex, endIndex, totalPages }
 }
