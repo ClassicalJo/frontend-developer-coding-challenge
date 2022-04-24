@@ -1,7 +1,8 @@
-import { useEffect, useLayoutEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import aerolabLogo1 from '../../assets/icons/aerolab-logo-1.svg'
 import aerolabLogo2 from '../../assets/icons/aerolab-logo-2.svg'
+import { StyledLink } from './styles'
 
 export default function Logo(): JSX.Element {
     let isDesktop = (): Boolean => window.innerWidth >= 1920
@@ -13,7 +14,15 @@ export default function Logo(): JSX.Element {
         return () => window.removeEventListener('resize', resizeLogo)
     }, [])
     switch (showDesktopLogo) {
-        case true: return <Image src={aerolabLogo1} />
-        default: return <Image src={aerolabLogo2} />
+        case true: return (
+            <StyledLink href="https://aerolab.us/">
+                <Image src={aerolabLogo1} />
+            </StyledLink>
+        )
+        default: return (
+            <StyledLink href="https://aerolab.us/">
+                <Image src={aerolabLogo2} />
+            </StyledLink>
+        )
     }
 }

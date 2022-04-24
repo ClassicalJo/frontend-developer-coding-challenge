@@ -9,7 +9,7 @@ interface AppProps {
 }
 export default function NavBar({ userData, refreshUserData }: AppProps): JSX.Element {
     return (
-        <StyledNavBar>
+        <StyledNavBar >
             <Logo />
             <Balance userData={userData} refreshUserData={refreshUserData} />
         </StyledNavBar>
