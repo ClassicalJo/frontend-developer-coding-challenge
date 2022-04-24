@@ -107,11 +107,8 @@ export const StyledPageText = styled.p`
     
 `
 export const StyledPageSpan = styled.span`
+    ${mixins.removeGradientText}
     color: ${colors.neutrals["600"]};
-    background: none;
-    background-clip: initial;
-    -webkit-background-clip: initial;
-    -webkit-text-fill-color: initial;
     
 `
 
