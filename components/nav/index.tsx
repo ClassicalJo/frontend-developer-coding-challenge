@@ -4,13 +4,14 @@ import { EffectUserData } from '../types'
 import Balance from './balance'
 
 interface AppProps {
-    userData: EffectUserData
+    userData: EffectUserData;
+    refreshUserData: () => void;
 }
-export default function NavBar({ userData }: AppProps): JSX.Element {
+export default function NavBar({ userData, refreshUserData }: AppProps): JSX.Element {
     return (
         <StyledNavBar>
             <Logo />
-            <Balance userData={userData} />
+            <Balance userData={userData} refreshUserData={refreshUserData} />
         </StyledNavBar>
 
     )
