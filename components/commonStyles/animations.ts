@@ -1,5 +1,4 @@
 import { css } from "styled-components"
-import colors from "./colors"
 
 export const expandUserCard = css`
     @keyframes expandUserCard {
