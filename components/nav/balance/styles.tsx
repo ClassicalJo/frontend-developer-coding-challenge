@@ -21,16 +21,15 @@ export const StyledBalance = styled.div`
     flex:1;
     user-select: none;
     cursor: pointer;
+    ${textStyles.withQuery(
+    textStyles.desktop.texts.l1.default,
+    textStyles.mobile.texts.l1.default)}
 `
 export const StyledBalancePoints = styled.div`
-    ${textStyles.mobile.texts.l1.default}
+
     ${mixins.centerDiv}
     ${mixins.gradientText(colors.brand.default)}
     pointer-events: none;
-
-    @media (min-width: ${breakpoints.tablet}){
-        ${textStyles.desktop.texts.l1.default}
-    }
 `
 export const StyledBalanceWrapper = styled.div`
     display: flex;
@@ -43,17 +42,11 @@ export const StyledBalanceLogo = styled.div`
     ${mixins.centerDiv}
     margin:8px;
     margin-left: 16px;
-    width:24px;
-    height:24px;
-
-    @media (min-width: ${breakpoints.tablet}){
-        width: 32px;
-        height: 32px;
-    }
+    ${mixins.responsiveIcons(32, 24)}
 `
 
 interface ChevronProps {
-    rotate: Boolean;
+    shouldRotate: Boolean;
     firstRender: Boolean;
 }
 export const StyledChevron = styled(UnstyledNextImage) <ChevronProps>`
@@ -66,7 +59,7 @@ export const StyledChevron = styled(UnstyledNextImage) <ChevronProps>`
         if (props.firstRender) return `
             transform: rotate(90deg);
         `
-        else if (props.rotate) return `
+        else if (props.shouldRotate) return `
             animation: rotateDown .3s forwards;
         `
         else return `
@@ -81,15 +74,15 @@ export const StyledUserCardContainer = styled.div<UserCardProps>`
     cursor: default;
     border-radius: 16px;
     border: 1px solid ${colors.neutrals["300"]};
-    width:100vw;
-    height:400px;
-    max-width: 312px;
-    max-height: 400px;
+    width:312px;
+    height:404px;
     background: white;
     z-index: 2;
     right:-1px;    
     top:55px;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
     ${props => {
         if (!props.hide) return `
         animation: expandUserCard ease-in-out .5s forwards, appear .3s ease .1s backwards;
@@ -101,7 +94,6 @@ export const StyledUserCardContainer = styled.div<UserCardProps>`
 `
 
 export const StyledUserCardTitle = styled.div`
-    ${textStyles.desktop.texts.l1.default}
     padding: 20px;
     border-bottom: 1px solid ${colors.neutrals["300"]};   
 `
@@ -109,6 +101,7 @@ export const StyledUserCardTitle = styled.div`
 export const StyledUserCardSection = styled.div`
     display: flex;
     flex-direction: column;
+    flex:1;
     padding: 20px;
     gap:24px;
 `
@@ -120,7 +113,8 @@ export const StyledUserCardPointsSelectWrapper = styled.div<UserCardSelectPoints
     ${mixins.centerDiv}
     cursor: pointer;
     flex:1;
-    padding: 4px 0;
+    width:81px;
+    height: 35px;
     border-radius: 12px;
     ${props => {
         if (props.current) return `
@@ -133,7 +127,6 @@ export const StyledUserCardPointsSelectWrapper = styled.div<UserCardSelectPoints
        
 `
 export const StyledUserCardPointsSelect = styled.div<UserCardSelectPointsProps>`
-    ${textStyles.desktop.texts.l1.default}
     ${props => {
         if (props.current) return `
         color: white;
@@ -146,24 +139,24 @@ export const StyledUserCardPointsButton = styled.div`
     color: white;
     padding:10px 0;
     border-radius: 16px;
-    ${textStyles.desktop.texts.l1.default}
+    height:51px;
     ${mixins.centerDiv}
     gap:5px;
     cursor: pointer;
+    :hover{
+        background: ${colors.brand.hover};
+    }
 `
 export const StyledUserCardPointsButtonProcessing = styled.div`
     background: ${colors.specials.illustrationBG};
     color: white;
     padding:10px 0;
     border-radius: 16px;
-    ${textStyles.desktop.texts.l1.default}
-    ${mixins.centerDiv}
-    
+    ${mixins.centerDiv}  
     cursor: pointer;
 `
 export const StyledUserCardPointsButtonIcon = styled(UnstyledNextImage)`
-    height:24px;
-    width: 24px;
+    ${mixins.responsiveIcons(24, 20)}
 `
 export const StyledAerocard = styled.div`
     display: flex;
@@ -177,10 +170,6 @@ export const StyledAerocard = styled.div`
     border-radius: 8px;
     margin-bottom:10px;
     overflow: hidden;
-    ${textStyles.mobile.texts.l1.default}
-    @media (min-width: ${breakpoints.tablet}) {
-        ${textStyles.desktop.texts.l1.default}    
-    }
 `
 export const StyledAerocardTitleContainer = styled.div`
     display: flex;
@@ -189,19 +178,13 @@ export const StyledAerocardTitleContainer = styled.div`
     
 `
 export const StyledAerocardIcon = styled(UnstyledNextImage)`
-    width: 20px;
-    height: 20px;
-
-    @media (min-width: ${breakpoints.tablet}) {
-        width:  24px;
-        height: 24px;    
-    }
+    ${mixins.responsiveIcons(24, 20)}
 `
+
 export const StyledAerocardUsername = styled.p`
-    ${textStyles.mobile.texts.l2.default}
-    @media (min-width: ${breakpoints.tablet}) {
-        ${textStyles.desktop.texts.l2.default}    
-    }
+    ${textStyles.withQuery(
+    textStyles.desktop.texts.l2.default,
+    textStyles.mobile.texts.l2.default)}
 `
 
 export const StyledAerocardWaves = styled(AerocardWaves)`

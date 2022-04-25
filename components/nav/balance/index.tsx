@@ -44,7 +44,7 @@ export default function Balance({ userData, refreshUserData }: AppProps): JSX.El
                     height={20}
                     src={chevronDefault}
                     firstRender={firstRender}
-                    rotate={(show && !hide)}
+                    shouldRotate={(show && !hide)}
                 />
             </StyledBalance>
         </StyledBalanceWrapper>
