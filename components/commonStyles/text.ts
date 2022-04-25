@@ -1,4 +1,5 @@
-import { css } from "styled-components";
+import { css, DefaultTheme, FlattenInterpolation, ThemedCssFunction, ThemedStyledProps } from "styled-components";
+import breakpoints from "../breakpoints";
 
 interface TitleProps {
     size: string;
@@ -16,6 +17,13 @@ const title = ({ size, weight, lineHeight, letterSpacing, caps }: TitleProps) =>
     letter-spacing: ${letterSpacing};
     text-transform: ${caps};
 `
+const withQuery = (desktopCSS: FlattenInterpolation<ThemedStyledProps<{}, DefaultTheme>>, mobileCSS: FlattenInterpolation<ThemedStyledProps<{}, DefaultTheme>>) => css`
+    ${mobileCSS}
+    @media (min-width: ${breakpoints.desktop}){
+        ${desktopCSS}
+    }
+`
+
 const textStyles = {
     desktop: {
         titles: {
@@ -49,11 +57,12 @@ const textStyles = {
             },
             l2: {
                 default: title({ size: "12px", weight: "600", lineHeight: "150%", letterSpacing: "0", caps: "none" }),
-                caps: title({ size: "12px", weight: "600", lineHeight: "150%", letterSpacing: ".05em", caps: "uppercase" })  
+                caps: title({ size: "12px", weight: "600", lineHeight: "150%", letterSpacing: ".05em", caps: "uppercase" })
             }
         }
-    }
-
+    },
+    withQuery
 }
+
 
 export default textStyles
