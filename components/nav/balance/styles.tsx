@@ -151,6 +151,7 @@ export const StyledUserCardPointsButtonProcessing = styled.div`
     background: ${colors.specials.illustrationBG};
     color: white;
     padding:10px 0;
+    height:51px;
     border-radius: 16px;
     ${mixins.centerDiv}  
     cursor: pointer;
