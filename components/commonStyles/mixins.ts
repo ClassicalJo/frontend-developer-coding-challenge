@@ -1,4 +1,5 @@
 import { css } from 'styled-components'
+import breakpoints from '../breakpoints'
 
 const centerDiv = css`
     display: flex;
@@ -20,5 +21,15 @@ const removeGradientText = css`
 const fullRow = css`
     grid-column: 1 span 12;
 `
-const mixins = { centerDiv, gradientText, removeGradientText, fullRow }
+const responsiveIcons = (desktopSize: number, mobileSize: number) => css`
+    width: ${mobileSize}px;
+    height: ${mobileSize}px;
+    @media (min-width: ${breakpoints.desktop}) {
+        width: ${desktopSize}px;
+        height: ${desktopSize}px;
+    }
+`
+const mixins = { centerDiv, gradientText, removeGradientText, fullRow, responsiveIcons }
+
+
 export default mixins   
