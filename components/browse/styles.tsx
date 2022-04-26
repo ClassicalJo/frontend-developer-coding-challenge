@@ -7,7 +7,7 @@ import textStyles from "../commonStyles/text";
 
 export const StyledBrowse = styled.div`
     display: flex;
-    height: 900px;
+    height: 860px;
     align-items: center;
     transform: translateX(calc((1464px - 1590px)/2));
 `
