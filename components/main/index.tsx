@@ -1,4 +1,4 @@
-import { useCallback, useState, useEffect } from "react"
+import { useCallback, useState, useEffect, useRef } from "react"
 import Hero from "../hero"
 import { Product, EffectUserData } from "../types"
 import { StyledMain, StyledMainWrapper } from "./styles"
@@ -12,6 +12,8 @@ interface AppProps {
 
 export default function Main({ productsData }: AppProps): JSX.Element {
     let [userData, setUserData] = useState<EffectUserData>(null)
+    let ref = useRef<HTMLDivElement>(null)
+    let scrollToProducts = () => window.scrollTo({ top: ref.current?.offsetTop, behavior: 'smooth' })
     let fetchUser = useCallback(async () => {
         let res = await fetch("api/user")
         let data = await res.json()
@@ -27,9 +29,9 @@ export default function Main({ productsData }: AppProps): JSX.Element {
             <StyledMain>
                 <StyledMainWrapper>
                     <NavBar userData={userData} refreshUserData={fetchUser} />
-                    <Hero />
+                    <Hero onClick={scrollToProducts} />
                     <Browse />
-                    <Products products={productsData} userData={userData} refreshUserData={fetchUser} />
+                    <Products ref={ref} products={productsData} userData={userData} refreshUserData={fetchUser} />
                 </StyledMainWrapper>
             </StyledMain>
         </main>
