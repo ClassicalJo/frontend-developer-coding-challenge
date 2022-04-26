@@ -1,11 +1,29 @@
-import ViewAllProducts from "./ViewAllProducts";
 import heroDesktop from '../../assets/illustrations/hero-desktop.png'
-import icon from '../../assets/icons/Icons.svg'
-import { StyledColumns, StyledExplore, StyledIconWrapper, StyledPicture, StyledPictureWrapper, StyledProductButton, StyledProductButtonText, StyledProductButtonWrapper, StyledSubtitle, StyledTech, StyledTextArea, StyledWaves, StyledWavesOverflow, StyledWavesWrapper, StyledZone } from "./styles";
+import downIcon from '../../assets/icons/Icons.svg'
+import {
+    StyledColumns,
+    StyledExplore,
+    StyledIconWrapper,
+    StyledPicture,
+    StyledPictureWrapper,
+    StyledProductButton,
+    StyledProductButtonText,
+    StyledProductButtonWrapper,
+    StyledSubtitle,
+    StyledTech,
+    StyledTextArea,
+    StyledWaves,
+    StyledWavesOverflow,
+    StyledWavesWrapper,
+    StyledZone
+} from "./styles";
 import Image from 'next/image'
-import Waves from "./Waves";
+import keyDown from '../keyDown';
 
-export default function Hero(): JSX.Element {
+interface AppProps {
+    onClick: () => void;
+}
+export default function Hero({ onClick }: AppProps): JSX.Element {
     return (
         <StyledColumns>
             <StyledWavesWrapper>
@@ -18,12 +36,15 @@ export default function Hero(): JSX.Element {
                 <StyledTech />
                 <StyledZone />
                 <StyledSubtitle />
-                <StyledProductButton>
+                <StyledProductButton
+                    tabIndex={0}
+                    onClick={onClick}
+                    onKeyDown={keyDown(onClick)}>
                     <StyledProductButtonWrapper >
                         <StyledProductButtonText>
                             VIEW ALL PRODUCTS
                         </StyledProductButtonText>
-                        <Image width={24} height={24} src={icon} />
+                        <StyledIconWrapper width={28} height={28} src={downIcon} />
                     </StyledProductButtonWrapper>
                 </StyledProductButton>
             </StyledTextArea>
