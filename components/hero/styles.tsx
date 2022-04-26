@@ -39,7 +39,7 @@ export const StyledPicture = styled(Picture)`
     position: relative;
     width: 580px;
     height: 518.58px;
-    /* pointer-events: none; */
+    pointer-events: none;
     
     @media (min-width: ${breakpoints.desktop}){
         height:600px;
