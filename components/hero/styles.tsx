@@ -9,36 +9,62 @@ import textStyles from "../commonStyles/text"
 import colors from "../commonStyles/colors"
 import mixins from '../commonStyles/mixins'
 import UnstyledNextImage from "../commonStyles/StyledNextImage"
+import breakpoints from "../breakpoints"
 
 export const StyledTextArea = styled.div`
     display: flex;
     flex-direction: column;
-    margin-right: 140px;
-    flex:1 
+    align-items: center;
+    flex:1;
+    @media (min-width: ${breakpoints.desktop}){
+        margin-right: 140px;
+        align-items: stretch;
+    }
 `
 export const StyledColumns = styled.div`
     margin-top: 100px;
+    margin-bottom: 336px;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    @media (min-width: ${breakpoints.desktop}){
+        margin-bottom: 230px;
+        flex-direction: row;
+        text-align: left;
+    }
 `
 export const StyledPicture = styled(Picture)`
-    box-shadow: 0px 2px 40px rgba(0, 0, 0, 0.05);
     flex:1;
     position: relative;
-    min-width: 720px;
-    height:600px;
-    background: ${colors.specials.sectionBG};
-    border-radius:15%;
-    pointer-events: none;
+    width: 580px;
+    height: 518.58px;
+    /* pointer-events: none; */
     
+    @media (min-width: ${breakpoints.desktop}){
+        height:600px;
+        min-width: 720px;
+        border-radius:15%;
+        background: ${colors.specials.sectionBG};
+        box-shadow: 0px 2px 40px rgba(0, 0, 0, 0.05);
+    }
 `
 export const StyledPictureWrapper = styled.div`
     position: absolute;
-    bottom:-10%;
-    left:-12.5%;
-    width: 900px;
-    height:900px;
-    clip-path: path("M0 0 L 0 840 L 800 840 L 800 0 Z");
+
+    width: 580px;
+    height: 518.58px;
+    bottom: -504px;
+    
     object-fit: cover;
+    @media (min-width: ${breakpoints.desktop}){
+        width: 900px;
+        height:900px;
+        bottom:-10%;
+        left:-12.5%;
+        border-radius:15%;
+        clip-path: path("M0 0 L 0 840 L 800 840 L 800 0 Z");
+    }
 
 `
 
@@ -70,14 +96,18 @@ export const StyledSubtitle = styled(Subtitle)`
     color: ${colors.neutrals["600"]};
     margin-top: 24px;
     margin-bottom: 64px;
+    max-width: 289px;
+    @media (min-width: ${breakpoints.desktop}){
+        max-width: 523px;
+    }
 
 `
 export const StyledProductButton = styled.div`
     display:flex;
     align-items: center;
     justify-content: center;
-    width: 317.5px;
-    height: 78px;
+    width: 303px;
+    height: 64px;
     background: ${colors.brand.default};
     border-radius: 24px;
     border: 0px;
@@ -86,6 +116,13 @@ export const StyledProductButton = styled.div`
     :hover {
         background: ${colors.brand.hover};
     }
+    @media (min-width: ${breakpoints.desktop}){
+        flex-direction: row;
+        text-align: left;
+        width: 317.5px;
+        height: 78px;
+    }
+    
 `
 
 export const StyledProductButtonWrapper = styled.div`
@@ -115,11 +152,18 @@ export const StyledWaves = styled(Waves)`
     z-index: -2;  
 `
 export const StyledWavesWrapper = styled.div`
-    top: -40px;
+    top: -30px;
     position: relative;
+    pointer-events: all;
+    @media (min-width: ${breakpoints.desktop}){
+        top: -330px;
+    }
 `
 export const StyledWavesOverflow = styled.div`
-    width:100vw;
+    width:1920px;
     position: absolute;
-    left:calc((1935px - 1464px) /-2);
+    right: 0;
+    @media (min-width: ${breakpoints.desktop}){
+        left:calc((1920px - 1464px) /-2);        
+    }
 `
