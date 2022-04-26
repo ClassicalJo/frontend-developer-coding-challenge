@@ -26,7 +26,7 @@ export const StyledTitle = styled.p`
     ${fullRow}
     ${textStyles.desktop.titles.l2}    
     ${mixins.gradientText(colors.brand.default)}
-    margin-bottom: 40px;
+    margin: 40px 0;
 `
 export const StyledSpan = styled.span`
     color: ${colors.neutrals["900"]};
