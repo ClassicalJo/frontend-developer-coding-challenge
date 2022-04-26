@@ -1,3 +1,4 @@
+import React from 'react'
 import { EffectUserData, ProductsData, UserData } from "../types";
 import ProductCard from "./card";
 import FilterBar from "./filter";
@@ -5,13 +6,14 @@ import { StyledProducts, StyledTitle, StyledSpan, StyledGrid } from "./styles";
 import useFilter from "./useFilter";
 import fetchRedeem from "../fetchRedeem";
 import NavigationBar from "./navigation";
+import { RefObject } from "react";
 
 interface AppProps {
     products: ProductsData
     userData: EffectUserData
     refreshUserData: () => void;
 }
-export default function Products({ products, userData, refreshUserData }: AppProps): JSX.Element {
+const Products = React.forwardRef<HTMLDivElement, AppProps>(({ products, userData, refreshUserData }: AppProps, ref) => {
     let { products: filteredProducts, startingIndex, endIndex, ...filterProps } = useFilter(products)
     let { changePage, totalPages, currentPage } = filterProps
     let slicedProducts = filteredProducts.slice(startingIndex, endIndex)
@@ -28,7 +30,7 @@ export default function Products({ products, userData, refreshUserData }: AppPro
 
 
     return (
-        <StyledProducts>
+        <StyledProducts ref={ref}>
             <StyledTitle>
                 {`TECH `}
                 <StyledSpan>
@@ -55,4 +57,5 @@ export default function Products({ products, userData, refreshUserData }: AppPro
             />
         </StyledProducts>
     )
-}
+})
+export default Products
