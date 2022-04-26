@@ -58,10 +58,10 @@ export const disappear = css`
 export const rotateDown = css`
     @keyframes rotateDown {
         0% {
-            transform:rotate(90deg)
+            transform:scaleY(1) rotate(90deg)
         }
         100% {
-            transform:rotate(270deg)
+            transform:scaleY(-1) rotate(90deg)
         }
     }
 `
@@ -69,10 +69,10 @@ export const rotateDown = css`
 export const rotateUp = css`
     @keyframes rotateUp {
         0% {
-            transform:rotate(270deg)
+            transform:scaleY(-1) rotate(90deg)
         }
         100% {
-            transform: rotate(450deg);
+            transform:scaleY(1) rotate(90deg)
         }
     }
 `
