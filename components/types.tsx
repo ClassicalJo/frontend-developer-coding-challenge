@@ -41,9 +41,10 @@ export interface StyledProplessComponent {
 }
 
 export interface CardElement {
-    title: string
-    subtitle: string
-    desktop: StaticImageData
-    responsive: StaticImageData
-    icon: StaticImageData
+    title: string;
+    subtitle: string;
+    abridgedSubtitle: string;
+    desktop: StaticImageData;
+    responsive: StaticImageData;
+    icon: StaticImageData;
 }

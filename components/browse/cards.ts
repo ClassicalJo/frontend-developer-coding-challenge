@@ -12,6 +12,7 @@ import { CardElement } from "../types"
 let browse: CardElement = {
     title: "1—Browse",
     subtitle: "Browse our tech catalog with more than 20 top tech products",
+    abridgedSubtitle: "Browse our tech catalog with more than 20 top tech products",
     desktop: walk1Desk,
     responsive: walk1Resp,
     icon: walk1Icon
@@ -20,6 +21,7 @@ let browse: CardElement = {
 let choose: CardElement = {
     title: "2—Choose",
     subtitle: "Exchange your hard earned AeroPoints for the item you want",
+    abridgedSubtitle: "Exchange your hard-earned Aeropoints for a cool tech item",
     desktop: walk2Desk,
     responsive: walk2Resp,
     icon: walk3Icon
@@ -28,6 +30,7 @@ let choose: CardElement = {
 let enjoy: CardElement = {
     title: "3—Enjoy!",
     subtitle: "All done, you can relax! We'll take care of delivery of your tech item!",
+    abridgedSubtitle: "All done. We'll take care of delivery of your tech item!",
     desktop: walk3Desk,
     responsive: walk3Resp,
     icon: walk2Icon,

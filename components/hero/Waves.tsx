@@ -1,14 +1,24 @@
-import React from 'react'
+import React, { useEffect, useLayoutEffect, useState } from 'react'
 import wave from '../../assets/illustrations/single-wave-pattern.svg'
 import { StyledProplessComponent } from '../types'
 
 function Waves({ className }: StyledProplessComponent): JSX.Element {
+    let [totalArea, setTotalArea] = useState<number>(1400)
+    useEffect(() => {
+        function resize() {
+            if (window.innerWidth >= 1920) setTotalArea(1400)
+            else if (window.innerWidth >= 1024) setTotalArea(1050)
+            else setTotalArea(650)
+        }
+        resize()
+        window.addEventListener('resize', resize)
+        return () => window.removeEventListener('resize', resize)
+    }, [])
     let waveMargin = 15
-    let totalArea = 1300
     let waveWidth = 650
     let xOffSet = 2
     let yOffSet = 14
-    let waveArray = new Array(Math.floor(totalArea / waveMargin)).fill("")
+    let waveArray = new Array(Math.floor(totalArea / waveMargin) - 5).fill("")
 
 
     return (

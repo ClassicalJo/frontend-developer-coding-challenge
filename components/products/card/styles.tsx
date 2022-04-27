@@ -98,6 +98,5 @@ export const StyledPictureContainer = styled.div`
     width:100%;
     min-height:345px;
     height:345px;
-
     position:relative
 `

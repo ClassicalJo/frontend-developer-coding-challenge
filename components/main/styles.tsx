@@ -14,6 +14,11 @@ export const StyledMain = styled.div`
     
 `
 export const StyledMainWrapper = styled.div`
-    max-width: 1464px;
+    @media (min-width: ${breakpoints.tablet}) {
+        max-width: 980px;
+    }
+    @media (min-width: ${breakpoints.desktop}){
+        max-width: 1464px;
+    }
     
 `

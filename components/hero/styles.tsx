@@ -29,7 +29,7 @@ export const StyledColumns = styled.div`
     align-items: center;
     text-align: center;
     @media (min-width: ${breakpoints.desktop}){
-        margin-bottom: 230px;
+        margin-bottom: 135px;
         flex-direction: row;
         text-align: left;
     }
@@ -51,11 +51,10 @@ export const StyledPicture = styled(Picture)`
 `
 export const StyledPictureWrapper = styled.div`
     position: absolute;
-
     width: 580px;
     height: 518.58px;
     bottom: -504px;
-    
+    z-index: 4;
     object-fit: cover;
     @media (min-width: ${breakpoints.desktop}){
         width: 900px;
@@ -147,23 +146,24 @@ export const StyledIconWrapper = styled(UnstyledNextImage)`
 
 export const StyledWaves = styled(Waves)`
     position:absolute;
+    align-self: flex-start;
+    z-index: -2; 
     width:1920px;
-    height:1400px;
-    z-index: -2;  
+    height: 1600px;
+
 `
 export const StyledWavesWrapper = styled.div`
-    top: -30px;
     position: relative;
-    pointer-events: all;
-    @media (min-width: ${breakpoints.desktop}){
-        top: -330px;
-    }
 `
 export const StyledWavesOverflow = styled.div`
     width:1920px;
+    height:1600px;
     position: absolute;
     right: 0;
+    pointer-events: none;
+    top: -135px;
     @media (min-width: ${breakpoints.desktop}){
         left:calc((1920px - 1464px) /-2);        
+        top: -430px;    
     }
 `

@@ -77,7 +77,7 @@ export const StyledUserCardContainer = styled.div<UserCardProps>`
     width:312px;
     height:404px;
     background: white;
-    z-index: 2;
+    z-index: 10;
     right:-1px;    
     top:55px;
     overflow: hidden;
