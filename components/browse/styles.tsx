@@ -8,9 +8,9 @@ import textStyles from "../commonStyles/text";
 export const StyledBrowse = styled.div`
     display: flex;
     justify-content: center;
-    height: 770px;
+    height: 771px;
     @media (min-width: ${breakpoints.desktop}){
-        height: 820px;
+        height: 817.5px;
     }
 `
 export const StyledBrowseWrapper = styled.div`
@@ -71,7 +71,7 @@ export const StyledCard = styled.div`
 
 export const StyledWalkImage = styled(UnstyledNextImage)`
     position: absolute;
-    background: ${colors.specials.illustrationBG}; 
+    background: ${colors.specials.illustrationBG};   
     @media (min-width: ${breakpoints.tablet}) {
         width:299px;
         height:500px;        
@@ -135,7 +135,7 @@ export const StyledIconWrapper = styled.div`
     ${mixins.responsiveIcons(48, 40)}
     ${mixins.centerDiv}
     border-radius: 10px;
-    background: ${colors.neutrals['200']};
+    background: ${colors.brand.light};
 `
 export const StyledIcon = styled(UnstyledNextImage)`
     ${mixins.responsiveIcons(36, 28)}

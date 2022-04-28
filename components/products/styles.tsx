@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import breakpoints from "../breakpoints";
 import colors from "../commonStyles/colors";
 import mixins from "../commonStyles/mixins";
 import textStyles from "../commonStyles/text";
@@ -18,15 +19,17 @@ export const StyledGrid = styled.div`
     margin: 64px 0;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: auto;
-    gap:25px;
+    gap:25px;    
 `
 
 
 export const StyledTitle = styled.p`
     ${fullRow}
-    ${textStyles.desktop.titles.l2}    
+    ${textStyles.withQuery(
+    textStyles.desktop.titles.l2,
+    textStyles.mobile.titles.l2)}
     ${mixins.gradientText(colors.brand.default)}
-    margin: 40px 0;
+    margin: 42.5px 0;
 `
 export const StyledSpan = styled.span`
     color: ${colors.neutrals["900"]};

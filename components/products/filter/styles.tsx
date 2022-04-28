@@ -2,13 +2,15 @@ import styled from "styled-components"
 import mixins from "../../commonStyles/mixins"
 import textStyles from "../../commonStyles/text"
 import colors from "../../commonStyles/colors"
-import SelectionButton from "./SelectionButton"
 import Option from "./Option"
 import UnstyledNextImage from "../../commonStyles/StyledNextImage"
+import breakpoints from "../../breakpoints"
 
 export const StyledFilterBar = styled.div`
     ${mixins.fullRow}
-    ${textStyles.desktop.texts.l1.default}
+    ${textStyles.withQuery(
+    textStyles.desktop.texts.l1.default,
+    textStyles.mobile.texts.l1.default)}
     display: flex;    
 `
 
@@ -17,30 +19,50 @@ export const StyledFilterBarContainer = styled.div`
     display: flex;
     align-items: center;
     gap: 10px;
+    flex-wrap: wrap;
+    margin: -10px;
+    @media (min-width: ${breakpoints.desktop}){
+        margin: 0px;
+    }
 `
 
 export const StyledFilterText = styled.p`
     color: ${colors.neutrals["600"]};
+    display: none;
+    @media (min-width: ${breakpoints.desktop}){
+        display: inline;
+    }
 `
 export const StyledVerticalSeparator = styled.div`
     border-right: 2px solid ${colors.neutrals["300"]};
     margin-right:30px;
     height:100%;
+    display: none;
+    @media (min-width: ${breakpoints.desktop}){
+        display:inline;
+    }
 `
 export const StyledFilterSelect = styled.select`
-    ${textStyles.desktop.texts.l1.default}
+    ${textStyles.withQuery(
+    textStyles.desktop.texts.l1.default,
+    textStyles.mobile.texts.l1.default)}
+    width: 256px;
+    height: 59px;
     color: ${colors.neutrals["600"]};
     border: 1px solid ${colors.neutrals["300"]};
-    margin-left: 10px;
     border-radius: 16px;
-    padding: 16px 22px;
-    padding-right: 90px;
+    padding-left: 16px;
     -webkit-appearance: none;
     appearance: none;
+    @media (min-width: ${breakpoints.desktop}){
+        margin-left: 10px;
+    }
 `
 export const StyledFilterSelectWrapper = styled.div`
     position: relative;
+    margin:10px;
     margin-right: 30px;
+    
     &::after {
         content: "▼";
         font-size:13px;
@@ -50,78 +72,103 @@ export const StyledFilterSelectWrapper = styled.div`
     }
 `
 export const StyledOption = styled(Option)`
-    color: inherit;
-    ${textStyles.desktop.texts.l1.default}
+    @media (min-width: ${breakpoints.desktop}){
+        color: inherit;
+        ${textStyles.desktop.texts.l1.default}
+    }
+    
 `
 
-export const StyledSelectedBackground = styled.div`
-        background: ${colors.brand.default};
-        padding: 7px 24px;
-        border-radius: 15px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+export const StyledSelectedButtonContainer = styled.div`
+    margin:10px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex:1 1 100%;
+    @media (min-width: ${breakpoints.desktop}) {
+        flex:1;
+        margin:10px;
+    }
 `
+
+interface SelectedButton {
+    selected: boolean;
+}
+
 export const StyledSelectedButton = styled.div`
-        display: flex;
-        align-items: center;
-        justify-content: center;
         cursor: pointer;
-`
-export const StyledSelectedButtonText = styled.p`
-    color: ${colors.neutrals["100"]};
+        user-select: none;
+        border-radius: 12px;
 `
 
-export const StyledUnselectedBackground = styled.div`
-        background: ${colors.neutrals['200']};
-        padding: 7px 24px;
-        border-radius: 15px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+export const StyledSelectedBackground = styled.div <SelectedButton>`
+    ${mixins.centerDiv}    
+    border-radius: 12px;
+    ${props => {
+        if (props.selected) return `background: ${colors.brand.default};`
+        else return `background: ${colors.brand.light};`
+    }}
+    width:136px;
+    height:40px;
+    @media (min-width: ${breakpoints.mobile}){
+        width:173px;
+        height:43px;
+    }
 `
-export const StyledUnselectedButton = styled.div`
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+
+
+export const StyledSelectedButtonText = styled.p<SelectedButton>`
+    ${props => {
+        if (props.selected) return `color: ${colors.neutrals["100"]};`
+        else return mixins.gradientText(colors.brand.default)
+    }}
+    
 `
-export const StyledUnselectedButtonText = styled.p`
-        ${mixins.gradientText(colors.brand.default)}
-        
-`
+
 export const StyledPageSelector = styled.div`
     border: 1px solid ${colors.neutrals["300"]};
-    border-radius: 15px;
+    width: 259px;
+    height: 64px;
+    border-radius: 16px;
     display: flex;
     align-items: center;
-    padding:10px;
-    /* flex:1; */
+    padding:12px 16px;
 `
 
 export const StyledPageText = styled.p`
-    ${textStyles.desktop.texts.l1.lightweight}    
     ${mixins.gradientText(colors.brand.default)}
-    min-width: 150px;
+    ${textStyles.withQuery(
+    textStyles.desktop.texts.l1.default,
+    textStyles.mobile.texts.l1.default)}
+    flex:1;
     text-align: center;
-    
 `
 export const StyledPageSpan = styled.span`
     ${mixins.removeGradientText}
     color: ${colors.neutrals["600"]};
     
 `
-
-const PageButton = (rotate: number) => styled(UnstyledNextImage)`
+interface PageButtonProps {
+    disabled: Boolean;
+}
+export const StyledPageButtonWrapper = styled.div<PageButtonProps>`
+    ${mixins.centerDiv}
+    background-color: ${colors.neutrals["200"]};
     width: 40px;
     height: 40px;
-    background-color: ${colors.neutrals["200"]};
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transform: rotate(${rotate}deg);
     border-radius: 8px;
-    
+    cursor: pointer;
+    user-select: none;
+    ${props => !props.disabled && `
+        &:hover:active{
+            background-color: ${colors.brand.light2};
+        }
+    `}
+`
+
+const PageButton = (rotate: number) => styled(UnstyledNextImage)`
+    ${mixins.responsiveIcons(24, 20)}
+    transform: rotate(${rotate}deg);
 `
 export const StyledPageButtonLeft = PageButton(180)
 export const StyledPageButtonRight = PageButton(0)
