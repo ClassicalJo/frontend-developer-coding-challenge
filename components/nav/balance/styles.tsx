@@ -1,3 +1,4 @@
+import { StaticImageData } from 'next/image'
 import styled from 'styled-components'
 import breakpoints from '../../breakpoints'
 import colors from '../../commonStyles/colors'
@@ -48,8 +49,14 @@ export const StyledBalanceLogo = styled.div`
 interface ChevronProps {
     shouldRotate: Boolean;
     firstRender: Boolean;
+    width: number;
+    height: number;
+    src: StaticImageData;
 }
-export const StyledChevron = styled(UnstyledNextImage) <ChevronProps>`
+
+// const B = Styled(({isExpanded, ...props})=><A {...props}/>)<BProps>`
+
+export const StyledChevron = styled(({ shouldRotate, firstRender, ...rest }: ChevronProps) => <UnstyledNextImage {...rest}/>)`
     margin:12px 16px;
     ${props => `
         width: ${props.width}px;
