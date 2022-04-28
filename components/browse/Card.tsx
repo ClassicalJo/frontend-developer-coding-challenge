@@ -11,7 +11,6 @@ import {
     StyledIcon
 } from "./styles"
 import { CardElement } from "../types"
-import useBreakpoints from '../useBreakpoints'
 import { useEffect, useState } from 'react'
 
 export default function Card({ desktop, responsive, icon, title, subtitle, abridgedSubtitle }: CardElement): JSX.Element {
