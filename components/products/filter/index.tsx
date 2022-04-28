@@ -9,6 +9,7 @@ import {
     StyledFilterSelectWrapper,
     StyledFilterText,
     StyledOption,
+    StyledSelectedButtonContainer,
     StyledVerticalSeparator
 } from './styles'
 
@@ -50,26 +51,27 @@ export default function FilterBar({ changePage, sortMethod, setSortMethod, setFi
                     </StyledFilterSelect>
                 </StyledFilterSelectWrapper>
                 <StyledVerticalSeparator />
-                <StyledFilterText>Sort by: </StyledFilterText>
-
-                <SelectionButton
-                    text="Most Recent"
-                    method="recent"
-                    current={sortMethod}
-                    onClick={onClick}
-                />
-                <SelectionButton
-                    text="Lowest Price"
-                    method="lowest-price"
-                    current={sortMethod}
-                    onClick={onClick}
-                />
-                <SelectionButton
-                    text="Highest Price"
-                    method="highest-price"
-                    current={sortMethod}
-                    onClick={onClick}
-                />
+                <StyledSelectedButtonContainer>
+                    <StyledFilterText>Sort by: </StyledFilterText>
+                    <SelectionButton
+                        text="Most Recent"
+                        method="recent"
+                        current={sortMethod}
+                        onClick={onClick}
+                    />
+                    <SelectionButton
+                        text="Lowest Price"
+                        method="lowest-price"
+                        current={sortMethod}
+                        onClick={onClick}
+                    />
+                    <SelectionButton
+                        text="Highest Price"
+                        method="highest-price"
+                        current={sortMethod}
+                        onClick={onClick}
+                    />
+                </StyledSelectedButtonContainer>
             </StyledFilterBarContainer>
             <PageSelector changePage={changePage} totalPages={totalPages} currentPage={currentPage} />
         </StyledFilterBar>
