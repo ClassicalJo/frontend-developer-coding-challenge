@@ -1,34 +1,22 @@
 import { Dispatch } from "react";
+import keyDown from "../../keyDown";
 import { SortMethod } from "../../types";
-import { StyledSelectedButton, StyledSelectedBackground, StyledSelectedButtonText, StyledUnselectedButton, StyledUnselectedBackground, StyledUnselectedButtonText } from "./styles";
+import { StyledSelectedButton, StyledSelectedBackground, StyledSelectedButtonText } from "./styles";
 
 interface AppProps {
-    className?: string;
     onClick: Dispatch<SortMethod>;
     method: SortMethod;
     text: string;
     current: SortMethod;
 }
-export default function SelectionButton({ className, onClick, method, text, current }: AppProps): JSX.Element {
-    switch (current === method) {
-        case true: return (
-            <StyledSelectedButton >
-                <StyledSelectedBackground>
-                    <StyledSelectedButtonText>
-                        {text}
-                    </StyledSelectedButtonText>
-                </StyledSelectedBackground>
-            </StyledSelectedButton>
-        )
-        default: return (
-            <StyledUnselectedButton onClick={() => onClick(method)} tabIndex={0}>
-                <StyledUnselectedBackground>
-                    <StyledUnselectedButtonText>
-                        {text}
-                    </StyledUnselectedButtonText>
-                </StyledUnselectedBackground>
-            </StyledUnselectedButton>
-        )
-    }
-
+export default function SelectionButton({ onClick, method, text, current }: AppProps): JSX.Element {
+    return (
+        <StyledSelectedButton onClick={() => onClick(method)} tabIndex={0} onKeyDown={keyDown(() => onClick(method))}>
+            <StyledSelectedBackground selected={method === current}>
+                <StyledSelectedButtonText selected={method === current}>
+                    {text}
+                </StyledSelectedButtonText>
+            </StyledSelectedBackground>
+        </StyledSelectedButton >
+    )
 }
