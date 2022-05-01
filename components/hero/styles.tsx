@@ -112,7 +112,7 @@ export const StyledProductButton = styled.div`
     border: 0px;
     user-select: none;
     cursor:pointer;
-    :hover {
+    :hover, :active {
         background: ${colors.brand.hover};
     }
     @media (min-width: ${breakpoints.desktop}){
