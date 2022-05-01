@@ -6,21 +6,21 @@ interface AppProps {
     product: Product
 }
 export default function Picture({ product }: AppProps): JSX.Element {
-    let [isLoading, setIsLoading] = useState<Boolean>(false)
+    let [done, setDone] = useState<Boolean>(false)
 
     return (
         <StyledPictureContainer>
-            <StyledSkeleton style={{display: isLoading ? "none" : "flex"}}>
+            <StyledSkeleton done={done}>
                 <StyledSkeletonWrapper>
                     <StyledPlaceholder />
                 </StyledSkeletonWrapper>
             </StyledSkeleton>
             <StyledProductPicture
-                onLoad={() => setIsLoading(true)}
+                onLoad={() => setDone(true)}
                 src={product.img.url}
-                width={500}
-                height={500}
-                objectFit='none'
+                width={280}
+                height={204}
+                
             />
         </StyledPictureContainer>
     )

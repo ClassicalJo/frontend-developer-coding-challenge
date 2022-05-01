@@ -27,21 +27,20 @@ export default function ProductCard({ product, userData, redeem }: AppProps): JS
     return (
         <StyledProductCard>
             <StyledImageZone>
-                <Picture product={product}/>
+                <Picture product={product} />
                 <StyledTextZone>
                     <StyledProductTitle>{product.name}</StyledProductTitle>
                     <StyledProductSubtitle>{product.category}</StyledProductSubtitle>
                 </StyledTextZone>
             </StyledImageZone>
-            <StyledButtonZone>
-                <Button
-                    cost={product.cost}
-                    availableIcon={aeropay3}
-                    unavailableIcon={aeropay1}
-                    userData={userData}
-                    redeem={redeem}
-                />
-            </StyledButtonZone>
+
+            <Button
+                cost={product.cost}
+                availableIcon={aeropay3}
+                unavailableIcon={aeropay1}
+                userData={userData}
+                redeem={redeem}
+            />
         </StyledProductCard>
     )
 }

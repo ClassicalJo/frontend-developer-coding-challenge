@@ -1,7 +1,8 @@
 import { StaticImageData } from "next/image";
 import { useState } from "react";
+import keyDown from "../../keyDown";
 import { EffectUserData } from "../../types";
-import { StyledButtonIcon, StyledButtonText, StyledProductButton, StyledProductProcessing, StyledProductUnavailable } from "./styles";
+import { StyledButtonIcon, StyledProductButton, StyledProductProcessing, StyledProductUnavailable } from "./styles";
 
 interface AppProps {
     userData: EffectUserData;
@@ -23,24 +24,16 @@ export default function Button({ cost, userData, unavailableIcon, availableIcon,
     )
     else if (!userData || cost > userData.points) return (
         <StyledProductUnavailable>
-            <StyledButtonText>
-                You need
-            </StyledButtonText>
+            <p>You need</p>
             <StyledButtonIcon src={unavailableIcon} width={24} height={24} />
-            <StyledButtonText>
-                {cost.toLocaleString()}
-            </StyledButtonText>
+            <p>{cost.toLocaleString()}</p>
         </StyledProductUnavailable>
     )
     else return (
-        <StyledProductButton onClick={onClick}>
-            <StyledButtonText>
-                Redeem for
-            </StyledButtonText>
+        <StyledProductButton onClick={onClick} tabIndex={0} onKeyDown={keyDown(onClick)}>
+            <p>Redeem for</p>
             <StyledButtonIcon src={availableIcon} width={24} height={24} />
-            <StyledButtonText>
-                {cost.toLocaleString()}
-            </StyledButtonText>
-        </StyledProductButton>
+            <p>{cost.toLocaleString()}</p>
+        </StyledProductButton >
     )
 }

@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components"
+import breakpoints from "../../breakpoints"
 import colors from "../../commonStyles/colors"
 import mixins from "../../commonStyles/mixins"
 import UnstyledNextImage from "../../commonStyles/StyledNextImage"
@@ -10,33 +11,42 @@ export const StyledProductCard = styled.div`
     display:flex;
     flex-direction: column;
     gap:15px;
-    grid-column: span 3;
+    grid-column: span 12;
+    ${textStyles.withQuery(
+    textStyles.desktop.texts.l1.default,
+    textStyles.mobile.texts.l1.default)}
+    @media (min-width: ${breakpoints.tablet}){
+        grid-column: span 4;
+    }
+    @media (min-width: ${breakpoints.desktop}){
+        grid-column: span 3;
+    }
 `
 export const StyledImageZone = styled.div`
     border: 1px solid ${colors.neutrals["300"]};
     border-radius: 25px;   
 `
 export const StyledButtonZone = styled.div`
-    ${textStyles.desktop.texts.l1.default}
+    ${textStyles.withQuery(
+    textStyles.desktop.texts.l1.default,
+    textStyles.mobile.texts.l1.default)}
 `
 
 export const StyledProductPicture = styled(UnstyledNextImage)`
-    border-bottom: 1px solid ${colors.neutrals["300"]};
-    width:100%;
-    min-height:345px;
-    height:345px;
     position: absolute;
-    top: 0;
+    border-bottom: 1px solid ${colors.neutrals["300"]};
+    width: 280px;
+    height: 204px;
 `
 
 export const StyledProductTitle = styled.div`
-    ${textStyles.desktop.texts.l1.default};
     color: ${colors.neutrals['900']};
-    
 `
 
 export const StyledProductSubtitle = styled.div`
-    ${textStyles.desktop.texts.l2.caps}
+    ${textStyles.withQuery(
+    textStyles.desktop.texts.l2.caps,
+    textStyles.mobile.texts.l2.caps)}
     color: ${colors.neutrals['600']};
 `
 
@@ -52,7 +62,11 @@ export const StyledProductButton = styled.div`
     ${buttonMixin}
     background: ${colors.brand.default};
     color: white;
-    
+    user-select: none;
+    cursor: pointer;
+    :hover, :active {
+        background: ${colors.brand.hover};
+    }
     
 `
 export const StyledProductProcessing = styled.div`
@@ -68,25 +82,32 @@ export const StyledProductUnavailable = styled.div`
 `
 
 export const StyledButtonIcon = styled(UnstyledNextImage)`
-    width: 24px;
-    height: 24px;
-`
-export const StyledButtonText = styled.p`
-    
+    ${mixins.responsiveIcons(24, 20)}    
 `
 
 export const StyledTextZone = styled.div`
     padding: 21px 24px;
 `
-export const StyledSkeleton = styled.div`
+interface SkeletonProps {
+    done: Boolean;
+}
+export const StyledSkeleton = styled.div<SkeletonProps>`
     width:100%;
-    height:345px;
+    height:204px;
     ${mixins.centerDiv}
     top: 0;
+    ${props => {
+        if (props.done) return `
+            display: none;
+        `
+        else return `
+            display: flex;
+        `
+    }}
 `
 export const StyledSkeletonWrapper = styled.div`
     ${mixins.centerDiv}
-    position: absolute;
+    
 
 `
 export const StyledPlaceholder = styled(Placeholder)`
@@ -95,8 +116,8 @@ export const StyledPlaceholder = styled(Placeholder)`
 `
 
 export const StyledPictureContainer = styled.div`
-    width:100%;
-    min-height:345px;
-    height:345px;
-    position:relative
+    min-height: 345px;
+    ${mixins.centerDiv}
+    
+    
 `

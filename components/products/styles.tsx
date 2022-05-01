@@ -19,7 +19,7 @@ export const StyledGrid = styled.div`
     margin: 64px 0;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: auto;
-    gap:25px;    
+    gap:48px 24px;    
 `
 
 

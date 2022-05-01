@@ -72,11 +72,9 @@ export const StyledFilterSelectWrapper = styled.div`
     }
 `
 export const StyledOption = styled(Option)`
-    @media (min-width: ${breakpoints.desktop}){
-        color: inherit;
-        ${textStyles.desktop.texts.l1.default}
-    }
-    
+    ${textStyles.withQuery(
+    textStyles.desktop.texts.l1.default,
+    textStyles.mobile.texts.l1.default)}    
 `
 
 export const StyledSelectedButtonContainer = styled.div`
@@ -105,7 +103,10 @@ export const StyledSelectedBackground = styled.div <SelectedButton>`
     ${mixins.centerDiv}    
     border-radius: 12px;
     ${props => {
-        if (props.selected) return `background: ${colors.brand.default};`
+        if (props.selected) return `
+        background: ${colors.brand.default};
+        animation: colorBackground .15s forwards;
+        `
         else return `background: ${colors.brand.light};`
     }}
     width:136px;
@@ -157,10 +158,10 @@ export const StyledPageButtonWrapper = styled.div<PageButtonProps>`
     width: 40px;
     height: 40px;
     border-radius: 8px;
-    cursor: pointer;
     user-select: none;
     ${props => !props.disabled && `
-        &:hover:active{
+        cursor: pointer;    
+        :hover:active {
             background-color: ${colors.brand.light2};
         }
     `}
