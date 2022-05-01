@@ -8,7 +8,10 @@ import textStyles from "../commonStyles/text";
 export const StyledBrowse = styled.div`
     display: flex;
     justify-content: center;
-    height: 771px;
+    height: 1716.16px;
+    @media (min-width: ${breakpoints.tablet}){
+        height: 771px;
+    }
     @media (min-width: ${breakpoints.desktop}){
         height: 817.5px;
     }
@@ -19,16 +22,24 @@ export const StyledBrowseWrapper = styled.div`
     position: relative;
     height: 477px;
     margin-top: 147px;
+    max-width: 335px;
+    @media (min-width: ${breakpoints.tablet}){
+        max-width: 980px;
+    }
     @media (min-width: ${breakpoints.desktop}){
         max-width: 1464px;
-        
     }
 `
 export const StyledCardContainer = styled.div`
     flex: 1;
     display: flex;
     position: relative;
-    gap: 8px;
+    gap:36px;
+    flex-direction: column;
+    @media (min-width: ${breakpoints.tablet}){
+        gap: 8px;
+        flex-direction: row;
+    }
     @media (min-width: ${breakpoints.desktop}){
         left: -78px;
     }
@@ -71,8 +82,14 @@ export const StyledCard = styled.div`
 
 export const StyledWalkImage = styled(UnstyledNextImage)`
     position: absolute;
-    background: ${colors.specials.illustrationBG};   
+    width:317px;
+    bottom: -46px;;
+    left: calc((309px - 317px )/2);
     @media (min-width: ${breakpoints.tablet}) {
+        right:0;
+        left:0;
+        bottom:0;
+        top:0;
         width:299px;
         height:500px;        
     }    
@@ -83,12 +100,13 @@ export const StyledWalkImage = styled(UnstyledNextImage)`
     
 `
 export const StyledWalkImageWrapper = styled.div`
+    background: ${colors.specials.illustrationBG};   
     border-radius:27.5px 27.5px 0 0;
+    min-height: 245px;
     width:100%;
     position: relative;
     overflow: hidden;
     flex:1;
-    
     @media (min-width: ${breakpoints.tablet}) {
         /* width:299px; */
         height:290px;        
@@ -109,8 +127,7 @@ export const StyledTitleWrapper = styled.div`
 export const StyledTitle = styled.p`
     ${textStyles.withQuery(
     textStyles.desktop.titles.l3,
-    textStyles.mobile.titles.l3,
-    )}
+    textStyles.mobile.titles.l3)}
     
     background: ${colors.brand.default};
     ${mixins.gradientText(colors.brand.default)}
@@ -119,9 +136,9 @@ export const StyledTitle = styled.p`
 
 export const StyledSubtitle = styled.p`
     ${textStyles.withQuery(
-        textStyles.desktop.texts.l1.default,
-        textStyles.mobile.texts.l1.default
-    )}
+    textStyles.desktop.texts.l1.default,
+    textStyles.mobile.texts.l1.default
+)}
     color: ${colors.neutrals["600"]};
     margin-top: 14px;
     margin-bottom:8px;
@@ -142,7 +159,7 @@ export const StyledIcon = styled(UnstyledNextImage)`
     
 `
 export const StyledTextArea = styled.div`
-    padding: 12px 24px 24px 24px;
+    padding: 12px 22px 22px 22px;
     border: 1px solid ${colors.neutrals["300"]};
     border-radius: 0px 0px 27.5px 27.5px;
     border-top: 0px;
