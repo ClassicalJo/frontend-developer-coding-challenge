@@ -15,12 +15,12 @@ export default function PageSelector({ changePage, totalPages, currentPage }: Ap
     return (
         <StyledPageSelector>
             <StyledPageButtonWrapper
+                tabIndex={0}
                 onClick={() => changePage(-1)}
                 onKeyDown={keyDown(() => changePage(-1))}
                 disabled={leftDisabled}
             >
-                <StyledPageButtonLeft
-                    tabIndex={0}
+                <StyledPageButtonLeft                    
                     src={leftDisabled ? chevronDisabled : chevron}
                 />
             </StyledPageButtonWrapper>
@@ -29,11 +29,11 @@ export default function PageSelector({ changePage, totalPages, currentPage }: Ap
                 {` of ${totalPages}`}
             </StyledPageText>
             <StyledPageButtonWrapper
+                tabIndex={0}
                 disabled={rightDisabled}
                 onClick={() => changePage(1)}
                 onKeyDown={keyDown(() => changePage(-1))}>
-                <StyledPageButtonRight
-                    tabIndex={0}
+                <StyledPageButtonRight    
                     src={rightDisabled ? chevronDisabled : chevron}
                 />
             </StyledPageButtonWrapper>
