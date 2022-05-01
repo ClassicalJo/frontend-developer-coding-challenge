@@ -9,5 +9,5 @@ export const StyledNavBar = styled.div`
 `
 
 export const StyledLink = styled.a`
-    
+    border-radius: 16px;
 `
