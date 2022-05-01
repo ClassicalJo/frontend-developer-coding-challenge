@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import normalize from "styled-normalize";
-import { appear, disappear, expandUserCard, rotateDown, rotateUp, shrinkUserCard } from "./commonStyles/animations";
+import { appear, colorBackground, disappear, expandUserCard, rotateDown, rotateUp, shrinkUserCard } from "./commonStyles/animations";
 
 export default createGlobalStyle`
     ${normalize}
@@ -22,4 +22,5 @@ export default createGlobalStyle`
     ${disappear}
     ${rotateUp}
     ${rotateDown}
+    ${colorBackground}
 `
