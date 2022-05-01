@@ -54,7 +54,6 @@ interface ChevronProps {
     src: StaticImageData;
 }
 
-// const B = Styled(({isExpanded, ...props})=><A {...props}/>)<BProps>`
 
 export const StyledChevron = styled(({ shouldRotate, firstRender, ...rest }: ChevronProps) => <UnstyledNextImage {...rest}/>)`
     margin:12px 16px;
@@ -125,7 +124,8 @@ export const StyledUserCardPointsSelectWrapper = styled.div<UserCardSelectPoints
     border-radius: 12px;
     ${props => {
         if (props.current) return `
-        background: ${colors.brand.default}    
+        background: ${colors.brand.default};
+        animation: colorBackground .15s forwards;
         `
         return `
         background: ${colors.neutrals["200"]};
