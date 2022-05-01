@@ -1,6 +1,6 @@
 import { Dispatch } from "react";
 import PageSelector from "../filter/PageSelector";
-import { StyledNavigationBar, StyledNavigationText, StyledNavigationTextSpan, StyledNavigationTextWrapper } from "./styles";
+import { StyledNavigationBar, StyledNavigationPageSelectorWrapper, StyledNavigationText, StyledNavigationTextSpan, StyledNavigationTextWrapper } from "./styles";
 
 interface AppProps {
     showing: number;
@@ -8,18 +8,22 @@ interface AppProps {
     changePage: Dispatch<number>
     totalPages: number;
     currentPage: number;
+    productsPerPage: number;
 
 }
-export default function NavigationBar({ showing, total, changePage, totalPages, currentPage }: AppProps): JSX.Element {
+export default function NavigationBar({ showing, total, changePage, totalPages, currentPage, productsPerPage }: AppProps): JSX.Element {
+    let products = showing + currentPage * productsPerPage
     return (
         <StyledNavigationBar>
             <StyledNavigationTextWrapper>
                 <StyledNavigationText>
-                    {`16 of 32 `}
+                    {`${products} of ${total} `}
                     <StyledNavigationTextSpan>products</StyledNavigationTextSpan>
                 </StyledNavigationText>
             </StyledNavigationTextWrapper>
-            <PageSelector changePage={changePage} currentPage={currentPage} totalPages={totalPages} />
+            <StyledNavigationPageSelectorWrapper>
+                <PageSelector changePage={changePage} currentPage={currentPage} totalPages={totalPages} />
+            </StyledNavigationPageSelectorWrapper>
         </StyledNavigationBar>
     )
 }
