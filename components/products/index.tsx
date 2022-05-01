@@ -6,7 +6,6 @@ import { StyledProducts, StyledTitle, StyledSpan, StyledGrid } from "./styles";
 import useFilter from "./useFilter";
 import fetchRedeem from "../fetchRedeem";
 import NavigationBar from "./navigation";
-import { RefObject } from "react";
 
 interface AppProps {
     products: ProductsData
@@ -15,7 +14,7 @@ interface AppProps {
 }
 const Products = React.forwardRef<HTMLDivElement, AppProps>(({ products, userData, refreshUserData }: AppProps, ref) => {
     let { products: filteredProducts, startingIndex, endIndex, ...filterProps } = useFilter(products)
-    let { changePage, totalPages, currentPage } = filterProps
+    let { changePage, totalPages, currentPage, productsPerPage } = filterProps
     let slicedProducts = filteredProducts.slice(startingIndex, endIndex)
     let redeemItem = (productId: string) => new Promise<void>(async (resolve, reject) => {
         try {
@@ -50,10 +49,11 @@ const Products = React.forwardRef<HTMLDivElement, AppProps>(({ products, userDat
             </StyledGrid>
             <NavigationBar
                 showing={slicedProducts.length}
-                total={products.length}
+                total={filteredProducts.length}
                 changePage={changePage}
                 totalPages={totalPages}
                 currentPage={currentPage}
+                productsPerPage={productsPerPage}
             />
         </StyledProducts>
     )
