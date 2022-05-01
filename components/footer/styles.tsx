@@ -25,11 +25,13 @@ export const StyledFooterWrapper = styled.a`
     text-decoration: none;
     :active{
         ${mixins.gradientText(colors.brand.default)}
-        animation: colorBackground .1s forwards;
+        animation: colorBackground30 .25s forwards;
     }
 `
 export const StyledFooterText = styled.p`
-    ${textStyles.desktop.texts.l1.default}
+    ${textStyles.withQuery(
+    textStyles.desktop.texts.l1.default,
+    textStyles.mobile.texts.l1.default)}
     color: ${colors.neutrals["600"]};
 
 `

@@ -87,4 +87,14 @@ export const colorBackground = css`
         }
     }
 `
-export default { expandUserCard, shrinkUserCard, appear, disappear, colorBackground }
+export const colorBackground30 = css`
+    @keyframes colorBackground30{
+        0% {
+            opacity:.3;
+        }
+        100% {
+            opacity:1;
+        }
+    }
+`
+export default { expandUserCard, shrinkUserCard, appear, disappear, colorBackground, colorBackground30 }
