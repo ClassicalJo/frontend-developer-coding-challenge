@@ -1,17 +1,18 @@
 import { useCallback, useState, useEffect, useRef } from "react"
 import Hero from "../hero"
-import { Product, EffectUserData } from "../types"
+import { Product, EffectUserData, UserData } from "../types"
 import { StyledMain, StyledMainWrapper } from "./styles"
 import NavBar from "../nav"
 import Browse from "../browse"
 import Products from "../products"
 
 interface AppProps {
-    productsData: Product[]
+    productsData: Product[];
+    initialUserData: UserData
 }
 
-export default function Main({ productsData }: AppProps): JSX.Element {
-    let [userData, setUserData] = useState<EffectUserData>(null)
+export default function Main({ productsData, initialUserData }: AppProps): JSX.Element {
+    let [userData, setUserData] = useState<EffectUserData>(initialUserData)
     let ref = useRef<HTMLDivElement>(null)
     let scrollToProducts = () => window.scrollTo({ top: ref.current?.offsetTop, behavior: 'smooth' })
     let fetchUser = useCallback(async () => {
@@ -19,10 +20,6 @@ export default function Main({ productsData }: AppProps): JSX.Element {
         let data = await res.json()
         setUserData(data)
     }, [])
-
-    useEffect(() => {
-        fetchUser()
-    }, [fetchUser])
 
     return (
         <main>
