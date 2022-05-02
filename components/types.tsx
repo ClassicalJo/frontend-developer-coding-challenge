@@ -48,3 +48,8 @@ export interface CardElement {
     responsive: StaticImageData;
     icon: StaticImageData;
 }
+
+export interface ToastElement {
+    isError: boolean;
+    message: string;
+}
