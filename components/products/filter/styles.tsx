@@ -21,6 +21,7 @@ export const StyledFilterBarContainer = styled.div`
     gap: 10px;
     flex-wrap: wrap;
     margin: -10px;
+    max-width: 100%;
     @media (min-width: ${breakpoints.desktop}){
         margin: 0px;
     }
@@ -83,6 +84,8 @@ export const StyledSelectedButtonContainer = styled.div`
     gap: 10px;
     align-items: center;
     flex:1 1 100%;
+    overflow-x: scroll;
+    max-width: 100vw;
     @media (min-width: ${breakpoints.desktop}) {
         flex:1;
         margin:10px;
@@ -131,9 +134,12 @@ export const StyledPageSelector = styled.div`
     width: 259px;
     height: 64px;
     border-radius: 16px;
-    display: flex;
+    display: none;
     align-items: center;
     padding:12px 16px;
+    @media (min-width: ${breakpoints.tablet}){
+        display: flex;
+    }
 `
 
 export const StyledPageText = styled.p`

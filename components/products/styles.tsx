@@ -8,18 +8,23 @@ const fullRow = css`
     grid-column: 1 span 12 ;
 `
 export const StyledProducts = styled.div`
-    max-width: 1464px;
-    width: 100%;
+    
     display: flex;
     flex-direction: column;
-    margin-bottom: 160px;
+    
+    @media (min-width: ${breakpoints.tablet}){
+        margin-bottom: 160px;
+        max-width: 1464px;
+    }
 `
 export const StyledGrid = styled.div`
     display: grid;
     margin: 64px 0;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: auto;
-    gap:48px 24px;    
+    gap:48px 24px;
+
+    
 `
 
 

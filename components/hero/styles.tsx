@@ -51,11 +51,17 @@ export const StyledPicture = styled(Picture)`
 `
 export const StyledPictureWrapper = styled.div`
     position: absolute;
-    width: 580px;
-    height: 518.58px;
-    bottom: -504px;
-    z-index: 4;
-    object-fit: cover;
+    display: none;
+    
+    
+    @media (min-width: ${breakpoints.tablet}){
+        display: block;
+        width: 580px;
+        height: 518.58px;
+        bottom: -504px;
+        z-index: 4;
+        object-fit: cover;
+    }
     @media (min-width: ${breakpoints.desktop}){
         width: 900px;
         height:900px;
