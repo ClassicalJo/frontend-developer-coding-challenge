@@ -1,6 +1,6 @@
 import { Dispatch } from "react";
 import PageSelector from "../filter/PageSelector";
-import { StyledNavigationBar, StyledNavigationPageSelectorWrapper, StyledNavigationText, StyledNavigationTextSpan, StyledNavigationTextWrapper } from "./styles";
+import { StyledNavigationBar, StyledNavigationPageSelector, StyledNavigationPageSelectorWrapper, StyledNavigationText, StyledNavigationTextSpan, StyledNavigationTextWrapper } from "./styles";
 
 interface AppProps {
     showing: number;
@@ -22,7 +22,7 @@ export default function NavigationBar({ showing, total, changePage, totalPages, 
                 </StyledNavigationText>
             </StyledNavigationTextWrapper>
             <StyledNavigationPageSelectorWrapper>
-                <PageSelector changePage={changePage} currentPage={currentPage} totalPages={totalPages} />
+                <StyledNavigationPageSelector changePage={changePage} currentPage={currentPage} totalPages={totalPages} />
             </StyledNavigationPageSelectorWrapper>
         </StyledNavigationBar>
     )

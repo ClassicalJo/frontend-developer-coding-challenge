@@ -5,22 +5,23 @@ import chevronDisabled from '../../../assets/icons/chevron-disabled.svg'
 import keyDown from "../../keyDown";
 
 interface AppProps {
+    className?: string;
     changePage: Dispatch<number>;
     totalPages: number;
     currentPage: number;
 }
-export default function PageSelector({ changePage, totalPages, currentPage }: AppProps): JSX.Element {
+export default function PageSelector({ className, changePage, totalPages, currentPage }: AppProps): JSX.Element {
     let leftDisabled = currentPage === 0
     let rightDisabled = currentPage + 1 >= totalPages
     return (
-        <StyledPageSelector>
+        <div className={className}>
             <StyledPageButtonWrapper
                 tabIndex={0}
                 onClick={() => changePage(-1)}
                 onKeyDown={keyDown(() => changePage(-1))}
                 disabled={leftDisabled}
             >
-                <StyledPageButtonLeft                    
+                <StyledPageButtonLeft
                     src={leftDisabled ? chevronDisabled : chevron}
                 />
             </StyledPageButtonWrapper>
@@ -33,10 +34,10 @@ export default function PageSelector({ changePage, totalPages, currentPage }: Ap
                 disabled={rightDisabled}
                 onClick={() => changePage(1)}
                 onKeyDown={keyDown(() => changePage(-1))}>
-                <StyledPageButtonRight    
+                <StyledPageButtonRight
                     src={rightDisabled ? chevronDisabled : chevron}
                 />
             </StyledPageButtonWrapper>
-        </StyledPageSelector>
+        </div>
     )
 }

@@ -1,8 +1,10 @@
+import { Dispatch } from "react";
 import styled from "styled-components";
 import breakpoints from "../../breakpoints";
 import colors from "../../commonStyles/colors";
 import mixins from "../../commonStyles/mixins";
 import textStyles from "../../commonStyles/text";
+import PageSelector from "../filter/PageSelector";
 
 export const StyledNavigationBar = styled.div`
     display: flex;
@@ -42,4 +44,14 @@ export const StyledNavigationPageSelectorWrapper = styled.div`
     @media (min-width: ${breakpoints.desktop}){
         flex:0
     }
+`
+
+export const StyledNavigationPageSelector = styled(PageSelector)`
+    border: 1px solid ${colors.neutrals["300"]};
+    width: 259px;
+    height: 64px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    padding:12px 16px;
 `

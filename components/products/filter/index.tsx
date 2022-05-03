@@ -9,7 +9,9 @@ import {
     StyledFilterSelectWrapper,
     StyledFilterText,
     StyledOption,
+    StyledPageSelector,
     StyledSelectedButtonContainer,
+    StyledSelectedButtonWrapper,
     StyledVerticalSeparator
 } from './styles'
 
@@ -51,29 +53,31 @@ export default function FilterBar({ changePage, sortMethod, setSortMethod, setFi
                     </StyledFilterSelect>
                 </StyledFilterSelectWrapper>
                 <StyledVerticalSeparator />
-                <StyledSelectedButtonContainer>
-                    <StyledFilterText>Sort by: </StyledFilterText>
-                    <SelectionButton
-                        text="Most Recent"
-                        method="recent"
-                        current={sortMethod}
-                        onClick={onClick}
-                    />
-                    <SelectionButton
-                        text="Lowest Price"
-                        method="lowest-price"
-                        current={sortMethod}
-                        onClick={onClick}
-                    />
-                    <SelectionButton
-                        text="Highest Price"
-                        method="highest-price"
-                        current={sortMethod}
-                        onClick={onClick}
-                    />
-                </StyledSelectedButtonContainer>
+                <StyledSelectedButtonWrapper>
+                    <StyledSelectedButtonContainer>
+                        <StyledFilterText>Sort by: </StyledFilterText>
+                        <SelectionButton
+                            text="Most Recent"
+                            method="recent"
+                            current={sortMethod}
+                            onClick={onClick}
+                        />
+                        <SelectionButton
+                            text="Lowest Price"
+                            method="lowest-price"
+                            current={sortMethod}
+                            onClick={onClick}
+                        />
+                        <SelectionButton
+                            text="Highest Price"
+                            method="highest-price"
+                            current={sortMethod}
+                            onClick={onClick}
+                        />
+                    </StyledSelectedButtonContainer>
+                </StyledSelectedButtonWrapper>
             </StyledFilterBarContainer>
-            <PageSelector changePage={changePage} totalPages={totalPages} currentPage={currentPage} />
+            <StyledPageSelector changePage={changePage} totalPages={totalPages} currentPage={currentPage} />
         </StyledFilterBar>
     )
 }

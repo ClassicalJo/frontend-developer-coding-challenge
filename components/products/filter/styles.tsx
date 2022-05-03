@@ -5,6 +5,7 @@ import colors from "../../commonStyles/colors"
 import Option from "./Option"
 import UnstyledNextImage from "../../commonStyles/StyledNextImage"
 import breakpoints from "../../breakpoints"
+import PageSelector from "./PageSelector"
 
 export const StyledFilterBar = styled.div`
     ${mixins.fullRow}
@@ -12,6 +13,9 @@ export const StyledFilterBar = styled.div`
     textStyles.desktop.texts.l1.default,
     textStyles.mobile.texts.l1.default)}
     display: flex;    
+    @media (min-width: ${breakpoints.desktop}) {
+        align-items: center;    
+    }
 `
 
 export const StyledFilterBarContainer = styled.div`
@@ -20,8 +24,11 @@ export const StyledFilterBarContainer = styled.div`
     align-items: center;
     gap: 10px;
     flex-wrap: wrap;
-    margin: -10px;
+    margin: -24px;
     max-width: 100%;
+    @media (min-width: ${breakpoints.tablet}){
+        margin: -26.5px;
+    }
     @media (min-width: ${breakpoints.desktop}){
         margin: 0px;
     }
@@ -55,21 +62,23 @@ export const StyledFilterSelect = styled.select`
     padding-left: 16px;
     -webkit-appearance: none;
     appearance: none;
-    @media (min-width: ${breakpoints.desktop}){
-        margin-left: 10px;
-    }
 `
 export const StyledFilterSelectWrapper = styled.div`
     position: relative;
-    margin:10px;
+    margin:24px;
     margin-right: 30px;
-    
     &::after {
         content: "▼";
         font-size:13px;
         top: 27.5%;
         right: 10px;
         position: absolute;
+    }
+    @media (min-width: ${breakpoints.tablet}){
+        margin: 26.5px
+    }
+    @media (min-width: ${breakpoints.desktop}){
+        margin: 0
     }
 `
 export const StyledOption = styled(Option)`
@@ -78,17 +87,28 @@ export const StyledOption = styled(Option)`
     textStyles.mobile.texts.l1.default)}    
 `
 
+export const StyledSelectedButtonWrapper = styled.div`
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex:1 1 100%;
+    margin:24px;
+    @media (min-width: ${breakpoints.tablet}){
+        margin: 26.5px;
+    }
+    @media (min-width: ${breakpoints.desktop}){
+        flex:1;
+        margin:0;
+    }
+`
 export const StyledSelectedButtonContainer = styled.div`
-    margin:10px;
+    position: absolute;
     display: flex;
     gap: 10px;
     align-items: center;
-    flex:1 1 100%;
-    overflow-x: scroll;
     max-width: 100vw;
     @media (min-width: ${breakpoints.desktop}) {
         flex:1;
-        margin:10px;
     }
 `
 
@@ -112,11 +132,12 @@ export const StyledSelectedBackground = styled.div <SelectedButton>`
         `
         else return `background: ${colors.brand.light};`
     }}
+    
     width:136px;
     height:40px;
-    @media (min-width: ${breakpoints.mobile}){
-        width:173px;
-        height:43px;
+    @media (min-width: ${breakpoints.tablet}){
+        width:165px;
+        height:43px;    
     }
 `
 
@@ -129,7 +150,7 @@ export const StyledSelectedButtonText = styled.p<SelectedButton>`
     
 `
 
-export const StyledPageSelector = styled.div`
+export const StyledPageSelector = styled(PageSelector)`
     border: 1px solid ${colors.neutrals["300"]};
     width: 259px;
     height: 64px;
