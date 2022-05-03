@@ -22,7 +22,6 @@ export const StyledBrowseWrapper = styled.div`
     position: relative;
     height: 477px;
     margin-top: 147px;
-    max-width: 335px;
     @media (min-width: ${breakpoints.tablet}){
         max-width: 980px;
     }
@@ -84,7 +83,7 @@ export const StyledWalkImage = styled(UnstyledNextImage)`
     position: absolute;
     width:317px;
     bottom: -46px;;
-    left: calc((309px - 317px )/2);
+    left: calc((309px - 100% )/-2);
     @media (min-width: ${breakpoints.tablet}) {
         right:0;
         left:0;
