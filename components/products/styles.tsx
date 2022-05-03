@@ -11,9 +11,7 @@ export const StyledProducts = styled.div`
     
     display: flex;
     flex-direction: column;
-    
     @media (min-width: ${breakpoints.tablet}){
-        margin-bottom: 160px;
         max-width: 1464px;
     }
 `

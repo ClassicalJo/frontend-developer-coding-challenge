@@ -6,10 +6,10 @@ export const StyledMain = styled.div`
     margin: 0 20px;
     display: flex;
     justify-content: center;
-    
-    @media (min-width: ${breakpoints.desktop}){
+    margin-bottom: 128px;
+    @media (min-width: ${breakpoints.tablet}){
         margin: 0 80px;
-        
+        margin-bottom: 160px;   
     }
     
 `
