@@ -164,6 +164,7 @@ export const StyledTextArea = styled.div`
     border: 1px solid ${colors.neutrals["300"]};
     border-radius: 0px 0px 27.5px 27.5px;
     border-top: 0px;
+    background-color: white;
     @media (min-width: ${breakpoints.desktop}){
         padding: 12px 0px 24px 24px;    
     }

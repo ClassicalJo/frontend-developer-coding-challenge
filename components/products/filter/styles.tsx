@@ -24,14 +24,7 @@ export const StyledFilterBarContainer = styled.div`
     align-items: center;
     gap: 10px;
     flex-wrap: wrap;
-    margin: -24px;
-    max-width: 100%;
-    @media (min-width: ${breakpoints.tablet}){
-        margin: -26.5px;
-    }
-    @media (min-width: ${breakpoints.desktop}){
-        margin: 0px;
-    }
+
 `
 
 export const StyledFilterText = styled.p`
@@ -65,7 +58,7 @@ export const StyledFilterSelect = styled.select`
 `
 export const StyledFilterSelectWrapper = styled.div`
     position: relative;
-    margin:24px;
+    
     margin-right: 30px;
     &::after {
         content: "▼";
@@ -73,12 +66,6 @@ export const StyledFilterSelectWrapper = styled.div`
         top: 27.5%;
         right: 10px;
         position: absolute;
-    }
-    @media (min-width: ${breakpoints.tablet}){
-        margin: 26.5px
-    }
-    @media (min-width: ${breakpoints.desktop}){
-        margin: 0
     }
 `
 export const StyledOption = styled(Option)`
@@ -93,13 +80,12 @@ export const StyledSelectedButtonWrapper = styled.div`
     align-items: center;
     
     flex:1 1 100%;
-    margin:24px;
-    @media (min-width: ${breakpoints.tablet}){
-        margin: 26.5px;
-    }
+    margin-top: 32px;;
+    
+    
     @media (min-width: ${breakpoints.desktop}){
         flex:1;
-        margin:0;
+        margin-top: 0px;;
     }
 `
 export const StyledSelectedButtonContainer = styled.div`

@@ -17,11 +17,13 @@ export const StyledProducts = styled.div`
 `
 export const StyledGrid = styled.div`
     display: grid;
-    margin: 64px 0;
+    margin: 84px 0 64px 0;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: auto;
     gap:48px 24px;
-
+    @media (min-width: ${breakpoints.desktop}){
+        margin: 64px 0;
+    }
     
 `
 
