@@ -8,7 +8,7 @@ import textStyles from "../commonStyles/text";
 export const StyledBrowse = styled.div`
     display: flex;
     justify-content: center;
-    height: 1716.16px;
+    height: 1535px;
     @media (min-width: ${breakpoints.tablet}){
         height: 771px;
     }
@@ -86,13 +86,14 @@ export const StyledWalkImage = styled(UnstyledNextImage)`
     left: calc((309px - 100% )/-2);
     @media (min-width: ${breakpoints.tablet}) {
         right:0;
-        left:0;
+        
         bottom:0;
         top:0;
         width:299px;
         height:500px;        
     }    
     @media (min-width: ${breakpoints.desktop}) {
+        left:0;
         width:508px;
         height:500px;
     }    
@@ -167,14 +168,23 @@ export const StyledTextArea = styled.div`
     }
 `
 export const StyledBackground = styled.div`
-    background: ${colors.specials.sectionBG};
+    background: ${colors.specials.illustrationBG};
     position: absolute;
-    left: calc((100% - min(100vw, 1920px))/2);
-    height: 656px;
-    width: 1920px;
-    bottom: -32px;
+    width: 100vw;
+    height: 1724px;
+    left: calc((100% - 100vw) /2);
+    top:-372px;
+    @media (min-width: ${breakpoints.tablet}){
+        background: ${colors.specials.sectionBG};
+        height: 656px;
+        bottom: -32px;
+        top: initial;
+        
+    }
     @media (min-width: ${breakpoints.desktop}){
         bottom: 0px;
         height: 528px;
+        width: 1920px;
+        left: calc((100% - min(100vw, 1920px))/2);
     }
 `

@@ -37,10 +37,12 @@ export const StyledColumns = styled.div`
 export const StyledPicture = styled(Picture)`
     flex:1;
     position: relative;
-    width: 580px;
-    height: 518.58px;
     pointer-events: none;
     
+    @media (min-width: ${breakpoints.tablet}){
+        width: 580px;
+        height: 518.58px;
+    }
     @media (min-width: ${breakpoints.desktop}){
         height:600px;
         min-width: 720px;
@@ -51,15 +53,18 @@ export const StyledPicture = styled(Picture)`
 `
 export const StyledPictureWrapper = styled.div`
     position: absolute;
-    display: none;
-    
-    
+    width: 580px;
+    height: 518.58px;
+    left: calc((580px - 100%)/-2);
+    top: -14px;
+    z-index: 4;
     @media (min-width: ${breakpoints.tablet}){
         display: block;
+        left:0px;
+        top: initial;
         width: 580px;
         height: 518.58px;
         bottom: -504px;
-        z-index: 4;
         object-fit: cover;
     }
     @media (min-width: ${breakpoints.desktop}){
@@ -152,7 +157,7 @@ export const StyledIconWrapper = styled(UnstyledNextImage)`
 
 export const StyledWaves = styled(Waves)`
     position:absolute;
-    align-self: flex-start;
+    left:0;
     z-index: -2; 
     width:1920px;
     height: 1600px;
@@ -164,8 +169,10 @@ export const StyledWavesWrapper = styled.div`
 export const StyledWavesOverflow = styled.div`
     width:1920px;
     height:1600px;
+    max-width: 100vw;
+    overflow:hidden;
     position: absolute;
-    right: 0;
+    left:calc(-50vw);     
     pointer-events: none;
     top: -135px;
     @media (min-width: ${breakpoints.desktop}){

@@ -8,7 +8,7 @@ function Waves({ className }: StyledProplessComponent): JSX.Element {
         function resize() {
             if (window.innerWidth >= 1920) setTotalArea(1400)
             else if (window.innerWidth >= 1024) setTotalArea(1050)
-            else setTotalArea(650)
+            else setTotalArea(950)
         }
         resize()
         window.addEventListener('resize', resize)

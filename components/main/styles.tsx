@@ -8,17 +8,19 @@ export const StyledMain = styled.div`
     justify-content: center;
     margin-bottom: 128px;
     @media (min-width: ${breakpoints.tablet}){
-        margin: 0 80px;
         margin-bottom: 160px;   
+    }
+    @media (min-width: ${breakpoints.tablet}){
+        margin: 0 80px;
     }
     
 `
 export const StyledMainWrapper = styled.div`
     @media (min-width: ${breakpoints.tablet}) {
-        max-width: 980px;
+        min-width: 980px;
     }
     @media (min-width: ${breakpoints.desktop}){
-        max-width: 1464px;
+        min-width: 1464px;
     }
     
 `

@@ -91,6 +91,7 @@ export const StyledSelectedButtonWrapper = styled.div`
     position: relative;
     display: flex;
     align-items: center;
+    
     flex:1 1 100%;
     margin:24px;
     @media (min-width: ${breakpoints.tablet}){
@@ -106,6 +107,7 @@ export const StyledSelectedButtonContainer = styled.div`
     display: flex;
     gap: 10px;
     align-items: center;
+    overflow: hidden;
     max-width: 100vw;
     @media (min-width: ${breakpoints.desktop}) {
         flex:1;
