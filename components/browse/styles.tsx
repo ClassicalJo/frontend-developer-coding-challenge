@@ -21,7 +21,7 @@ export const StyledBrowseWrapper = styled.div`
     flex:1;
     position: relative;
     height: 477px;
-    margin-top: 147px;
+    margin-top: 180px;
     @media (min-width: ${breakpoints.tablet}){
         max-width: 980px;
     }
@@ -47,7 +47,7 @@ export const StyledCard = styled.div`
     box-shadow: 0px 2px 40px rgba(0, 0, 0, 0.05);
     border: solid 1px ${colors.neutrals["300"]};
     border-radius: 35px;
-    background-color: white;
+    background: rgba(255, 255, 255, 0.7);
     display: flex;
     flex:1;
     flex-direction: column;
@@ -55,6 +55,7 @@ export const StyledCard = styled.div`
     position: relative;
     padding: 12px; 
     @media (min-width: ${breakpoints.desktop}){
+        background-color: white;
         top: -170px;
         height:680px;
         min-width:532px;

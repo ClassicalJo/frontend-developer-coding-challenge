@@ -49,11 +49,13 @@ export default function Hero({ onClick }: AppProps): JSX.Element {
                 </StyledProductButton>
             </StyledTextArea>
             <StyledPicture >
-                <StyledPictureWrapper>
-                    <Image src={heroDesktop} width={1080} height={1080} objectFit='cover' />
-                </StyledPictureWrapper>
+                <StyledPictureWrapper
+                    src={heroDesktop}
+                    width={1080}
+                    height={1080}
+                    objectFit='cover'
+                />
             </StyledPicture>
-
         </StyledColumns>
     )
 }

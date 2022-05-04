@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import Picture from "./Picture"
 import Explore from "./Explore"
 import Zone from "./Zone"
 import Subtitle from "./Subtitle"
@@ -34,14 +33,22 @@ export const StyledColumns = styled.div`
         text-align: left;
     }
 `
-export const StyledPicture = styled(Picture)`
+export const StyledPicture = styled.div`
     flex:1;
-    position: relative;
+    position: absolute;
     pointer-events: none;
-    
+    top: 636px;
+    width: 100%;
+    height: 600px;
+    min-height:600px;
+    overflow: hidden;
     @media (min-width: ${breakpoints.tablet}){
+        position: relative;
+        overflow: visible;
+        top:initial;
         width: 580px;
         height: 518.58px;
+        min-height: initial;
     }
     @media (min-width: ${breakpoints.desktop}){
         height:600px;
@@ -51,7 +58,7 @@ export const StyledPicture = styled(Picture)`
         box-shadow: 0px 2px 40px rgba(0, 0, 0, 0.05);
     }
 `
-export const StyledPictureWrapper = styled.div`
+export const StyledPictureWrapper = styled(UnstyledNextImage)`
     position: absolute;
     width: 580px;
     height: 518.58px;
