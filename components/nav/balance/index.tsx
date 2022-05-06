@@ -17,8 +17,9 @@ import UserCard from './UserCard';
 interface AppProps {
     userData: EffectUserData;
     refreshUserData: () => void;
+    addToast: (isError: Boolean, message: string) => void;
 }
-export default function Balance({ userData, refreshUserData }: AppProps): JSX.Element {
+export default function Balance({ userData, refreshUserData, addToast }: AppProps): JSX.Element {
     let { show, hide, toggle, firstRender } = useShow(500)
     if (!userData) return (
         <StyledBalanceWrapper>
@@ -32,7 +33,12 @@ export default function Balance({ userData, refreshUserData }: AppProps): JSX.El
     return (
         <StyledBalanceWrapper >
             <StyledBalance onClick={toggle} tabIndex={0} onKeyDown={keyDown(toggle)}>
-                {show && <UserCard hide={hide} refreshUserData={refreshUserData} userData={userData} />}
+                {show && <UserCard
+                    hide={hide}
+                    addToast={addToast}
+                    refreshUserData={refreshUserData}
+                    userData={userData}
+                />}
                 <StyledBalanceLogo>
                     <Image src={aeropay1} width={32} height={32} />
                 </StyledBalanceLogo>

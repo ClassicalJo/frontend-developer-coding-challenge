@@ -2,8 +2,6 @@ import { SyntheticEvent, useState } from "react"
 import { UserData, ValidCharge } from "../../types";
 import {
     StyledUserCardContainer,
-    StyledUserCardPointsButton,
-    StyledUserCardPointsButtonIcon,
     StyledUserCardPointsWrapper,
     StyledUserCardSection,
     StyledUserCardPointsSelectWrapper,
@@ -20,17 +18,22 @@ interface AppProps {
     hide: Boolean;
     userData: UserData;
     refreshUserData: () => void;
+    addToast: (isError: Boolean, message: string) => void;
 }
-export default function UserCard({ hide, userData, refreshUserData }: AppProps): JSX.Element {
+export default function UserCard({ hide, userData, refreshUserData, addToast }: AppProps): JSX.Element {
     let [currentCharge, setCurrentCharge] = useState<ValidCharge>(1000)
     let [loading, setLoading] = useState<Boolean>(false)
     let selectValues: ValidCharge[] = [1000, 5000, 7500]
-
+    function successfulCharge(charge: number) {
+        refreshUserData()
+        addToast(false, charge + " Aeropoints")
+    }
     function chargePoints() {
+        let charge = currentCharge
         setLoading(true)
-        fetchPoints(currentCharge)
-            .then(() => refreshUserData())
-            .catch(err => console.log("This is where the error label should trigger", err))
+        fetchPoints(charge)
+            .then(() => successfulCharge(charge))
+            .catch(err => addToast(true, "There was a problem with the transaction"))
             .finally(() => setLoading(false))
     }
     return (

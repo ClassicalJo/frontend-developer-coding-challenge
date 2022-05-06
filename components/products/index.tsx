@@ -11,18 +11,20 @@ interface AppProps {
     products: ProductsData
     userData: EffectUserData
     refreshUserData: () => void;
+    addToast: (isError: Boolean, message: string) => void;
 }
-const Products = React.forwardRef<HTMLDivElement, AppProps>(({ products, userData, refreshUserData }: AppProps, ref) => {
+const Products = React.forwardRef<HTMLDivElement, AppProps>(({ products, userData, refreshUserData, addToast }: AppProps, ref) => {
     let { products: filteredProducts, startingIndex, endIndex, ...filterProps } = useFilter(products)
     let { changePage, totalPages, currentPage, productsPerPage } = filterProps
     let slicedProducts = filteredProducts.slice(startingIndex, endIndex)
-    let redeemItem = (productId: string) => new Promise<void>(async (resolve, reject) => {
+    let redeemItem = (productId: string, name: string) => new Promise<void>(async (resolve, reject) => {
         try {
             await fetchRedeem(productId)
             refreshUserData()
+            addToast(false, name)
             resolve()
         } catch (error) {
-            console.log("This is where we handle the error message")
+            addToast(true, "There was a problem with the transaction")
             reject()
         }
     })
@@ -43,7 +45,7 @@ const Products = React.forwardRef<HTMLDivElement, AppProps>(({ products, userDat
                         key={`productCard${i}`}
                         userData={userData}
                         product={k}
-                        redeem={() => redeemItem(k._id)}
+                        redeem={() => redeemItem(k._id, k.name)}
                     />
                 ))}
             </StyledGrid>

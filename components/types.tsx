@@ -50,6 +50,6 @@ export interface CardElement {
 }
 
 export interface ToastElement {
-    isError: boolean;
+    isError: Boolean;
     message: string;
 }
