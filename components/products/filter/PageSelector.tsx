@@ -13,12 +13,14 @@ interface AppProps {
 export default function PageSelector({ className, changePage, totalPages, currentPage }: AppProps): JSX.Element {
     let leftDisabled = currentPage === 0
     let rightDisabled = currentPage + 1 >= totalPages
+    let pageUp = () => changePage(1)
+    let pageDown = () => changePage(-1)
     return (
         <div className={className}>
             <StyledPageButtonWrapper
-                tabIndex={0}
-                onClick={() => changePage(-1)}
-                onKeyDown={keyDown(() => changePage(-1))}
+                tabIndex={leftDisabled ? -1 : 0}
+                onClick={pageDown}
+                onKeyDown={keyDown(pageDown)}
                 disabled={leftDisabled}
             >
                 <StyledPageButtonLeft
@@ -30,10 +32,10 @@ export default function PageSelector({ className, changePage, totalPages, curren
                 {` of ${totalPages}`}
             </StyledPageText>
             <StyledPageButtonWrapper
-                tabIndex={0}
+                tabIndex={rightDisabled ? -1 : 0}
                 disabled={rightDisabled}
-                onClick={() => changePage(1)}
-                onKeyDown={keyDown(() => changePage(-1))}>
+                onClick={pageUp}
+                onKeyDown={keyDown(pageUp)}>
                 <StyledPageButtonRight
                     src={rightDisabled ? chevronDisabled : chevron}
                 />
