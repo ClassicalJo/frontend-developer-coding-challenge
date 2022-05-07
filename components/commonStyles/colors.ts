@@ -9,8 +9,8 @@ const colors = {
         "0": "#FFF"
     },
     brand: {
-        default: "linear-gradient(120deg, #176FEB 0%, #FF80FF 100%)",
-        hover: "linear-gradient(120deg, #1667D9 0%, #FF80FF 100%)",
+        default: "linear-gradient(102.47deg, #176FEB -5.34%, #FF80FF 106.58%);",
+        hover: "linear-gradient(102.47deg, #1667D9 -5.34%, #F279F2 106.58%);",
         light: "#E5F0FF",
         light2: "#CCE1FF",
     },
@@ -23,9 +23,9 @@ const colors = {
         light: "#FFDFD9",
     },
     specials: {
-        illustrationBG: "linear-gradient(120deg, #7296EB 0%, #EAC0E9 100%)",
-        sectionBG: "linear-gradient(120deg, rgba(23,111,235,.5) 0%, rgba(255,128,255,.5) 100%)",
-        aerolab: "linear-gradient(120deg, #FF8800 0%, #FF6600 100%)",
+        illustrationBG: "linear-gradient(102.47deg, #7296EB -5.34%, #EAC0E9 106.58%, #EAC0E9 106.58%);",
+        sectionBG: "linear-gradient(102.47deg, rgba(23, 111, 235, 0.5) -5.34%, rgba(255, 128, 255, 0.5) 106.58%);",
+        aerolab: "linear-gradient(180deg, #FF8800 0%, #FF6600 100%);",
     }
 
 }
