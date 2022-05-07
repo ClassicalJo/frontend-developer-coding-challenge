@@ -52,4 +52,5 @@ export interface CardElement {
 export interface ToastElement {
     isError: Boolean;
     message: string;
+    item?: string;
 }

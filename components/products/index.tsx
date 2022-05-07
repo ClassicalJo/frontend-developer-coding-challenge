@@ -11,9 +11,10 @@ interface AppProps {
     products: ProductsData
     userData: EffectUserData
     refreshUserData: () => void;
-    addToast: (isError: Boolean, message: string) => void;
+    successToast: (item: string) => void;
+    errorToast: () => void;
 }
-const Products = React.forwardRef<HTMLDivElement, AppProps>(({ products, userData, refreshUserData, addToast }: AppProps, ref) => {
+const Products = React.forwardRef<HTMLDivElement, AppProps>(({ products, userData, refreshUserData, errorToast, successToast }: AppProps, ref) => {
     let { products: filteredProducts, startingIndex, endIndex, ...filterProps } = useFilter(products)
     let { changePage, totalPages, currentPage, productsPerPage } = filterProps
     let slicedProducts = filteredProducts.slice(startingIndex, endIndex)
@@ -21,10 +22,10 @@ const Products = React.forwardRef<HTMLDivElement, AppProps>(({ products, userDat
         try {
             await fetchRedeem(productId)
             refreshUserData()
-            addToast(false, name)
+            successToast(name)
             resolve()
         } catch (error) {
-            addToast(true, "There was a problem with the transaction")
+            errorToast()
             reject()
         }
     })

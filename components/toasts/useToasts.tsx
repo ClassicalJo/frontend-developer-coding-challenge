@@ -3,7 +3,22 @@ import { ToastElement } from "../types";
 
 export default function useToasts() {
     let [toasts, setToasts] = useState<ToastElement[]>([])
-    let createToast = (isError: Boolean, message: string): ToastElement => ({ isError, message })
-    let addToast = (isError: Boolean, message: string) => setToasts([...toasts, createToast(isError, message)])
-    return { toasts, addToast }
+    let [hide, setHide] = useState<Boolean>(true)
+    let createToast = (isError: Boolean, item: string, message: string,): ToastElement => ({ isError, message, item })
+    function addToast(isError: Boolean, item: string, message: string,) {
+        setToasts([...toasts, createToast(isError, item, message)])
+        setHide(false)
+    }
+
+    function errorToast() {
+        addToast(true, "", "There was a problem with the transaction")
+    }
+    function successToast(item: string) {
+        addToast(false, item, " was redeemed successfully",)
+    }
+    useEffect(() => {
+        let timeout = setTimeout(() => setHide(true), 6000)
+        return () => clearTimeout(timeout)
+    }, [toasts])
+    return { toasts, hide, errorToast, successToast }
 }

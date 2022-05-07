@@ -1,13 +1,19 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import breakpoints from "../breakpoints";
 import colors from "../commonStyles/colors";
 import mixins from "../commonStyles/mixins";
 import UnstyledNextImage from "../commonStyles/StyledNextImage";
 import textStyles from "../commonStyles/text";
-import ErrorToast from "./ErrorToast";
-import Toast from "./Toast";
 
-export const StyledToastsContainer = styled.div`
+interface ToastContainerProps {
+    hide: Boolean;
+}
+export const StyledToastsContainer = styled.div<ToastContainerProps>`
+    ${props => {
+        if (props.hide) return `
+        animation: colorBackground 2s reverse forwards;
+        `
+    }}
     position:fixed;
     bottom: 0;
     z-index: 20;
@@ -19,11 +25,16 @@ export const StyledToastsContainer = styled.div`
     flex-direction: column;
     gap:12px;
     @media (min-width: ${breakpoints.tablet}){
-        
         margin: 0px 8px 40px 80px ;
     }
 `
-let commonToastStyles = css`
+
+interface ToastProps {
+    first: Boolean;
+    display: Boolean;
+    error: Boolean;
+}
+export const StyledToast = styled.div<ToastProps>`
     ${textStyles.withQuery(
     textStyles.desktop.texts.l1.default,
     textStyles.mobile.texts.l1.default)}
@@ -32,34 +43,25 @@ let commonToastStyles = css`
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
     border-radius: 12px;
     display:flex;
+    position: relative;
     align-items: center;
     gap: 14.25px;
     padding:24px;
-`
-let animatedToast = css`
-    animation: colorBackground 1s;
-`
-interface ToastProps {
-    isFirst: Boolean;
-    display: Boolean;
-}
-export const StyledToast = styled(Toast) <ToastProps>`
-    ${commonToastStyles};
-    border: 2px solid #29CC74;
+    
     ${props => {
-        if (!props.display) return `display: none`
-        else if (props.isFirst) return animatedToast
+        if (!props.display) return `display: none;`
+        else if (props.first) return `animation: colorBackground 1s;`
+    }}
+    ${props => {
+        if (props.error) return `
+            border: 2px solid ${colors.red.default};
+        `
+        else return `
+            border: 2px solid ${colors.green.default};        
+        `
     }}
 `
 
-export const StyledErrorToast = styled(ErrorToast) <ToastProps>`
-    ${commonToastStyles};
-    border: 2px solid #E07F4F;
-    ${props => {
-        if (!props.display) return `display: none`
-        else if (props.isFirst) return animatedToast
-    }}
-`
 export const StyledText = styled.span`
     color: ${colors.neutrals['900']};
 `
@@ -94,4 +96,5 @@ export const StyledIconCross = styled(UnstyledNextImage)`
     position: absolute;
     top:0;
     right:0;
+    cursor: pointer;
 `

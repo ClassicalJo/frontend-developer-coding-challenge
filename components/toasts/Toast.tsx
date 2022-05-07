@@ -1,23 +1,36 @@
 import { StaticImageData } from "next/image";
-import { StyledIcon, StyledIconCross, StyledIconAndText, StyledText, StyledTextArea } from "./styles";
+import { useState } from "react";
+import keyDown from "../keyDown";
+import { ToastElement } from "../types";
+import { StyledIcon, StyledIconCross, StyledIconAndText, StyledText, StyledTextArea, StyledToast } from "./styles";
 
 interface AppProps {
     className?: string;
-    item: string;
+    toast: ToastElement;
+    first: Boolean;
     icon: StaticImageData;
     crossActive: StaticImageData;
     crossDefault: StaticImageData;
+    display: Boolean;
 }
-export default function Toast({ item, className, icon, crossActive, crossDefault }: AppProps): JSX.Element {
+export default function Toast({ toast, icon, first, crossActive, display, crossDefault }: AppProps): JSX.Element {
+    let [shouldDisplay, setShouldDisplay] = useState<Boolean>(true)
     return (
-        <div className={className}>
+        <StyledToast first={first} display={display && shouldDisplay} error={toast.isError}>
             <StyledIconAndText>
                 <StyledIcon src={icon} width={32} height={32} />
                 <StyledTextArea>
-                    <p><StyledText>{item}</StyledText>{" redeemed successfully"}</p>
+                    <p><StyledText>{toast.item}</StyledText>{toast.message}</p>
                 </StyledTextArea>
-                <StyledIconCross src={crossDefault} width={23} height={23} />
+                <StyledIconCross
+                    tabIndex={0}
+                    src={crossDefault}
+                    width={23}
+                    height={23}
+                    onClick={() => setShouldDisplay(false)}
+                    onKeyDown={keyDown(() => setShouldDisplay(false))}
+                />
             </StyledIconAndText>
-        </div>
+        </StyledToast>
     )
 }

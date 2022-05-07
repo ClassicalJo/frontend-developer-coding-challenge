@@ -22,13 +22,13 @@ export default function Main({ productsData, initialUserData }: AppProps): JSX.E
         let data = await res.json()
         setUserData(data)
     }, [])
-    
-    let { toasts, addToast } = useToasts()
+
+    let { toasts, hide, successToast, errorToast } = useToasts()
     return (
         <main>
             <StyledMain>
                 <StyledMainWrapper>
-                    <NavBar userData={userData} refreshUserData={fetchUser} addToast={addToast} />
+                    <NavBar userData={userData} refreshUserData={fetchUser} successToast={successToast} errorToast={errorToast} />
                     <Hero onClick={scrollToProducts} />
                     <Browse />
                     <Products
@@ -36,10 +36,11 @@ export default function Main({ productsData, initialUserData }: AppProps): JSX.E
                         products={productsData}
                         userData={userData}
                         refreshUserData={fetchUser}
-                        addToast={addToast}
+                        successToast={successToast}
+                        errorToast={errorToast}
                     />
                 </StyledMainWrapper>
-                <Toasts toasts={toasts} />
+                <Toasts toasts={toasts} hide={hide} />
             </StyledMain>
         </main>
     )

@@ -18,22 +18,23 @@ interface AppProps {
     hide: Boolean;
     userData: UserData;
     refreshUserData: () => void;
-    addToast: (isError: Boolean, message: string) => void;
+    successToast: (item: string) => void;
+    errorToast: () => void;
 }
-export default function UserCard({ hide, userData, refreshUserData, addToast }: AppProps): JSX.Element {
+export default function UserCard({ hide, userData, refreshUserData, successToast, errorToast }: AppProps): JSX.Element {
     let [currentCharge, setCurrentCharge] = useState<ValidCharge>(1000)
     let [loading, setLoading] = useState<Boolean>(false)
     let selectValues: ValidCharge[] = [1000, 5000, 7500]
     function successfulCharge(charge: number) {
         refreshUserData()
-        addToast(false, charge + " Aeropoints")
+        successToast(charge + " Aeropoints package")
     }
     function chargePoints() {
         let charge = currentCharge
         setLoading(true)
         fetchPoints(charge)
             .then(() => successfulCharge(charge))
-            .catch(err => addToast(true, "There was a problem with the transaction"))
+            .catch(() => errorToast())
             .finally(() => setLoading(false))
     }
     return (

@@ -6,13 +6,19 @@ import Balance from './balance'
 interface AppProps {
     userData: EffectUserData;
     refreshUserData: () => void;
-    addToast: (isError: Boolean, message: string) => void;
+    successToast: (item: string) => void;
+    errorToast: () => void;
 }
-export default function NavBar({ userData, refreshUserData, addToast }: AppProps): JSX.Element {
+export default function NavBar({ userData, refreshUserData, successToast, errorToast }: AppProps): JSX.Element {
     return (
         <StyledNavBar >
             <Logo />
-            <Balance userData={userData} refreshUserData={refreshUserData} addToast={addToast} />
+            <Balance
+                userData={userData}
+                refreshUserData={refreshUserData}
+                successToast={successToast}
+                errorToast={errorToast}
+            />
         </StyledNavBar>
 
     )
