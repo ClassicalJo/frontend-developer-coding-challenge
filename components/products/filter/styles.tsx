@@ -78,14 +78,14 @@ export const StyledSelectedButtonWrapper = styled.div`
     position: relative;
     display: flex;
     align-items: center;
-    
+    height:20px;
+    overflow: hidden;
     flex:1 1 100%;
     margin-top: 32px;;
-    
-    
+    height:45px;
     @media (min-width: ${breakpoints.desktop}){
         flex:1;
-        margin-top: 0px;;
+        margin-top: 0px;
     }
 `
 export const StyledSelectedButtonContainer = styled.div`
@@ -93,15 +93,14 @@ export const StyledSelectedButtonContainer = styled.div`
     display: flex;
     gap: 10px;
     align-items: center;
-    overflow: hidden;
-    max-width: 100vw;
+
     @media (min-width: ${breakpoints.desktop}) {
         flex:1;
     }
 `
 
 interface SelectedButton {
-    selected: boolean;
+    selected: Boolean;
 }
 
 export const StyledSelectedButton = styled.div`
