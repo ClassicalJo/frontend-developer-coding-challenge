@@ -8,6 +8,7 @@ export default createGlobalStyle`
         margin: 0;
         padding: 0;
         box-sizing:border-box;   
+        -webkit-tap-highlight-color: rgba(255,255,255,0);
     }
     #root{
         margin:0 auto;
