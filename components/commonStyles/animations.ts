@@ -97,4 +97,5 @@ export const colorBackground30 = css`
         }
     }
 `
-export default { expandUserCard, shrinkUserCard, appear, disappear, colorBackground, colorBackground30 }
+const animations = { expandUserCard, shrinkUserCard, appear, disappear, colorBackground, colorBackground30 }
+export default animations
