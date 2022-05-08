@@ -1,4 +1,4 @@
-import { Dispatch, SyntheticEvent } from "react";
+import { Dispatch, MouseEvent, SyntheticEvent, TouchEvent } from "react";
 import { FilterMethod, SortMethod } from "../../types";
 import PageSelector from "./PageSelector";
 import SelectionButton from "./SelectionButton";
@@ -14,6 +14,7 @@ import {
     StyledSelectedButtonWrapper,
     StyledVerticalSeparator
 } from './styles'
+import useTouch from "./useTouch";
 
 interface AppProps {
     sortMethod: SortMethod;
@@ -25,6 +26,7 @@ interface AppProps {
     currentPage: number;
 }
 export default function FilterBar({ changePage, sortMethod, setSortMethod, setFilterMethod, totalPages, currentPage, setCurrentPage }: AppProps): JSX.Element {
+    let { start, reset, calcDif, offsetX, startDrag, endDrag, drag, goToMin } = useTouch()
     let onClick = (sortMethod: SortMethod) => {
         setSortMethod(sortMethod)
         setCurrentPage(0)
@@ -34,10 +36,10 @@ export default function FilterBar({ changePage, sortMethod, setSortMethod, setFi
         setFilterMethod(value as FilterMethod)
         setCurrentPage(0)
     }
-
+    let onFocus = () => goToMin()
     let methods: FilterMethod[] = ['All products', 'Gaming', 'Audio', 'Smart Home', 'Monitors & TV']
     return (
-        <StyledFilterBar>
+        <StyledFilterBar >
             <StyledFilterBarContainer>
                 <StyledFilterText>Filter by: </StyledFilterText>
                 <StyledFilterSelectWrapper>
@@ -54,7 +56,15 @@ export default function FilterBar({ changePage, sortMethod, setSortMethod, setFi
                 </StyledFilterSelectWrapper>
                 <StyledVerticalSeparator />
                 <StyledSelectedButtonWrapper>
-                    <StyledSelectedButtonContainer>
+                    <StyledSelectedButtonContainer
+                        onTouchStart={(e: TouchEvent) => start(e.touches[0].clientX)}
+                        onTouchMove={(e: TouchEvent) => calcDif(e.touches[0].clientX)}
+                        onTouchEnd={reset}
+                        onMouseDown={(e: MouseEvent) => startDrag(e.pageX)}
+                        onMouseMove={(e: MouseEvent) => drag(e.pageX)}
+                        onMouseUp={endDrag}
+
+                        offsetX={offsetX}>
                         <StyledFilterText>Sort by: </StyledFilterText>
                         <SelectionButton
                             text="Most Recent"
@@ -73,6 +83,7 @@ export default function FilterBar({ changePage, sortMethod, setSortMethod, setFi
                             method="highest-price"
                             current={sortMethod}
                             onClick={onClick}
+                            onFocus={onFocus}
                         />
                     </StyledSelectedButtonContainer>
                 </StyledSelectedButtonWrapper>
