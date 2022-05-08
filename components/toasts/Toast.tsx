@@ -13,7 +13,7 @@ interface AppProps {
     crossDefault: StaticImageData;
     show: Boolean;
 }
-export default function Toast({ toast, icon, first, crossActive, show, crossDefault }: AppProps): JSX.Element {
+export default function Toast({ toast, icon, first, show }: AppProps): JSX.Element {
     let [shouldDisplay, setShouldDisplay] = useState<Boolean>(true)
     return (
         <StyledToast first={first} show={show && shouldDisplay} error={toast.isError}>
