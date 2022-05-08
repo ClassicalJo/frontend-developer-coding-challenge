@@ -31,7 +31,7 @@ export const StyledToastsContainer = styled.div<ToastContainerProps>`
 
 interface ToastProps {
     first: Boolean;
-    display: Boolean;
+    show: Boolean;
     error: Boolean;
 }
 export const StyledToast = styled.div<ToastProps>`
@@ -49,7 +49,7 @@ export const StyledToast = styled.div<ToastProps>`
     padding:24px;
     
     ${props => {
-        if (!props.display) return `display: none;`
+        if (!props.show) return `display: none;`
         else if (props.first) return `animation: colorBackground 1s;`
     }}
     ${props => {

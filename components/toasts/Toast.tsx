@@ -11,22 +11,28 @@ interface AppProps {
     icon: StaticImageData;
     crossActive: StaticImageData;
     crossDefault: StaticImageData;
-    display: Boolean;
+    show: Boolean;
 }
-export default function Toast({ toast, icon, first, crossActive, display, crossDefault }: AppProps): JSX.Element {
+export default function Toast({ toast, icon, first, crossActive, show, crossDefault }: AppProps): JSX.Element {
     let [shouldDisplay, setShouldDisplay] = useState<Boolean>(true)
     return (
-        <StyledToast first={first} display={display && shouldDisplay} error={toast.isError}>
+        <StyledToast first={first} show={show && shouldDisplay} error={toast.isError}>
             <StyledIconAndText>
-                <StyledIcon src={icon} width={32} height={32} />
+                <StyledIcon
+                    src={icon}
+                    width={32}
+                    height={32}
+                    priority={true}
+                />
                 <StyledTextArea>
                     <p><StyledText>{toast.item}</StyledText>{toast.message}</p>
                 </StyledTextArea>
                 <StyledIconCross
                     tabIndex={0}
-                    src={crossDefault}
+                    src={'/cross-default.svg'}
                     width={23}
                     height={23}
+                    priority={true}
                     onClick={() => setShouldDisplay(false)}
                     onKeyDown={keyDown(() => setShouldDisplay(false))}
                 />
