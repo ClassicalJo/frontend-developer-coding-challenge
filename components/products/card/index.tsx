@@ -1,14 +1,11 @@
 import { EffectUserData, Product, UserData } from "../../types"
 import aeropay1 from '../../../assets/icons/aeropay-1-custom.svg'
 import aeropay3 from '../../../assets/icons/aeropay-3.svg'
-import aerolab from '../../../assets/icons/aerolab-logo-2.svg'
 import Button from "./Button"
 
 import {
-    StyledButtonZone,
     StyledImageZone,
     StyledProductCard,
-    StyledProductPicture,
     StyledProductSubtitle,
     StyledProductTitle,
     StyledTextZone
