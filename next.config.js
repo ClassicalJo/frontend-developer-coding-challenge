@@ -6,7 +6,8 @@ const nextConfig = {
   },
   images: {
     domains: ["coding-challenge-api.aerolab.co"]
-  }
+  },
+  optimizeFonts: false
 }
 
 module.exports = nextConfig
