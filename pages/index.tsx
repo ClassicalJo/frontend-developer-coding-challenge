@@ -3,7 +3,6 @@ import { ProductsData, UserData } from '../components/types';
 import Head from 'next/head'
 import GlobalStyles from '../components/globalStyles';
 import Main from '../components/main'
-import fetchData from '../components/fetchData'
 import authHeader from '../components/authHeader';
 import Footer from '../components/footer';
 
@@ -16,7 +15,7 @@ const Home: NextPage<AppProps> = ({ productsData, userData }) => {
   return (
     <div >
       <Head>
-        <title>Create Next App</title>
+        <title>Aerolab Challenge</title>
       </Head>
       <GlobalStyles />
       <Main
