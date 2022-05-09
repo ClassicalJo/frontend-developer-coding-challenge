@@ -1,17 +1,17 @@
-import { useCallback, useState, useRef } from "react"
+import { useCallback, useState, useRef, Suspense } from "react"
 import Hero from "../hero"
 import { Product, UserData } from "../types"
 import { StyledMain, StyledMainWrapper } from "./styles"
 import NavBar from "../nav"
-import Browse from "../browse"
-import Products from "../products"
 import Toasts from "../toasts"
 import useToasts from "../toasts/useToasts"
-
+import dynamic from 'next/dynamic'
 interface AppProps {
     productsData: Product[];
     initialUserData: UserData
 }
+const DynamicBrowse = dynamic(() => import('../browse'), { ssr: false })
+const DynamicProducts = dynamic(() => import('../products'), { ssr: false })
 
 export default function Main({ productsData, initialUserData }: AppProps): JSX.Element {
     let [userData, setUserData] = useState<UserData>(initialUserData)
@@ -30,15 +30,19 @@ export default function Main({ productsData, initialUserData }: AppProps): JSX.E
                 <StyledMainWrapper>
                     <NavBar userData={userData} refreshUserData={fetchUser} successToast={successToast} errorToast={errorToast} />
                     <Hero onClick={scrollToProducts} />
-                    <Browse />
-                    <Products
-                        ref={ref}
-                        products={productsData}
-                        userData={userData}
-                        refreshUserData={fetchUser}
-                        successToast={successToast}
-                        errorToast={errorToast}
-                    />
+                    <Suspense fallback="loading Browse">
+                        <DynamicBrowse />
+                    </Suspense>
+                    <Suspense fallback="loading products">
+                        <DynamicProducts
+                            ref={ref}
+                            products={productsData}
+                            userData={userData}
+                            refreshUserData={fetchUser}
+                            successToast={successToast}
+                            errorToast={errorToast}
+                        />
+                    </Suspense>
                 </StyledMainWrapper>
                 <Toasts toasts={toasts} hide={hide} />
             </StyledMain>
