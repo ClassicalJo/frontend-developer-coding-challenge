@@ -16,12 +16,19 @@ export default function Logo(): JSX.Element {
     switch (showDesktopLogo) {
         case true: return (
             <StyledLink href="https://aerolab.us/">
-                <Image src={aerolabLogo1} alt="Aerolab logo, a flying kite" />
+                <Image
+                    width={aerolabLogo1.width}
+                    height={aerolabLogo1.height}
+                    src={aerolabLogo1}
+                    alt="Aerolab logo, a flying kite" />
             </StyledLink>
         )
         default: return (
             <StyledLink href="https://aerolab.us/">
-                <Image src={aerolabLogo2} alt="Aerolab logo, a flying kite"/>
+                <Image
+                    width={aerolabLogo2.width}
+                    height={aerolabLogo2.height}
+                    src={aerolabLogo2} alt="Aerolab logo, a flying kite" />
             </StyledLink>
         )
     }
