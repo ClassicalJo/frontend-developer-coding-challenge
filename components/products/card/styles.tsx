@@ -34,7 +34,7 @@ export const StyledButtonZone = styled.div`
 
 export const StyledProductPicture = styled(UnstyledNextImage)`
     position: absolute;
-    border-bottom: 1px solid ${colors.neutrals["300"]};
+    
     width: 280px;
     height: 204px;
 `
@@ -118,6 +118,6 @@ export const StyledPlaceholder = styled(Placeholder)`
 export const StyledPictureContainer = styled.div`
     min-height: 345px;
     ${mixins.centerDiv}
-    
+    border-bottom: 1px solid ${colors.neutrals["300"]};
     
 `
