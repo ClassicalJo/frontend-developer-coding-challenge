@@ -61,4 +61,5 @@ const Products = React.forwardRef<HTMLDivElement, AppProps>(({ products, userDat
         </StyledProducts>
     )
 })
+Products.displayName="Products"
 export default Products
