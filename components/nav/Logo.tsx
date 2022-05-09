@@ -1,35 +1,29 @@
-import { useEffect, useState } from 'react'
-import Image from 'next/image'
+
+import Image, { StaticImageData } from 'next/image'
+import { useCallback, useEffect, useState } from 'react'
 import aerolabLogo1 from '../../assets/icons/aerolab-logo-1.svg'
 import aerolabLogo2 from '../../assets/icons/aerolab-logo-2.svg'
 import { StyledLink } from './styles'
 
 export default function Logo(): JSX.Element {
-    let isDesktop = (): Boolean => window.innerWidth >= 1920
-    let [showDesktopLogo, setShowDesktopLogo] = useState<Boolean>(true)
+    let isDesktop = useCallback(() => window.innerWidth >= 1920, [])
+    let [src, setSrc] = useState<StaticImageData>(isDesktop() ? aerolabLogo1 : aerolabLogo2)
     useEffect(() => {
-        let resizeLogo = () => setShowDesktopLogo(isDesktop())
-        window.addEventListener('resize', resizeLogo)
-        resizeLogo()
-        return () => window.removeEventListener('resize', resizeLogo)
-    }, [])
-    switch (showDesktopLogo) {
-        case true: return (
-            <StyledLink href="https://aerolab.us/">
-                <Image
-                    width={aerolabLogo1.width}
-                    height={aerolabLogo1.height}
-                    src={aerolabLogo1}
-                    alt="Aerolab logo, a flying kite" />
-            </StyledLink>
-        )
-        default: return (
-            <StyledLink href="https://aerolab.us/">
-                <Image
-                    width={aerolabLogo2.width}
-                    height={aerolabLogo2.height}
-                    src={aerolabLogo2} alt="Aerolab logo, a flying kite" />
-            </StyledLink>
-        )
-    }
+        function resize() {
+            if (isDesktop() && src !== aerolabLogo1) setSrc(aerolabLogo1)
+            else if (!isDesktop() && src !== aerolabLogo2) setSrc(aerolabLogo2)
+        }
+        resize()
+        window.addEventListener('resize', resize)
+        return () => window.removeEventListener('resize', resize)
+    }, [isDesktop])
+    return (
+        <StyledLink href="https://aerolab.us/">
+            <Image
+                width={src.width}
+                height={src.height}
+                src={src}
+                alt="Aerolab logo, a flying kite" />
+        </StyledLink>
+    )
 }

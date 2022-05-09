@@ -1,8 +1,9 @@
-import Logo from './Logo'
 import { StyledNavBar } from './styles'
 import { UserData } from '../types'
-import Balance from './balance'
+import dynamic from 'next/dynamic'
 
+const DynamicBalance = dynamic(() => import('./balance'), { ssr: false })
+const DynamicLogo = dynamic(() => import('./Logo'), { ssr: false })
 interface AppProps {
     userData: UserData;
     refreshUserData: () => void;
@@ -12,8 +13,8 @@ interface AppProps {
 export default function NavBar({ userData, refreshUserData, successToast, errorToast }: AppProps): JSX.Element {
     return (
         <StyledNavBar >
-            <Logo />
-            <Balance
+            <DynamicLogo />
+            <DynamicBalance
                 userData={userData}
                 refreshUserData={refreshUserData}
                 successToast={successToast}
