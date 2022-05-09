@@ -1,11 +1,11 @@
 import { StaticImageData } from "next/image";
 import { useState } from "react";
 import keyDown from "../../keyDown";
-import { EffectUserData } from "../../types";
+import { UserData } from "../../types";
 import { StyledButtonIcon, StyledProductButton, StyledProductProcessing, StyledProductUnavailable } from "./styles";
 
 interface AppProps {
-    userData: EffectUserData;
+    userData: UserData;
     availableIcon: StaticImageData;
     unavailableIcon: StaticImageData;
     cost: number;

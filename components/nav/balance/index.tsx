@@ -2,7 +2,7 @@ import Image from 'next/image'
 import aeropay1 from '../../../assets/icons/aeropay-1.svg'
 import chevronDefault from '../../../assets/icons/chevron-default.svg'
 import keyDown from '../../keyDown';
-import { EffectUserData } from '../../types';
+import { UserData } from '../../types';
 import useShow from '../../useShow';
 import {
     StyledBalance,
@@ -15,22 +15,13 @@ import {
 import UserCard from './UserCard';
 
 interface AppProps {
-    userData: EffectUserData;
+    userData: UserData;
     refreshUserData: () => void;
     successToast: (item: string) => void;
     errorToast: () => void;
 }
 export default function Balance({ userData, refreshUserData, successToast, errorToast }: AppProps): JSX.Element {
     let { show, hide, toggle, firstRender } = useShow(500)
-    if (!userData) return (
-        <StyledBalanceWrapper>
-            <StyledBalance>
-                <StyledBalancePoints>
-                    ...
-                </StyledBalancePoints>
-            </StyledBalance>
-        </StyledBalanceWrapper>
-    )
     return (
         <StyledBalanceWrapper >
             <StyledBalance onClick={toggle} tabIndex={0} onKeyDown={keyDown(toggle)}>

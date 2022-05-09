@@ -1,5 +1,5 @@
 import React from 'react'
-import { EffectUserData, ProductsData, UserData } from "../types";
+import { UserData, ProductsData } from "../types";
 import ProductCard from "./card";
 import FilterBar from "./filter";
 import { StyledProducts, StyledTitle, StyledSpan, StyledGrid } from "./styles";
@@ -9,7 +9,7 @@ import NavigationBar from "./navigation";
 
 interface AppProps {
     products: ProductsData
-    userData: EffectUserData
+    userData: UserData
     refreshUserData: () => void;
     successToast: (item: string) => void;
     errorToast: () => void;

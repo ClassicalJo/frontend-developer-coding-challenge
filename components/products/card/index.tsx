@@ -1,4 +1,4 @@
-import { EffectUserData, Product, UserData } from "../../types"
+import { Product, UserData } from "../../types"
 import aeropay1 from '../../../assets/icons/aeropay-1-custom.svg'
 import aeropay3 from '../../../assets/icons/aeropay-3.svg'
 import Button from "./Button"
@@ -15,7 +15,7 @@ import Picture from "./Picture"
 
 interface AppProps {
     product: Product;
-    userData: EffectUserData;
+    userData: UserData;
     redeem: () => Promise<void>;
 
 }

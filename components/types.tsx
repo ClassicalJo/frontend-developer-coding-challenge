@@ -11,7 +11,6 @@ export interface UserData {
     redeemHistory: RedeemHistory[];
 }
 
-export type EffectUserData = UserData | null
 export type ProductsData = Product[];
 
 export interface ErrorData {
