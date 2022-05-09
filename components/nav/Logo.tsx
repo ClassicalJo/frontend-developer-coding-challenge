@@ -3,7 +3,7 @@ import Image, { StaticImageData } from 'next/image'
 import { useCallback, useEffect, useState } from 'react'
 import aerolabLogo1 from '../../assets/icons/aerolab-logo-1.svg'
 import aerolabLogo2 from '../../assets/icons/aerolab-logo-2.svg'
-import { StyledLink } from './styles'
+import { StyledLink, StyledLogo } from './styles'
 
 export default function Logo(): JSX.Element {
     let isDesktop = useCallback(() => window.innerWidth >= 1920, [])
@@ -16,10 +16,10 @@ export default function Logo(): JSX.Element {
         resize()
         window.addEventListener('resize', resize)
         return () => window.removeEventListener('resize', resize)
-    }, [isDesktop])
+    }, [isDesktop, src])
     return (
         <StyledLink href="https://aerolab.us/">
-            <Image
+            <StyledLogo
                 width={src.width}
                 height={src.height}
                 src={src}
