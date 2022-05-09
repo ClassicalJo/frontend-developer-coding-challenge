@@ -32,12 +32,14 @@ export default function Card({ desktop, responsive, icon, title, subtitle, abrid
                     src={isDesktop ? desktop : responsive}
                     width={isDesktop ? desktop.width : responsive.width}
                     height={isDesktop ? desktop.height : responsive.width}
+                    //Replace alt with meaningful text
+                    alt={title}
                 />
             </StyledWalkImageWrapper>
             <StyledTextArea>
                 <StyledTitleWrapper>
                     <StyledIconWrapper  >
-                        <StyledIcon src={icon} width={39} height={39} />
+                        <StyledIcon src={icon} width={39} height={39} alt="Star"/>
                     </StyledIconWrapper>
                     <StyledTitle>
                         {title}

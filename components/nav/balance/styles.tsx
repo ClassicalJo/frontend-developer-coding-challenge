@@ -52,6 +52,7 @@ interface ChevronProps {
     width: number;
     height: number;
     src: StaticImageData;
+    alt: string;
 }
 
 

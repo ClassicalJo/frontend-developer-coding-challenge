@@ -42,7 +42,7 @@ export default function Balance({ userData, refreshUserData, successToast, error
                     userData={userData}
                 />}
                 <StyledBalanceLogo>
-                    <Image src={aeropay1} width={32} height={32} />
+                    <Image src={aeropay1} width={32} height={32} alt={"Aeropay logo, a flying kite"} />
                 </StyledBalanceLogo>
                 <StyledBalancePoints>
                     {userData.points.toLocaleString()}
@@ -53,6 +53,7 @@ export default function Balance({ userData, refreshUserData, successToast, error
                     src={chevronDefault}
                     firstRender={firstRender}
                     shouldRotate={(show && !hide)}
+                    alt={(show && !hide) ? "Arrow up to expand" : "Arrow down to hide"}
                 />
             </StyledBalance>
         </StyledBalanceWrapper>

@@ -22,7 +22,8 @@ function Waves({ className }: StyledProplessComponent): JSX.Element {
 
 
     return (
-        <svg className={className} viewBox="0 700 1920 1400">
+        <svg className={className} viewBox="0 700 1920 1400" >
+            <title>Waves falling down</title>
             <defs>
                 <symbol id="wave" viewBox='0 0 566 27'>
                     <image href={wave.src} x={0} y={0} />

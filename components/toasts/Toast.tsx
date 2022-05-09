@@ -23,6 +23,7 @@ export default function Toast({ toast, icon, first, show }: AppProps): JSX.Eleme
                     width={32}
                     height={32}
                     priority={true}
+                    alt={toast.isError ? "Error cross icon": "Success mark icon"}
                 />
                 <StyledTextArea>
                     <p><StyledText>{toast.item}</StyledText>{toast.message}</p>
@@ -33,6 +34,7 @@ export default function Toast({ toast, icon, first, show }: AppProps): JSX.Eleme
                     width={23}
                     height={23}
                     priority={true}
+                    alt="Cross to close"
                     onClick={() => setShouldDisplay(false)}
                     onKeyDown={keyDown(() => setShouldDisplay(false))}
                 />

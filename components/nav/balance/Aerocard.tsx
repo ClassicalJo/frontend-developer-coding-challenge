@@ -13,7 +13,7 @@ export default function Aerocard({ userData }: AppProps): JSX.Element {
                 <StyledAerocardWaves />
                 <StyledAerocardTitleContainer>
                     <p>Aerocard</p>
-                    <StyledAerocardIcon width={24} height={24} src={aeropay} />
+                    <StyledAerocardIcon width={24} height={24} src={aeropay} alt="Aeropay, a flying kite" />
                 </StyledAerocardTitleContainer>
                 <StyledAerocardTitleContainer>
                     <StyledAerocardUsername>{userData.name}</StyledAerocardUsername>

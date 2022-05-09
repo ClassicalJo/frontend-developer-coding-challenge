@@ -20,7 +20,7 @@ export default function Picture({ product }: AppProps): JSX.Element {
                 src={product.img.url}
                 width={280}
                 height={204}
-                
+                alt={product.name}
             />
         </StyledPictureContainer>
     )

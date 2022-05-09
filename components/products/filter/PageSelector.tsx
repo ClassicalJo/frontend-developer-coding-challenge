@@ -25,6 +25,7 @@ export default function PageSelector({ className, changePage, totalPages, curren
             >
                 <StyledPageButtonLeft
                     src={leftDisabled ? chevronDisabled : chevron}
+                    alt={"Arrow Left"}
                 />
             </StyledPageButtonWrapper>
             <StyledPageText>
@@ -38,6 +39,7 @@ export default function PageSelector({ className, changePage, totalPages, curren
                 onKeyDown={keyDown(pageUp)}>
                 <StyledPageButtonRight
                     src={rightDisabled ? chevronDisabled : chevron}
+                    alt={"Arrow Right"}
                 />
             </StyledPageButtonWrapper>
         </div>

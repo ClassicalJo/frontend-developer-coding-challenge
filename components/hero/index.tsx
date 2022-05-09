@@ -17,7 +17,6 @@ import {
     StyledWavesWrapper,
     StyledZone
 } from "./styles";
-import Image from 'next/image'
 import keyDown from '../keyDown';
 
 interface AppProps {
@@ -44,7 +43,7 @@ export default function Hero({ onClick }: AppProps): JSX.Element {
                         <StyledProductButtonText>
                             VIEW ALL PRODUCTS
                         </StyledProductButtonText>
-                        <StyledIconWrapper width={28} height={28} src={downIcon} />
+                        <StyledIconWrapper width={28} height={28} src={downIcon} alt="Arrow down"/>
                     </StyledProductButtonWrapper>
                 </StyledProductButton>
             </StyledTextArea>
@@ -54,6 +53,7 @@ export default function Hero({ onClick }: AppProps): JSX.Element {
                     width={1080}
                     height={1080}
                     objectFit='cover'
+                    alt="Rendered picture of a man using a VR set, exploring different possibilities."
                 />
             </StyledPicture>
         </StyledColumns>

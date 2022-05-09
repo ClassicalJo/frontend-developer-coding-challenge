@@ -21,6 +21,7 @@ export default function Footer(): JSX.Element {
                     src={isActive ? githubActive : githubDefault}
                     width={32}
                     height={32}
+                    alt={"Github cat icon"}
                 />
                 <StyledFooterText>View this repository</StyledFooterText>
             </StyledFooterWrapper>

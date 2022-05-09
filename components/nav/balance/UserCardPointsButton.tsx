@@ -21,7 +21,7 @@ export default function UserCardPointsButton({ loading, chargePoints }: AppProps
     )
     return (
         <StyledUserCardPointsButton tabIndex={0} onClick={chargePoints} onKeyDown={keyDown(chargePoints)}>
-            <StyledUserCardPointsButtonIcon src={aeropay} />
+            <StyledUserCardPointsButtonIcon src={aeropay} alt="Aeropay logo, a flying kite"/>
             <p>Add Points</p>
         </StyledUserCardPointsButton>
     )

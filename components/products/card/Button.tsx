@@ -25,14 +25,14 @@ export default function Button({ cost, userData, unavailableIcon, availableIcon,
     else if (!userData || cost > userData.points) return (
         <StyledProductUnavailable>
             <p>You need</p>
-            <StyledButtonIcon src={unavailableIcon} width={24} height={24} />
+            <StyledButtonIcon src={unavailableIcon} width={24} height={24} alt="" />
             <p>{cost.toLocaleString()}</p>
         </StyledProductUnavailable>
     )
     else return (
         <StyledProductButton onClick={onClick} tabIndex={0} onKeyDown={keyDown(onClick)}>
             <p>Redeem for</p>
-            <StyledButtonIcon src={availableIcon} width={24} height={24} />
+            <StyledButtonIcon src={availableIcon} width={24} height={24} alt=""/>
             <p>{cost.toLocaleString()}</p>
         </StyledProductButton >
     )
