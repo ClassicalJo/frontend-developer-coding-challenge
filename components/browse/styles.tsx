@@ -7,9 +7,11 @@ import textStyles from "../commonStyles/text";
 
 export const StyledBrowse = styled.div`
     display: flex;
+    margin-bottom: 40px;
     @media (min-width: ${breakpoints.tablet}){
         justify-content: center;    
         height: 771px;
+        margin-bottom: 0px;
     }
     @media (min-width: ${breakpoints.desktop}){
         height: 817.5px;
