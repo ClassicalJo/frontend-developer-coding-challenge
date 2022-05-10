@@ -15,6 +15,11 @@ export default function Document(): JSX.Element {
                 <link rel="prefetch" href="/system-error.svg" as="image" />
                 <link rel="prefetch" href="/cross-active.svg" as='image' />
                 <link rel='prefetch' href='/cross-default.svg' as='image' />
+                <meta property="og:type" content="website" />
+                <meta property="og:title" content="ClassicalJo's Aerolab Challenge" />
+                <meta property="og:description" content="Front end developer challenge for Aerolab" />
+                <meta property="og:image" content="./github-cover-aerolab-frontend-developer-coding-challenge.png" />
+                <meta property="og:url" content="https://cj-aerolab.vercel.app/" />
             </Head>
             <body>
                 <Main />
