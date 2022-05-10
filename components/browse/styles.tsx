@@ -7,9 +7,8 @@ import textStyles from "../commonStyles/text";
 
 export const StyledBrowse = styled.div`
     display: flex;
-    justify-content: center;
-    height: 1535px;
     @media (min-width: ${breakpoints.tablet}){
+        justify-content: center;    
         height: 771px;
     }
     @media (min-width: ${breakpoints.desktop}){
@@ -20,8 +19,7 @@ export const StyledBrowseWrapper = styled.div`
     display: flex;
     flex:1;
     position: relative;
-    height: 477px;
-    margin-top: 180px;
+    height: 100%;
     @media (min-width: ${breakpoints.tablet}){
         max-width: 980px;
     }
@@ -29,15 +27,44 @@ export const StyledBrowseWrapper = styled.div`
         max-width: 1464px;
     }
 `
+
+export const StyledBackground = styled.div`
+    background: ${colors.specials.illustrationBG};
+    position: absolute;
+    width: 100vw;
+    height: 100%;
+    left: calc((100% - 100vw) /2);
+    
+    @media (min-width: ${breakpoints.tablet}){
+        background: ${colors.specials.sectionBG};
+        height: 656px;
+        top:0;
+        
+    }
+    @media (min-width: ${breakpoints.desktop}){
+        bottom: 0px;
+        height: 528px;
+        width: 1920px;
+        left: calc((100% - min(100vw, 1920px))/2);
+        top:92px;
+    }
+`
+
 export const StyledCardContainer = styled.div`
     flex: 1;
     display: flex;
     position: relative;
     gap:36px;
     flex-direction: column;
+    margin-top: 180px;
+    margin-bottom: 32px;
     @media (min-width: ${breakpoints.tablet}){
+        margin-top: 0px;
+        margin-bottom: 0px;
         gap: 8px;
         flex-direction: row;
+        max-height: 477px;
+        top:147px;
     }
     @media (min-width: ${breakpoints.desktop}){
         left: -78px;
@@ -109,13 +136,11 @@ export const StyledWalkImageWrapper = styled.div`
     overflow: hidden;
     flex:1;
     @media (min-width: ${breakpoints.tablet}) {
-        /* width:299px; */
         height:290px;        
     }    
     @media (min-width: ${breakpoints.desktop}){
         width:508px;
         height: 498px;
-        /* left: calc((100% - 500px) /2);     */
     }
 `
 export const StyledTitleWrapper = styled.div`
@@ -167,26 +192,5 @@ export const StyledTextArea = styled.div`
     background-color: white;
     @media (min-width: ${breakpoints.desktop}){
         padding: 12px 0px 24px 24px;    
-    }
-`
-export const StyledBackground = styled.div`
-    background: ${colors.specials.illustrationBG};
-    position: absolute;
-    width: 100vw;
-    height: 1724px;
-    left: calc((100% - 100vw) /2);
-    top:-372px;
-    @media (min-width: ${breakpoints.tablet}){
-        background: ${colors.specials.sectionBG};
-        height: 656px;
-        bottom: -32px;
-        top: initial;
-        
-    }
-    @media (min-width: ${breakpoints.desktop}){
-        bottom: 0px;
-        height: 528px;
-        width: 1920px;
-        left: calc((100% - min(100vw, 1920px))/2);
     }
 `
