@@ -1,65 +1,20 @@
-import React from 'react'
-import { UserData, ProductsData } from "../types";
-import ProductCard from "./card";
-import FilterBar from "./filter";
-import { StyledProducts, StyledTitle, StyledSpan, StyledGrid } from "./styles";
-import useFilter from "./useFilter";
-import fetchRedeem from "../fetchRedeem";
-import NavigationBar from "./navigation";
+import dynamic from 'next/dynamic';
+import React, { forwardRef, Suspense } from 'react';
+import { ProductsData, UserData } from '../types';
+const Products = dynamic(() => import('./Products'), { ssr: false })
 
-interface AppProps {
-    products: ProductsData
-    userData: UserData
+interface WrappedProductsProps {
+    ref: React.Ref<HTMLDivElement>;
+    products: ProductsData;
+    userData: UserData;
     refreshUserData: () => void;
     successToast: (item: string) => void;
     errorToast: () => void;
+
 }
-const Products = React.forwardRef<HTMLDivElement, AppProps>(({ products, userData, refreshUserData, errorToast, successToast }: AppProps, ref) => {
-    let { products: filteredProducts, startingIndex, endIndex, ...filterProps } = useFilter(products)
-    let { changePage, totalPages, currentPage, productsPerPage } = filterProps
-    let slicedProducts = filteredProducts.slice(startingIndex, endIndex)
-    let redeemItem = (productId: string, name: string) => new Promise<void>(async (resolve, reject) => {
-        try {
-            await fetchRedeem(productId)
-            refreshUserData()
-            successToast(name)
-            resolve()
-        } catch (error) {
-            errorToast()
-            reject()
-        }
-    })
-
-
-    return (
-        <StyledProducts ref={ref}>
-            <StyledTitle>
-                {`TECH `}
-                <StyledSpan>
-                    PRODUCTS
-                </StyledSpan>
-            </StyledTitle>
-            <FilterBar {...filterProps} />
-            <StyledGrid>
-                {slicedProducts.map((k, i) => (
-                    <ProductCard
-                        key={`productCard${i}`}
-                        userData={userData}
-                        product={k}
-                        redeem={() => redeemItem(k._id, k.name)}
-                    />
-                ))}
-            </StyledGrid>
-            <NavigationBar
-                showing={slicedProducts.length}
-                total={filteredProducts.length}
-                changePage={changePage}
-                totalPages={totalPages}
-                currentPage={currentPage}
-                productsPerPage={productsPerPage}
-            />
-        </StyledProducts>
-    )
-})
-Products.displayName="Products"
-export default Products
+const ForwardRefProducts = forwardRef((props: WrappedProductsProps, ref: React.Ref<HTMLDivElement>) => (
+    <Suspense fallback="">
+        <Products {...props} productRef={ref} />
+    </Suspense>
+))
+export default ForwardRefProducts

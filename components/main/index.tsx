@@ -6,12 +6,13 @@ import NavBar from "../nav"
 import Toasts from "../toasts"
 import useToasts from "../toasts/useToasts"
 import dynamic from 'next/dynamic'
+import Products from '../products'
 interface AppProps {
     productsData: Product[];
     initialUserData: UserData
 }
 const DynamicBrowse = dynamic(() => import('../browse'), { ssr: false })
-const DynamicProducts = dynamic(() => import('../products'), { ssr: false })
+
 
 export default function Main({ productsData, initialUserData }: AppProps): JSX.Element {
     let [userData, setUserData] = useState<UserData>(initialUserData)
@@ -33,16 +34,16 @@ export default function Main({ productsData, initialUserData }: AppProps): JSX.E
                     <Suspense fallback="loading Browse">
                         <DynamicBrowse />
                     </Suspense>
-                    <Suspense fallback="loading products">
-                        <DynamicProducts
-                            ref={ref}
-                            products={productsData}
-                            userData={userData}
-                            refreshUserData={fetchUser}
-                            successToast={successToast}
-                            errorToast={errorToast}
-                        />
-                    </Suspense>
+
+                    <Products
+                        ref={ref}
+                        products={productsData}
+                        userData={userData}
+                        refreshUserData={fetchUser}
+                        successToast={successToast}
+                        errorToast={errorToast}
+                    />
+
                 </StyledMainWrapper>
                 <Toasts toasts={toasts} hide={hide} />
             </StyledMain>
