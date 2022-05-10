@@ -17,4 +17,5 @@ const ForwardRefProducts = forwardRef((props: WrappedProductsProps, ref: React.R
         <Products {...props} productRef={ref} />
     </Suspense>
 ))
+ForwardRefProducts.displayName = "Products"
 export default ForwardRefProducts
