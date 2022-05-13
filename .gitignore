@@ -42,3 +42,6 @@ yarn-error.log*
 
 # vscode
 .vscode
+
+#snapshots
+__snapshots__
