@@ -11,7 +11,6 @@ export default function Browse(): JSX.Element {
                     {cards.map((k, i) => <Card key={`cardElement${i}`} {...k} />)}
                 </StyledCardContainer>
             </StyledBrowseWrapper>
-
         </StyledBrowse>
     )
 }
