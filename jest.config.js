@@ -7,6 +7,7 @@ const customJestConfig = {
     moduleDirectories: ["node_modules", "pages", 'components' ],
     moduleNameMapper: {
         "^@pages(.*)$": "<rootDir>/pages$1",
+        "^@api(.*)$": "<rootDir>/api$1",
         "^@browse(.*)$": "<rootDir>/components/browse$1",
         "^@footer(.*)$": "<rootDir>/components/footer$1",
         "^@hero(.*)$": "<rootDir>/components/hero$1",
