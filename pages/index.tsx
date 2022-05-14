@@ -5,6 +5,7 @@ import GlobalStyles from '../components/globalStyles';
 import Main from '../components/main'
 import authHeader from '../components/authHeader';
 import Footer from '../components/footer';
+import fetchInitialData from '../components/main/fetchInitialData';
 
 type AppProps = {
   productsData: ProductsData;
@@ -27,17 +28,10 @@ const Home: NextPage<AppProps> = ({ productsData, userData }) => {
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const headers = authHeader(process.env.USERTOKEN)
-  let productsFetch = fetch(process.env.PRODUCTURL, { headers })
-  let userFetch = fetch(process.env.USERURL, { headers })
-  try {
-    let [products, user] = await Promise.all([productsFetch, userFetch])
-    let productsData = await products.json()
-    let userData = await user.json()
-    return { props: { productsData, userData } }
-  } catch (error) {
-    return { props: { productsData: [], userData: {} } }
-  }
+  return await fetchInitialData(
+    process.env.USERTOKEN,
+    process.env.PRODUCTURL,
+    process.env.USERURL)
 }
 
 export default Home
