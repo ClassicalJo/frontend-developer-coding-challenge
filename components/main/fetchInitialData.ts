@@ -1,16 +1,5 @@
-import { ProductsData, UserData } from "@types"
 import authHeader from "../authHeader"
-
-
-
-const emptyUserData: UserData = {
-    _id: "",
-    name: "",
-    createDate: new Date(),
-    points: 0,
-    redeemHistory: [],
-}
-
+import emptyUserData from "./emptyUserData"
 export default async function fetchInitialData(token: string, productUrl: string, userUrl: string) {
     const headers = authHeader(token)
     let productsFetch = fetch(productUrl, { headers })
