@@ -1,6 +1,6 @@
 import { ValidCharge } from '@types'
-import { PointsCharge } from '../../components/api/PointsCharge'
-import { USER_TOKEN, POINTS_URL } from '../setupServer'
+import { PointsCharge } from '../../../components/api/PointsCharge'
+import { USER_TOKEN, POINTS_URL } from '../../setupServer'
 
 describe("Api call to charge points to the account", () => {
     it("on success, chargepoints should return an object with the appropiate amount", async () => {

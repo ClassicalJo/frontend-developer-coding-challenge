@@ -1,9 +1,8 @@
-import { NextApiRequest, NextApiResponse } from "next"
-import { PointsCharge } from "../../components/api/PointsCharge"
-import { UserFetch } from "../../components/api/UserFetch"
-import { UserHandler } from "../../components/api/UserHandler"
-import userHandler from '../../pages/api/user'
-import { FAKE_USER_DATA, POINTS_URL, USER_TOKEN, USER_URL } from "../setupServer"
+import { NextApiRequest } from "next"
+import { PointsCharge } from "../../../components/api/PointsCharge"
+import { UserFetch } from "../../../components/api/UserFetch"
+import { UserHandler } from "../../../components/api/UserHandler"
+import { FAKE_USER_DATA, POINTS_URL, req, res, USER_TOKEN, USER_URL } from "../../setupServer"
 
 describe("Route handler for UserData related requests", () => {
     const userFetch = new UserFetch()
@@ -15,16 +14,7 @@ describe("Route handler for UserData related requests", () => {
         userFetch,
         pointsCharge,
     )
-    let req = {} as NextApiRequest
-    let res = {
-        status: function (this: NextApiResponse, int: number) {
-            this.statusCode = int
-            return this
-        } as unknown,
-        json: function (this: NextApiResponse) {
-            return this
-        } as unknown
-    } as NextApiResponse
+
     it("handleFetchUser should call userFetch's get method and respond with data", async () => {
         jest.spyOn(userFetch, "get")
         jest.spyOn(res, 'json')
@@ -71,5 +61,10 @@ describe("Route handler for UserData related requests", () => {
         let req = { body: JSON.stringify(FAKE_AMOUNT) } as NextApiRequest
         const response = handler.handlePointCharge(req, res)
         expect(response).toEqual(new Promise<void>(() => { }))
+    })
+    it("handleInvalidMethod should respond with a 405 status code", async () => {
+        jest.spyOn(res, 'status')
+        await handler.handleInvalidMethod(req, res)
+        expect(res.status).toBeCalledWith(405)
     })
 })
