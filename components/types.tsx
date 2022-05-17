@@ -13,12 +13,6 @@ export interface UserData {
 
 export type ProductsData = Product[];
 
-export interface ErrorData {
-    error: string;
-};
-
-export type FetchData = UserData | ProductsData | ErrorData
-
 export interface Product {
     _id: string;
     name: string;
@@ -53,3 +47,7 @@ export interface ToastElement {
     message: string;
     item?: string;
 }
+
+export type SuccessMessage<T> = T
+export type ErrorMessage = { error: any }
+export type Result<T> = SuccessMessage<T> | ErrorMessage
