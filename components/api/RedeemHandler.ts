@@ -11,7 +11,7 @@ export class RedeemHandler {
         this.token = token
         this.redeemItem = redeemItem
     }
-    async handleRedeemItem(req: NextApiRequest, res: NextApiResponse) {
+    handleRedeemItem(req: NextApiRequest, res: NextApiResponse) {
         return new Promise<void>(resolve => {
             let { productId }: { productId: string } = JSON.parse(req.body)
             this.redeemItem.post(this.url, this.token, productId)
@@ -20,9 +20,9 @@ export class RedeemHandler {
                 .finally(resolve)
         })
     }
-    async handleInvalidMethod(req: NextApiRequest, res: NextApiResponse) {
+    handleInvalidMethod(req: NextApiRequest, res: NextApiResponse) {
         return new Promise<void>(resolve => {
-            res.status(405).send(req.method + " method is not allowed.")
+            res.status(405).json({ error: req.method + " method is not allowed." })
             resolve()
         })
     }

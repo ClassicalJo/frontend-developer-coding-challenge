@@ -26,7 +26,7 @@ export class UserHandler {
     }
     handleInvalidMethod(req: NextApiRequest, res: NextApiResponse) {
         return new Promise<void>(resolve => {
-            res.status(405).send("Method not allowed")
+            res.status(405).json({ error: req.method + " method is not allowed." })
             resolve()
         })
     }
