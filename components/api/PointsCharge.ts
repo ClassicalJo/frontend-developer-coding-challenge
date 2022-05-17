@@ -15,7 +15,7 @@ export class PointsCharge implements IPointsCharge {
             const response = await fetch(url, { headers, method, body })
             const data = await response.json()
             if (response.status === 200) return data
-            else throw Error("Server responded with error status " + response.status)
+            else throw new Error("Server responded with error status " + response.status)
         }
         catch (error) {
             throw error
