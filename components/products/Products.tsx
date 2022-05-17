@@ -19,17 +19,16 @@ export default function Products({ products, productRef, userData, refreshUserDa
     let { products: filteredProducts, startingIndex, endIndex, ...filterProps } = useFilter(products)
     let { changePage, totalPages, currentPage, productsPerPage } = filterProps
     let slicedProducts = filteredProducts.slice(startingIndex, endIndex)
-    let redeemItem = (productId: string, name: string) => new Promise<void>(async (resolve, reject) => {
+    let redeemItem = async (productId: string, name: string) => {
         try {
             await fetchRedeem(productId)
             refreshUserData()
             successToast(name)
-            resolve()
+            
         } catch (error) {
-            errorToast()
-            reject()
+            errorToast()            
         }
-    })
+    }
 
 
     return (
