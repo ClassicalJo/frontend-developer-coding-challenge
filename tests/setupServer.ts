@@ -46,13 +46,21 @@ const server = setupServer(
         )
     }),
     rest.post(POINTS_URL, (req: RestRequest<PointsRequestBody>, res, ctx) => {
-        return res(
+        let validAmounts = [1000, 5000, 1000]
+        if (validAmounts.includes(req.body.amount)) return res(
             ctx.status(200),
-            ctx.json({ amount: req.body.amount })
-        )
+            ctx.json({ amount: req.body.amount }))
+        return res(ctx.status(400), ctx.json({ error: "Enter a valid amount" }))
     }),
     rest.get('*', (req, res, ctx) => {
-        console.error(`Please add request handler for ${req.url.toString()}`)
+        // console.error(`Please add request handler for ${req.url.toString()}`)
+        return res(
+            ctx.status(500),
+            ctx.json({ error: `Please add request handler for ${req.url.toString()}` })
+        )
+    }),
+    rest.post('*', (req, res, ctx) => {
+        // console.error(`Please add request handler for ${req.url.toString()}`)
         return res(
             ctx.status(500),
             ctx.json({ error: `Please add request handler for ${req.url.toString()}` })
