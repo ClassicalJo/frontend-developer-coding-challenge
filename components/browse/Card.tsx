@@ -1,17 +1,12 @@
-import Image from 'next/image'
+import { useEffect, useState } from 'react'
+import { CardElement } from "../types"
 import {
-    StyledCard,
-    StyledIconWrapper,
-    StyledSubtitle,
-    StyledTitle,
+    StyledCard, StyledIcon, StyledIconWrapper,
+    StyledSubtitle, StyledTextArea, StyledTitle,
     StyledTitleWrapper,
     StyledWalkImage,
-    StyledWalkImageWrapper,
-    StyledTextArea,
-    StyledIcon
+    StyledWalkImageWrapper
 } from "./styles"
-import { CardElement } from "../types"
-import { useEffect, useState } from 'react'
 
 export default function Card({ desktop, responsive, icon, title, subtitle, abridgedSubtitle }: CardElement): JSX.Element {
     let [isDesktop, setIsDesktop] = useState<Boolean>(true)

@@ -1,5 +1,4 @@
 import authHeader from "../authHeader"
-import fetchData from "../fetchData"
 import { Result, UserData } from "../types"
 
 export interface IUserFetch {
