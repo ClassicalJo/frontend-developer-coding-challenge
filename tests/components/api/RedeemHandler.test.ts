@@ -40,10 +40,4 @@ describe("Route handler for Product related requests to next's API", () => {
         await handler.handleInvalidMethod(req, res)
         expect(res.status).toBeCalledWith(405)
     })
-    // it("handlePointCharge should return a promise to avoid unterminated api responses", async () => {
-    //     const FAKE_AMOUNT = { amount: 1000 }
-    //     let req = { body: JSON.stringify(FAKE_AMOUNT) } as NextApiRequest
-    //     const response = handler.handlePointCharge(req, res)
-    //     expect(response).toEqual(new Promise<void>(() => { }))
-    // })
 })
