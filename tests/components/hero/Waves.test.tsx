@@ -1,31 +1,33 @@
-import useWaves from '@hero/useWaves'
 import Waves from '@hero/Waves'
-import { act, render, renderHook } from '@testing-library/react'
-
-describe("Waves component should cover a certain height according to the innerWidth", () => {
-
-    it("If innerWidth is >= 1920px, total vertical area to cover should be around 1400px", () => {
+import { act, render, screen, within } from '@testing-library/react'
+describe("Waves inline svg", () => {
+    it("When innerWidth is >= 1920, it should contain about 90 waves", () => {
+        let component = render(<Waves />)
+        let { getByTestId } = within(component.container)
         act(() => {
             global.innerWidth = 1920
             global.dispatchEvent(new Event('resize'))
         })
-        let totalArea = renderHook(() => useWaves())
-        expect(totalArea.result.current).toEqual(1400)
+        expect(getByTestId("wave-container").children.length).toBeGreaterThan(90)
     })
-    it("if innerWidth is between 1024 and 1919px, total area should be around 1050px", () => {
+    it("When innerWidth is >= 1024, it should contain about 65 waves", () => {
+        let component = render(<Waves />)
+        let { getByTestId } = within(component.container)
         act(() => {
             global.innerWidth = 1024
             global.dispatchEvent(new Event('resize'))
         })
-        let totalArea = renderHook(() => useWaves())
-        expect(totalArea.result.current).toEqual(1050)
+        expect(getByTestId("wave-container").children.length).toBeGreaterThan(65)
+        expect(getByTestId("wave-container").children.length).toBeLessThanOrEqual(90)
     })
-    it("if innerWidth is below 1024px, total Area should be around 950px", () => {
+    it("When innerWidth is < 1024, it should contain less than 65 waves", () => {
+        let component = render(<Waves />)
+        let { getByTestId } = within(component.container)
         act(() => {
             global.innerWidth = 1023
             global.dispatchEvent(new Event('resize'))
         })
-        let totalArea = renderHook(() => useWaves())
-        expect(totalArea.result.current).toEqual(950)
+        
+        expect(getByTestId("wave-container").children.length).toBeLessThan(65)
     })
 })
