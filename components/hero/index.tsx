@@ -36,6 +36,7 @@ export default function Hero({ onClick }: AppProps): JSX.Element {
                 <StyledZone />
                 <StyledSubtitle />
                 <StyledProductButton
+                    role="button"
                     tabIndex={0}
                     onClick={onClick}
                     onKeyDown={keyDown(onClick)}>
@@ -43,7 +44,7 @@ export default function Hero({ onClick }: AppProps): JSX.Element {
                         <StyledProductButtonText>
                             VIEW ALL PRODUCTS
                         </StyledProductButtonText>
-                        <StyledIconWrapper width={28} height={28} src={downIcon} alt="Arrow down"/>
+                        <StyledIconWrapper width={28} height={28} src={downIcon} alt="" />
                     </StyledProductButtonWrapper>
                 </StyledProductButton>
             </StyledTextArea>
