@@ -20,7 +20,7 @@ export class UserHandler {
             let body = JSON.parse(req.body)
             this.pointsCharge.post(this.pointsURL, body.amount, this.token)
                 .then(data => res.status(200).json(data))
-                .catch(error => res.status(400).json({ error }))
+                .catch((error: Error) => res.status(400).json({ error: error.message }))
                 .finally(resolve)
         })
     }
@@ -34,7 +34,7 @@ export class UserHandler {
         return new Promise<void>(resolve => {
             this.userFetch.get(this.userURL, this.token)
                 .then(data => res.json(data))
-                .catch(err => res.json(err))
+                .catch((error: Error) => res.status(500).json({ error: error.message }))
                 .finally(resolve)
         })
     }

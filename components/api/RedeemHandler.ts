@@ -7,7 +7,6 @@ export class RedeemHandler {
     token: string
     constructor(url: string, token: string, redeemItem: IRedeemItem) {
         this.url = url
-
         this.token = token
         this.redeemItem = redeemItem
     }
@@ -16,7 +15,7 @@ export class RedeemHandler {
             let { productId }: { productId: string } = JSON.parse(req.body)
             this.redeemItem.post(this.url, this.token, productId)
                 .then(data => res.status(200).json(data))
-                .catch(error => res.status(400).json(error))
+                .catch(error => res.status(500).json({ error: error.message }))
                 .finally(resolve)
         })
     }
