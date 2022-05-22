@@ -21,7 +21,17 @@ describe("Route handler for UserData related requests", () => {
         await handler.handleFetchUser(req, res)
         expect(userFetch.get).toHaveBeenCalled()
         expect(res.json).toBeCalledWith(FAKE_USER_DATA)
-
+    })
+    it("on error, handleFetchUser should responde with a JSON containing the error", async () => {
+        let wrongHandler = new UserHandler(
+            "fake_points_url",
+            "fake_user_url",
+            USER_TOKEN,
+            userFetch,
+            pointsCharge
+        )
+        await wrongHandler.handleFetchUser(req, res)
+        expect(res.json).toBeCalledWith({ error: "Server responded with error status 500"})
     })
     it("handlePointsCharge should call pointCharge's post method", async () => {
         const FAKE_AMOUNT = { amount: 1000 }
@@ -29,7 +39,6 @@ describe("Route handler for UserData related requests", () => {
         jest.spyOn(pointsCharge, "post")
         await handler.handlePointCharge(req, res)
         expect(pointsCharge.post).toHaveBeenCalled()
-
     })
     it("handlePointsCharge should respond with correct data", async () => {
         const FAKE_AMOUNT = { amount: 1000 }

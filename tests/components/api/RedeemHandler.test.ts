@@ -21,7 +21,7 @@ describe("Route handler for Product related requests to next's API", () => {
         let req = { body: JSON.stringify({}) } as NextApiRequest
         jest.spyOn(res, 'status')
         await handler.handleRedeemItem(req, res)
-        expect(res.status).toBeCalledWith(400)
+        expect(res.status).toBeCalledWith(500)
     })
 
     it("handleRedeemItem should return a promise to avoid unterminated api responses", async () => {
