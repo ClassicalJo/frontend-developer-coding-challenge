@@ -54,7 +54,7 @@ export default function Hero({ onClick }: AppProps): JSX.Element {
                     width={1080}
                     height={1080}
                     objectFit='cover'
-                    alt="Rendered picture of a man using a VR set, exploring different possibilities."
+                    alt="Rendered picture of a man using virtual reality equipment, exploring different possibilities."
                 />
             </StyledPicture>
         </StyledColumns>
