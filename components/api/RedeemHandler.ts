@@ -15,7 +15,7 @@ export class RedeemHandler {
             let { productId }: { productId: string } = JSON.parse(req.body)
             this.redeemItem.post(this.url, this.token, productId)
                 .then(data => res.status(200).json(data))
-                .catch(error => res.status(500).json({ error: error.message }))
+                .catch((error: Error) => res.status(500).json({ error: error.message }))
                 .finally(resolve)
         })
     }
