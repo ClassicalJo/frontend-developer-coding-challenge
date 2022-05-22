@@ -18,7 +18,8 @@ export class PointsCharge implements IPointsCharge {
             else throw new Error("Server responded with error status " + response.status)
         }
         catch (error) {
-            throw error
+            if (error instanceof Error) throw error
+            else throw new Error("There was an error while redeeming the points.")
         }
     }
 }

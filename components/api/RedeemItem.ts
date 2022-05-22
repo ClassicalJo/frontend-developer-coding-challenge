@@ -13,11 +13,13 @@ export class RedeemItem implements IRedeemItem {
         let body = JSON.stringify({ productId })
         try {
             let res = await fetch(url, { headers, method, body })
-            if(res.status !== 200) throw new Error("Server responded with error status " + res.status)
+            if (res.status !== 200) throw new Error("Server responded with error status " + res.status)
             let data = await res.json()
             return data
-        } catch (error) {
-            throw error
+        }
+        catch (error) {
+            if (error instanceof Error) throw error
+            else throw new Error("There was an error while redeeming the item.")
         }
     }
 }
