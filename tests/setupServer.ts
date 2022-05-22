@@ -60,9 +60,9 @@ const server = setupServer(
         )
     }),
     rest.post(REDEEM_URL, (req: RestRequest<RedeemRequestBody>, res, ctx) => {
-        if(!req.body.productId) return res(
+        if (!req.body.productId) return res(
             ctx.status(400),
-            ctx.json({error: "Body should have productId"})
+            ctx.json({ error: "Body should have productId" })
         )
         return res(
             ctx.status(200),
@@ -75,6 +75,18 @@ const server = setupServer(
             ctx.status(200),
             ctx.json({ amount: req.body.amount }))
         return res(ctx.status(400), ctx.json({ error: "Enter a valid amount" }))
+    }),
+    rest.get('/api/user', (req, res, ctx) => {
+        return res(
+            ctx.status(200),
+            ctx.json(FAKE_USER_DATA)
+        )
+    }),
+    rest.get('/api/redeem', (req: RestRequest<PointsRequestBody>, res, ctx) => {
+        return res(
+            ctx.status(200),
+            ctx.json({ message: "You've redeem the product successfully" })
+        )
     }),
     rest.get('*', (req, res, ctx) => {
         // console.error(`Please add request handler for ${req.url.toString()}`)
