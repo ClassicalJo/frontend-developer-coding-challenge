@@ -82,7 +82,11 @@ const server = setupServer(
             ctx.json(FAKE_USER_DATA)
         )
     }),
-    rest.get('/api/redeem', (req: RestRequest<PointsRequestBody>, res, ctx) => {
+    rest.get('/api/redeem', (req: RestRequest<RedeemRequestBody>, res, ctx) => {
+        if (!req.body.productId || req.body.productId.length === 0) return res(
+            ctx.status(400),
+            ctx.json({ error: "Body should have productId" })
+        )
         return res(
             ctx.status(200),
             ctx.json({ message: "You've redeem the product successfully" })
