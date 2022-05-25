@@ -30,9 +30,13 @@ export default function Button({ cost, userData, unavailableIcon, availableIcon,
         </StyledProductUnavailable>
     )
     else return (
-        <StyledProductButton onClick={onClick} tabIndex={0} onKeyDown={keyDown(onClick)}>
+        <StyledProductButton
+            role="button"
+            onClick={onClick}
+            tabIndex={0}
+            onKeyDown={keyDown(onClick)}>
             <p>Redeem for</p>
-            <StyledButtonIcon src={availableIcon} width={24} height={24} alt=""/>
+            <StyledButtonIcon src={availableIcon} width={24} height={24} alt="" />
             <p>{cost.toLocaleString()}</p>
         </StyledProductButton >
     )

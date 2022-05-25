@@ -43,7 +43,7 @@ export default function FilterBar({ changePage, sortMethod, setSortMethod, setFi
             <StyledFilterBarContainer>
                 <StyledFilterText>Filter by: </StyledFilterText>
                 <StyledFilterSelectWrapper>
-                    <StyledFilterSelect onChange={onChange}>
+                    <StyledFilterSelect onChange={onChange} role='combobox'>
                         {methods.map((k, i) => (
                             <StyledOption
                                 key={`optionMethod${i}`}

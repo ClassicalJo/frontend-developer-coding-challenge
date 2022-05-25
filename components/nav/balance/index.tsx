@@ -24,7 +24,7 @@ export default function Balance({ userData, refreshUserData, successToast, error
     let { show, hide, toggle, firstRender } = useShow(500)
     return (
         <StyledBalanceWrapper >
-            <StyledBalance onClick={toggle} tabIndex={0} onKeyDown={keyDown(toggle)}>
+            <StyledBalance role='button' onClick={toggle} tabIndex={0} onKeyDown={keyDown(toggle)}>
                 {show && <UserCard
                     hide={hide}
                     successToast={successToast}

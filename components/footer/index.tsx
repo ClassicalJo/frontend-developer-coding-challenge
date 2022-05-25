@@ -15,6 +15,7 @@ export default function Footer(): JSX.Element {
         <StyledFooter onMouseDown={active} onBlur={() => setIsActive(false)}>
             <StyledFooterWrapper
                 draggable={false}
+                role='button'
                 href="https://github.com/ClassicalJo/frontend-developer-coding-challenge" target="_blank" rel="noopener noreferrer">
                 <StyledFooterIcon
                     draggable={false}

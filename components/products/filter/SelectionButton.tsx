@@ -11,11 +11,13 @@ interface AppProps {
     current: SortMethod;
 }
 export default function SelectionButton({ onClick, onFocus, method, text, current }: AppProps): JSX.Element {
+    let handleClick = () => onClick(method)
     return (
         <StyledSelectedButton
-            onClick={() => onClick(method)}
+            role='button'
+            onClick={handleClick}
             tabIndex={0}
-            onKeyDown={keyDown(() => onClick(method))}
+            onKeyDown={keyDown(handleClick)}
             onFocus={onFocus}
         >
             <StyledSelectedBackground selected={method === current}>

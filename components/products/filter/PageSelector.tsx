@@ -19,13 +19,14 @@ export default function PageSelector({ className, changePage, totalPages, curren
         <div className={className}>
             <StyledPageButtonWrapper
                 tabIndex={leftDisabled ? -1 : 0}
+                role="button"
                 onClick={pageDown}
                 onKeyDown={keyDown(pageDown)}
                 disabled={leftDisabled}
             >
                 <StyledPageButtonLeft
                     src={leftDisabled ? chevronDisabled : chevron}
-                    alt={"Arrow Left"}
+                    alt={"Previous page"}
                     width={24}
                     height={24}
                 />
@@ -35,13 +36,14 @@ export default function PageSelector({ className, changePage, totalPages, curren
                 {` of ${totalPages}`}
             </StyledPageText>
             <StyledPageButtonWrapper
+                role='button'
                 tabIndex={rightDisabled ? -1 : 0}
                 disabled={rightDisabled}
                 onClick={pageUp}
                 onKeyDown={keyDown(pageUp)}>
                 <StyledPageButtonRight
                     src={rightDisabled ? chevronDisabled : chevron}
-                    alt={"Arrow Right"}
+                    alt={"Next page"}
                     width={24}
                     height={24}
                 />
