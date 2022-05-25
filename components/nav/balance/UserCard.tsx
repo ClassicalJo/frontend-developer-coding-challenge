@@ -1,18 +1,13 @@
-import { SyntheticEvent, useState } from "react"
-import { UserData, ValidCharge } from "../../types";
-import {
-    StyledUserCardContainer,
-    StyledUserCardPointsWrapper,
-    StyledUserCardSection,
-    StyledUserCardPointsSelectWrapper,
-    StyledUserCardPointsSelect,
-    StyledUserCardTitle
-} from "./styles"
-import aeropay from '../../../assets/icons/aeropay-3.svg'
-import Aerocard from "./Aerocard";
+import React, { SyntheticEvent, useState } from "react";
 import fetchPoints from "../../fetchPoints";
-import UserCardPointsButton from "./UserCardPointsButton";
 import keyDown from "../../keyDown";
+import { UserData, ValidCharge } from "../../types";
+import Aerocard from "./Aerocard";
+import {
+    StyledUserCardContainer, StyledUserCardPointsSelect, StyledUserCardPointsSelectWrapper, StyledUserCardPointsWrapper,
+    StyledUserCardSection, StyledUserCardTitle
+} from "./styles";
+import UserCardPointsButton from "./UserCardPointsButton";
 
 interface AppProps {
     hide: Boolean;
@@ -25,6 +20,18 @@ export default function UserCard({ hide, userData, refreshUserData, successToast
     let [currentCharge, setCurrentCharge] = useState<ValidCharge>(1000)
     let [loading, setLoading] = useState<Boolean>(false)
     let selectValues: ValidCharge[] = [1000, 5000, 7500]
+    function generateHandleClick(k: ValidCharge) {
+        return function (e: React.MouseEvent) {
+            e.stopPropagation()
+            setCurrentCharge(k)
+        }
+    }
+    function generateHandleKeyDown(k: ValidCharge) {
+        return function (e: React.KeyboardEvent) {
+            e.stopPropagation()
+            setCurrentCharge(k)
+        }
+    }
     function successfulCharge(charge: number) {
         refreshUserData()
         successToast(charge + " Aeropoints package")
@@ -48,7 +55,9 @@ export default function UserCard({ hide, userData, refreshUserData, successToast
                             key={`userCardSelectPoints${i}`}
                             tabIndex={0}
                             current={currentCharge === k}
-                            onClick={() => setCurrentCharge(k)} onKeyDown={keyDown(() => setCurrentCharge(k))}>
+                            role='button'
+                            onClick={generateHandleClick(k)}
+                            onKeyDown={keyDown(generateHandleKeyDown(k))}>
                             <StyledUserCardPointsSelect current={currentCharge === k}>
                                 <p>{k}</p>
                             </StyledUserCardPointsSelect>
@@ -57,6 +66,6 @@ export default function UserCard({ hide, userData, refreshUserData, successToast
                 </StyledUserCardPointsWrapper>
                 <UserCardPointsButton loading={loading} chargePoints={chargePoints} />
             </StyledUserCardSection>
-        </StyledUserCardContainer>
+        </StyledUserCardContainer >
     )
 }
