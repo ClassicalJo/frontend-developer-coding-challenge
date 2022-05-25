@@ -20,7 +20,6 @@ interface AppProps {
 
 }
 export default function ProductCard({ product, userData, redeem }: AppProps): JSX.Element {
-
     return (
         <StyledProductCard>
             <StyledImageZone>

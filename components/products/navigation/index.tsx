@@ -1,5 +1,4 @@
 import { Dispatch } from "react";
-import PageSelector from "../filter/PageSelector";
 import { StyledNavigationBar, StyledNavigationPageSelector, StyledNavigationPageSelectorWrapper, StyledNavigationText, StyledNavigationTextSpan, StyledNavigationTextWrapper } from "./styles";
 
 interface AppProps {
