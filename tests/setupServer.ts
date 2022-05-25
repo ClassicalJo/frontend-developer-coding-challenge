@@ -24,16 +24,28 @@ const FAKE_USER_DATA: UserData = JSON.parse(JSON.stringify({
     "createDate": "new Date(1510171520852)"
 }))
 
-const FAKE_PRODUCT_DATA: ProductsData = [{
-    "_id": "5a033eeb364bf301523e9b92",
-    "name": "Sandalia Pale Gold YSL",
-    "cost": 200,
-    "category": "Indumentaria",
-    "img": {
-        "url": "https://coding-challenge-api.aerolab.co/images/Alienware13-x2.png",
-        "hdUrl": "https://coding-challenge-api.aerolab.co/images/Alienware13-x2.png"
+const FAKE_PRODUCT_DATA: ProductsData = [
+    {
+        "_id": "5a033eeb364bf301523e9b92",
+        "name": "Sandalia Pale Gold YSL",
+        "cost": 200,
+        "category": "Indumentary",
+        "img": {
+            "url": "https://coding-challenge-api.aerolab.co/images/Alienware13-x2.png",
+            "hdUrl": "https://coding-challenge-api.aerolab.co/images/Alienware13-x2.png"
+        },
+    },
+    {
+        "_id": "5a033eeb364bf301523e9b92",
+        "name": "Sandalia Pale Gold YSL",
+        "cost": 400,
+        "category": "Monitors & TV",
+        "img": {
+            "url": "https://coding-challenge-api.aerolab.co/images/Alienware13-x2.png",
+            "hdUrl": "https://coding-challenge-api.aerolab.co/images/Alienware13-x2.png"
+        }
     }
-}]
+]
 
 let req = {} as NextApiRequest
 let res = {
@@ -76,20 +88,28 @@ const server = setupServer(
             ctx.json({ amount: req.body.amount }))
         return res(ctx.status(400), ctx.json({ error: "Enter a valid amount" }))
     }),
-    rest.get('/api/user', (req, res, ctx) => {
+    rest.get('api/user', (req, res, ctx) => {
         return res(
             ctx.status(200),
             ctx.json(FAKE_USER_DATA)
         )
     }),
-    rest.get('/api/redeem', (req: RestRequest<RedeemRequestBody>, res, ctx) => {
-        if (!req.body.productId || req.body.productId.length === 0) return res(
+    rest.post('api/user', (req: RestRequest<PointsRequestBody>, res, ctx) => {
+        let { amount } = JSON.parse(req.body as string)
+        return res(
+            ctx.status(200),
+            ctx.json({ amount })
+        )
+    }),
+    rest.post('/api/redeem', (req: RestRequest<RedeemRequestBody>, res, ctx) => {
+        let { productId } = JSON.parse(req.body as string)
+        if (!productId || productId.length === 0) return res(
             ctx.status(400),
             ctx.json({ error: "Body should have productId" })
         )
         return res(
             ctx.status(200),
-            ctx.json({ message: "You've redeem the product successfully" })
+            ctx.json({ message: "You've redeemed the product successfully" })
         )
     }),
     rest.get('*', (req, res, ctx) => {
