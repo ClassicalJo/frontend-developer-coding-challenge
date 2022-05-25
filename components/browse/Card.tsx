@@ -8,7 +8,7 @@ import {
     StyledWalkImageWrapper
 } from "./styles"
 
-export default function Card({ desktop, responsive, icon, title, subtitle, abridgedSubtitle }: CardElement): JSX.Element {
+export default function Card({ desktop, responsive, icon, title, subtitle, abridgedSubtitle, alt }: CardElement): JSX.Element {
     let [isDesktop, setIsDesktop] = useState<Boolean>(true)
     useEffect(() => {
         function resize() {
@@ -27,14 +27,13 @@ export default function Card({ desktop, responsive, icon, title, subtitle, abrid
                     src={isDesktop ? desktop : responsive}
                     width={isDesktop ? desktop.width : responsive.width}
                     height={isDesktop ? desktop.height : responsive.width}
-                    //Replace alt with meaningful text
-                    alt={title}
+                    alt={alt}
                 />
             </StyledWalkImageWrapper>
             <StyledTextArea>
                 <StyledTitleWrapper>
                     <StyledIconWrapper  >
-                        <StyledIcon src={icon} width={39} height={39} alt="Star"/>
+                        <StyledIcon src={icon} width={39} height={39} alt=""/>
                     </StyledIconWrapper>
                     <StyledTitle>
                         {title}
@@ -44,7 +43,6 @@ export default function Card({ desktop, responsive, icon, title, subtitle, abrid
                     {isDesktop ? subtitle : abridgedSubtitle}
                 </StyledSubtitle>
             </StyledTextArea>
-
         </StyledCard>
     )
 
