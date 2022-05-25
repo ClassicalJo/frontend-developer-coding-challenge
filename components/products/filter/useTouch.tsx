@@ -22,7 +22,7 @@ export default function useTouch() {
     }, [setMin])
 
     const reset = () => setStartingX(0)
-    const calcDif = (int: number) => setOffsetX(clamp(offsetX + (int - startingX) / 10, min, 0))
+    const calcDif = (int: number) => setOffsetX(clamp(offsetX + (int - startingX)* 0.2, min, 0))
     const start = (int: number) => setStartingX(int)
     const startDrag = (int: number) => {
         setIsClick(true)
