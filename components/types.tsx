@@ -40,12 +40,13 @@ export interface CardElement {
     desktop: StaticImageData;
     responsive: StaticImageData;
     icon: StaticImageData;
+    alt: string;
 }
 
 export interface ToastElement {
     isError: Boolean;
     message: string;
-    item?: string;
+    item: string;
 }
 
 export type SuccessMessage<T> = T
