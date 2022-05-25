@@ -20,7 +20,7 @@ export default function useToasts() {
     }
     function handleErrorWithToast(err:unknown){
         if(err instanceof Error) customToast(true, err.message)
-        else customToast(true, "There was an error during the transaction.")
+        else customToast(true, "There was a problem during the transaction.")
     }
     useEffect(() => {
         let timeout = setTimeout(() => setHide(true), 6000)
