@@ -46,8 +46,6 @@ describe("Home page", () => {
         expect(userData).toEqual(EMPTY_USER_DATA)
         expect(productsData).toEqual(EMPTY_PRODUCT_DATA)
     })
-
-
 })
 
 
