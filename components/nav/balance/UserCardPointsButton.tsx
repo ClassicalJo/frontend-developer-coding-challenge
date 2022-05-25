@@ -1,11 +1,10 @@
+import aeropay from '../../../assets/icons/aeropay-3.svg';
+import keyDown from "../../keyDown";
 import {
     StyledUserCardPointsButton,
     StyledUserCardPointsButtonIcon,
-    StyledUserCardPointsButtonProcessing,
-} from "./styles"
-import aeropay from '../../../assets/icons/aeropay-3.svg'
-import { SyntheticEvent } from "react";
-import keyDown from "../../keyDown";
+    StyledUserCardPointsButtonProcessing
+} from "./styles";
 
 
 interface AppProps {
@@ -20,11 +19,15 @@ export default function UserCardPointsButton({ loading, chargePoints }: AppProps
         </StyledUserCardPointsButtonProcessing>
     )
     return (
-        <StyledUserCardPointsButton tabIndex={0} onClick={chargePoints} onKeyDown={keyDown(chargePoints)}>
+        <StyledUserCardPointsButton
+            role="button"
+            tabIndex={0}
+            onClick={chargePoints}
+            onKeyDown={keyDown(chargePoints)}>
             <StyledUserCardPointsButtonIcon
                 width={aeropay.width}
                 height={aeropay.height}
-                src={aeropay} alt="Aeropay logo, a flying kite" />
+                src={aeropay} alt="" />
             <p>Add Points</p>
         </StyledUserCardPointsButton>
     )
