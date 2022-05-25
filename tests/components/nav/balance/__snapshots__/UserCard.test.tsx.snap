@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing the UserCard component Clicking a charge button different from the currently selected should change its style 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  cursor: pointer;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  width: 81px;
+  height: 35px;
+  border-radius: 12px;
+  background: linear-gradient(102.47deg,#176FEB -5.34%,#FF80FF 106.58%);
+  -webkit-animation: colorBackground .15s forwards;
+  animation: colorBackground .15s forwards;
+}
+
+.c1 {
+  color: white;
+}
+
+@media (min-width:1920px) {
+
+}
+
+@media (min-width:1920px) {
+
+}
+
+@media (min-width:1920px) {
+
+}
+
+<div
+  class="c0"
+  role="button"
+  tabindex="0"
+>
+  <div
+    class="c1"
+  >
+    <p>
+      5000
+    </p>
+  </div>
+</div>
+`;

@@ -1,0 +1,1155 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing individual toasts Should apply a different style when close button is clicked 1`] = `
+.c0 {
+  font-family: Montserrat;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 150%;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #7C899C;
+  background-color: white;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.05);
+  border-radius: 12px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 14.25px;
+  padding: 24px;
+  display: none;
+  border: 2px solid #E07F4F;
+}
+
+.c4 {
+  color: #252F3D;
+}
+
+.c3 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 100%;
+  margin-left: 36px;
+  margin-right: 30px;
+}
+
+.c1 {
+  position: relative;
+  gap: 14.25px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c2 {
+  width: 21px;
+  height: 21px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.c5 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+@media (min-width:1920px) {
+
+}
+
+@media (min-width:1920px) {
+  .c0 {
+    font-family: Montserrat;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 150%;
+    -webkit-letter-spacing: 0;
+    -moz-letter-spacing: 0;
+    -ms-letter-spacing: 0;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+}
+
+@media (min-width:1920px) {
+  .c2 {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+@media (min-width:1920px) {
+  .c2 {
+    top: -2px;
+  }
+}
+
+<div
+  class="c0"
+>
+  <div
+    class="c1"
+  >
+    <div
+      class="c2"
+    >
+      <span
+        style="box-sizing: border-box; display: inline-block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"
+      >
+        <span
+          style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;"
+        >
+          <img
+            alt=""
+            aria-hidden="true"
+            src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2732%27%20height=%2732%27/%3e"
+            style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
+          />
+        </span>
+        <img
+          alt="Error cross icon"
+          data-nimg="intrinsic"
+          decoding="async"
+          src="/_next/image?url=%2Fimg.jpg&w=64&q=75"
+          srcset="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=64&q=75 2x"
+          style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+        />
+      </span>
+    </div>
+    <div
+      class="c3"
+    >
+      <p>
+        <span
+          class="c4"
+        />
+        There was a problem with the element
+      </p>
+    </div>
+    <div
+      class="c5"
+    >
+      <span
+        style="box-sizing: border-box; display: inline-block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"
+      >
+        <span
+          style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;"
+        >
+          <img
+            alt=""
+            aria-hidden="true"
+            src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2723%27%20height=%2723%27/%3e"
+            style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
+          />
+        </span>
+        <img
+          alt="Cross to close"
+          data-nimg="intrinsic"
+          decoding="async"
+          role="button"
+          src="/cross-default.svg"
+          srcset="/cross-default.svg 1x, /cross-default.svg 2x"
+          style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+          tabindex="0"
+        />
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Testing individual toasts Should apply a different style when component is not first 1`] = `
+.c0 {
+  font-family: Montserrat;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 150%;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #7C899C;
+  background-color: white;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.05);
+  border-radius: 12px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 14.25px;
+  padding: 24px;
+  border: 2px solid #E07F4F;
+}
+
+.c4 {
+  color: #252F3D;
+}
+
+.c3 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 100%;
+  margin-left: 36px;
+  margin-right: 30px;
+}
+
+.c1 {
+  position: relative;
+  gap: 14.25px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c2 {
+  width: 21px;
+  height: 21px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.c5 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+@media (min-width:1920px) {
+  .c0 {
+    font-family: Montserrat;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 150%;
+    -webkit-letter-spacing: 0;
+    -moz-letter-spacing: 0;
+    -ms-letter-spacing: 0;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+}
+
+@media (min-width:1920px) {
+  .c2 {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+@media (min-width:1920px) {
+  .c2 {
+    top: -2px;
+  }
+}
+
+<div
+  class="c0"
+>
+  <div
+    class="c1"
+  >
+    <div
+      class="c2"
+    >
+      <span
+        style="box-sizing: border-box; display: inline-block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"
+      >
+        <span
+          style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;"
+        >
+          <img
+            alt=""
+            aria-hidden="true"
+            src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2732%27%20height=%2732%27/%3e"
+            style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
+          />
+        </span>
+        <img
+          alt="Error cross icon"
+          data-nimg="intrinsic"
+          decoding="async"
+          src="/_next/image?url=%2Fimg.jpg&w=64&q=75"
+          srcset="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=64&q=75 2x"
+          style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+        />
+      </span>
+    </div>
+    <div
+      class="c3"
+    >
+      <p>
+        <span
+          class="c4"
+        />
+        There was a problem with the element
+      </p>
+    </div>
+    <div
+      class="c5"
+    >
+      <span
+        style="box-sizing: border-box; display: inline-block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"
+      >
+        <span
+          style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;"
+        >
+          <img
+            alt=""
+            aria-hidden="true"
+            src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2723%27%20height=%2723%27/%3e"
+            style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
+          />
+        </span>
+        <img
+          alt="Cross to close"
+          data-nimg="intrinsic"
+          decoding="async"
+          role="button"
+          src="/cross-default.svg"
+          srcset="/cross-default.svg 1x, /cross-default.svg 2x"
+          style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+          tabindex="0"
+        />
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Testing individual toasts Should apply a different style when component is not shown 1`] = `
+.c0 {
+  font-family: Montserrat;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 150%;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #7C899C;
+  background-color: white;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.05);
+  border-radius: 12px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 14.25px;
+  padding: 24px;
+  display: none;
+  border: 2px solid #E07F4F;
+}
+
+.c4 {
+  color: #252F3D;
+}
+
+.c3 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 100%;
+  margin-left: 36px;
+  margin-right: 30px;
+}
+
+.c1 {
+  position: relative;
+  gap: 14.25px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c2 {
+  width: 21px;
+  height: 21px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.c5 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+@media (min-width:1920px) {
+  .c0 {
+    font-family: Montserrat;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 150%;
+    -webkit-letter-spacing: 0;
+    -moz-letter-spacing: 0;
+    -ms-letter-spacing: 0;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+}
+
+@media (min-width:1920px) {
+  .c2 {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+@media (min-width:1920px) {
+  .c2 {
+    top: -2px;
+  }
+}
+
+<div
+  class="c0"
+>
+  <div
+    class="c1"
+  >
+    <div
+      class="c2"
+    >
+      <span
+        style="box-sizing: border-box; display: inline-block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"
+      >
+        <span
+          style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;"
+        >
+          <img
+            alt=""
+            aria-hidden="true"
+            src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2732%27%20height=%2732%27/%3e"
+            style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
+          />
+        </span>
+        <img
+          alt="Error cross icon"
+          data-nimg="intrinsic"
+          decoding="async"
+          src="/_next/image?url=%2Fimg.jpg&w=64&q=75"
+          srcset="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=64&q=75 2x"
+          style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+        />
+      </span>
+    </div>
+    <div
+      class="c3"
+    >
+      <p>
+        <span
+          class="c4"
+        />
+        There was a problem with the element
+      </p>
+    </div>
+    <div
+      class="c5"
+    >
+      <span
+        style="box-sizing: border-box; display: inline-block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"
+      >
+        <span
+          style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;"
+        >
+          <img
+            alt=""
+            aria-hidden="true"
+            src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2723%27%20height=%2723%27/%3e"
+            style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
+          />
+        </span>
+        <img
+          alt="Cross to close"
+          data-nimg="intrinsic"
+          decoding="async"
+          role="button"
+          src="/cross-default.svg"
+          srcset="/cross-default.svg 1x, /cross-default.svg 2x"
+          style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+          tabindex="0"
+        />
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Testing individual toasts Should apply a particular style when the component is first 1`] = `
+.c0 {
+  font-family: Montserrat;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 150%;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #7C899C;
+  background-color: white;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.05);
+  border-radius: 12px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 14.25px;
+  padding: 24px;
+  -webkit-animation: colorBackground 1s;
+  animation: colorBackground 1s;
+  border: 2px solid #E07F4F;
+}
+
+.c4 {
+  color: #252F3D;
+}
+
+.c3 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 100%;
+  margin-left: 36px;
+  margin-right: 30px;
+}
+
+.c1 {
+  position: relative;
+  gap: 14.25px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c2 {
+  width: 21px;
+  height: 21px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.c5 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+@media (min-width:1920px) {
+  .c0 {
+    font-family: Montserrat;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 150%;
+    -webkit-letter-spacing: 0;
+    -moz-letter-spacing: 0;
+    -ms-letter-spacing: 0;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+}
+
+@media (min-width:1920px) {
+  .c2 {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+@media (min-width:1920px) {
+  .c2 {
+    top: -2px;
+  }
+}
+
+<div
+  class="c0"
+>
+  <div
+    class="c1"
+  >
+    <div
+      class="c2"
+    >
+      <span
+        style="box-sizing: border-box; display: inline-block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"
+      >
+        <span
+          style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;"
+        >
+          <img
+            alt=""
+            aria-hidden="true"
+            src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2732%27%20height=%2732%27/%3e"
+            style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
+          />
+        </span>
+        <img
+          alt="Error cross icon"
+          data-nimg="intrinsic"
+          decoding="async"
+          src="/_next/image?url=%2Fimg.jpg&w=64&q=75"
+          srcset="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=64&q=75 2x"
+          style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+        />
+      </span>
+    </div>
+    <div
+      class="c3"
+    >
+      <p>
+        <span
+          class="c4"
+        />
+        There was a problem with the element
+      </p>
+    </div>
+    <div
+      class="c5"
+    >
+      <span
+        style="box-sizing: border-box; display: inline-block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"
+      >
+        <span
+          style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;"
+        >
+          <img
+            alt=""
+            aria-hidden="true"
+            src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2723%27%20height=%2723%27/%3e"
+            style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
+          />
+        </span>
+        <img
+          alt="Cross to close"
+          data-nimg="intrinsic"
+          decoding="async"
+          role="button"
+          src="/cross-default.svg"
+          srcset="/cross-default.svg 1x, /cross-default.svg 2x"
+          style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+          tabindex="0"
+        />
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Testing individual toasts Should apply the error style when component is an error 1`] = `
+.c0 {
+  font-family: Montserrat;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 150%;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #7C899C;
+  background-color: white;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.05);
+  border-radius: 12px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 14.25px;
+  padding: 24px;
+  -webkit-animation: colorBackground 1s;
+  animation: colorBackground 1s;
+  border: 2px solid #E07F4F;
+}
+
+.c4 {
+  color: #252F3D;
+}
+
+.c3 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 100%;
+  margin-left: 36px;
+  margin-right: 30px;
+}
+
+.c1 {
+  position: relative;
+  gap: 14.25px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c2 {
+  width: 21px;
+  height: 21px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.c5 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+@media (min-width:1920px) {
+  .c0 {
+    font-family: Montserrat;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 150%;
+    -webkit-letter-spacing: 0;
+    -moz-letter-spacing: 0;
+    -ms-letter-spacing: 0;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+}
+
+@media (min-width:1920px) {
+  .c2 {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+@media (min-width:1920px) {
+  .c2 {
+    top: -2px;
+  }
+}
+
+<div
+  class="c0"
+>
+  <div
+    class="c1"
+  >
+    <div
+      class="c2"
+    >
+      <span
+        style="box-sizing: border-box; display: inline-block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"
+      >
+        <span
+          style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;"
+        >
+          <img
+            alt=""
+            aria-hidden="true"
+            src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2732%27%20height=%2732%27/%3e"
+            style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
+          />
+        </span>
+        <img
+          alt="Error cross icon"
+          data-nimg="intrinsic"
+          decoding="async"
+          src="/_next/image?url=%2Fimg.jpg&w=64&q=75"
+          srcset="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=64&q=75 2x"
+          style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+        />
+      </span>
+    </div>
+    <div
+      class="c3"
+    >
+      <p>
+        <span
+          class="c4"
+        />
+        There was a problem with the element
+      </p>
+    </div>
+    <div
+      class="c5"
+    >
+      <span
+        style="box-sizing: border-box; display: inline-block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"
+      >
+        <span
+          style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;"
+        >
+          <img
+            alt=""
+            aria-hidden="true"
+            src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2723%27%20height=%2723%27/%3e"
+            style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
+          />
+        </span>
+        <img
+          alt="Cross to close"
+          data-nimg="intrinsic"
+          decoding="async"
+          role="button"
+          src="/cross-default.svg"
+          srcset="/cross-default.svg 1x, /cross-default.svg 2x"
+          style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+          tabindex="0"
+        />
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Testing individual toasts Should apply the success style when component is not an error 1`] = `
+.c0 {
+  font-family: Montserrat;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 150%;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #7C899C;
+  background-color: white;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.05);
+  border-radius: 12px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 14.25px;
+  padding: 24px;
+  -webkit-animation: colorBackground 1s;
+  animation: colorBackground 1s;
+  border: 2px solid #29CC74;
+}
+
+.c4 {
+  color: #252F3D;
+}
+
+.c3 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 100%;
+  margin-left: 36px;
+  margin-right: 30px;
+}
+
+.c1 {
+  position: relative;
+  gap: 14.25px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c2 {
+  width: 21px;
+  height: 21px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.c5 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+@media (min-width:1920px) {
+  .c0 {
+    font-family: Montserrat;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 150%;
+    -webkit-letter-spacing: 0;
+    -moz-letter-spacing: 0;
+    -ms-letter-spacing: 0;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+}
+
+@media (min-width:1920px) {
+  .c2 {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+@media (min-width:1920px) {
+  .c2 {
+    top: -2px;
+  }
+}
+
+<div
+  class="c0"
+>
+  <div
+    class="c1"
+  >
+    <div
+      class="c2"
+    >
+      <span
+        style="box-sizing: border-box; display: inline-block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"
+      >
+        <span
+          style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;"
+        >
+          <img
+            alt=""
+            aria-hidden="true"
+            src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2732%27%20height=%2732%27/%3e"
+            style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
+          />
+        </span>
+        <img
+          alt="Success mark icon"
+          data-nimg="intrinsic"
+          decoding="async"
+          src="/_next/image?url=%2Fimg.jpg&w=64&q=75"
+          srcset="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=64&q=75 2x"
+          style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+        />
+      </span>
+    </div>
+    <div
+      class="c3"
+    >
+      <p>
+        <span
+          class="c4"
+        >
+          Something
+        </span>
+        was uploaded successfully
+      </p>
+    </div>
+    <div
+      class="c5"
+    >
+      <span
+        style="box-sizing: border-box; display: inline-block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"
+      >
+        <span
+          style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;"
+        >
+          <img
+            alt=""
+            aria-hidden="true"
+            src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2723%27%20height=%2723%27/%3e"
+            style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
+          />
+        </span>
+        <img
+          alt="Cross to close"
+          data-nimg="intrinsic"
+          decoding="async"
+          role="button"
+          src="/cross-default.svg"
+          srcset="/cross-default.svg 1x, /cross-default.svg 2x"
+          style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+          tabindex="0"
+        />
+      </span>
+    </div>
+  </div>
+</div>
+`;
