@@ -23,12 +23,13 @@ export default function Toast({ toast, icon, first, show }: AppProps): JSX.Eleme
                     width={32}
                     height={32}
                     priority={true}
-                    alt={toast.isError ? "Error cross icon": "Success mark icon"}
+                    alt={toast.isError ? "Error cross icon" : "Success mark icon"}
                 />
                 <StyledTextArea>
                     <p><StyledText>{toast.item}</StyledText>{toast.message}</p>
                 </StyledTextArea>
                 <StyledIconCross
+                    role="button"
                     tabIndex={0}
                     src={'/cross-default.svg'}
                     width={23}
