@@ -13,7 +13,7 @@ interface AppProps {
 }
 export default function Button({ cost, userData, unavailableIcon, availableIcon, redeem }: AppProps): JSX.Element {
     let [processing, setProcessing] = useState<Boolean>(false)
-    function onClick(): void {
+    function handleOnClick(): void {
         setProcessing(true)
         redeem().finally(() => setProcessing(false))
     }
@@ -32,9 +32,9 @@ export default function Button({ cost, userData, unavailableIcon, availableIcon,
     else return (
         <StyledProductButton
             role="button"
-            onClick={onClick}
+            onClick={handleOnClick}
             tabIndex={0}
-            onKeyDown={keyDown(onClick)}>
+            onKeyDown={keyDown(handleOnClick)}>
             <p>Redeem for</p>
             <StyledButtonIcon src={availableIcon} width={24} height={24} alt="" />
             <p>{cost.toLocaleString()}</p>
