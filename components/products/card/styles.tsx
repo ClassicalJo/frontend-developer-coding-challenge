@@ -31,12 +31,17 @@ export const StyledButtonZone = styled.div`
     textStyles.desktop.texts.l1.default,
     textStyles.mobile.texts.l1.default)}
 `
-
-export const StyledProductPicture = styled(UnstyledNextImage)`
+interface StyledProductPictureProps {
+    done: Boolean;
+}
+export const StyledProductPicture = styled(UnstyledNextImage) <StyledProductPictureProps>`
     position: absolute;
-    
     width: 280px;
     height: 204px;
+    opacity:0;
+    ${props => props.done && `
+        animation: appear .3s forwards`
+    }
 `
 
 export const StyledProductTitle = styled.div`

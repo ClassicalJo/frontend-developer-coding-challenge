@@ -14,6 +14,7 @@ export default function Picture({ product }: AppProps): JSX.Element {
                 </StyledSkeletonWrapper>
             </StyledSkeleton>
             <StyledProductPicture
+                done={done}
                 onLoad={() => setDone(true)}
                 src={product.img.url}
                 width={280}
