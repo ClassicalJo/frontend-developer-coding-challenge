@@ -23,7 +23,7 @@ export default function ProductCard({ product, userData, redeem }: AppProps): JS
     return (
         <StyledProductCard>
             <StyledImageZone>
-                <Picture product={product} />
+                <Picture product={product} key={`productPicture${product.name}`} />
                 <StyledTextZone>
                     <StyledProductTitle>{product.name}</StyledProductTitle>
                     <StyledProductSubtitle>{product.category}</StyledProductSubtitle>

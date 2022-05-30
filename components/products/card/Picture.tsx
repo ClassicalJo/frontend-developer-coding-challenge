@@ -1,15 +1,13 @@
 import { useState } from "react";
 import { Product } from "../../types";
 import { StyledPictureContainer, StyledPlaceholder, StyledProductPicture, StyledSkeleton, StyledSkeletonWrapper } from "./styles";
-
 interface AppProps {
     product: Product
 }
 export default function Picture({ product }: AppProps): JSX.Element {
     let [done, setDone] = useState<Boolean>(false)
-
     return (
-        <StyledPictureContainer>
+        <StyledPictureContainer >
             <StyledSkeleton done={done}>
                 <StyledSkeletonWrapper>
                     <StyledPlaceholder />
