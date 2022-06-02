@@ -54,6 +54,7 @@ export const StyledPicture = styled.div`
         height:600px;
         min-width: 720px;
         border-radius:15%;
+        backface-visibility: hidden;
         background: ${colors.specials.sectionBG};
         box-shadow: 0px 2px 40px rgba(0, 0, 0, 0.05);
     }

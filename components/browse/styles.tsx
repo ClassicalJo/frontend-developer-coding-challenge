@@ -39,6 +39,7 @@ export const StyledBackground = styled.div`
     
     @media (min-width: ${breakpoints.tablet}){
         background: ${colors.specials.sectionBG};
+        backface-visibility: hidden;
         height: 656px;
         top:0;
         
