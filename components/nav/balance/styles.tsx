@@ -39,7 +39,7 @@ export const StyledBalanceWrapper = styled.div`
     
 `
 
-export const StyledBalanceLogo = styled.div`
+export const StyledBalanceLogo = styled(UnstyledNextImage)`
     ${mixins.centerDiv}
     margin:8px;
     margin-left: 16px;
