@@ -34,7 +34,7 @@ export const StyledButtonZone = styled.div`
 interface StyledProductPictureProps {
     done: Boolean;
 }
-export const StyledProductPicture = styled(UnstyledNextImage) <StyledProductPictureProps>`
+export const StyledProductPicture = styled(({ done, ...rest }) => <UnstyledNextImage {...rest} />) <StyledProductPictureProps>`
     position: absolute;
     width: 280px;
     height: 204px;
