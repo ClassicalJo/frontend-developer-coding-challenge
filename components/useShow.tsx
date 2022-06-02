@@ -1,13 +1,14 @@
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect, useMemo, useRef } from 'react'
 
 export default function useShow(time: number) {
     let [show, setShow] = useState<Boolean>(false)
     let [hide, setHide] = useState<Boolean>(false)
     let [firstRender, setFirstRender] = useState<Boolean>(true)
-    let timeouts: NodeJS.Timeout[] = useMemo(() => [], [])
+    let timeoutsRef = useRef<NodeJS.Timeout[]>([])
     useEffect(() => {
+        let timeouts = timeoutsRef.current
         return () => timeouts.forEach(k => clearTimeout(k))
-    }, [timeouts])
+    }, [])
     let toggle = () => {
         setFirstRender(false)
         if (hide) return
@@ -18,7 +19,7 @@ export default function useShow(time: number) {
                 setShow(false)
                 setHide(false)
             }, time)
-            timeouts.push(timeout)
+            timeoutsRef.current.push(timeout)
         }
     }
     return { show, hide, toggle, firstRender }
