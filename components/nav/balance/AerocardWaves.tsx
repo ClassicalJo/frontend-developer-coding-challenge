@@ -26,27 +26,27 @@ function AerocardWaves({ className }: StyledProplessComponent): JSX.Element {
                 <CustomWave lineWidth={1} />
                 <CustomWave lineWidth={2} />
             </defs>
-            {waveArray.map((k, i) => (
-                <use
-                    xlinkHref={i > 7 ? '#lineWidth2' : '#lineWidth1'}
-                    id={`customWave${i}`}
-                    key={`customWave${i}`}
-                    x={xOffSet}
-                    width={566}
-                    height={27}
-                    y={waveMargin * i + yOffSet}
-                    transform="rotate(4.26 0 0)"
-                >
-                    <animateTransform
-                        attributeName='transform'
-                        type="translate"
-                        dur="5s"
-                        repeatCount="indefinite"
-                        values={`${xOffSet} ; -200`}
-                        keyTimes="0;1"
+            <g transform="rotate(4.26 0 0)">
+                {waveArray.map((k, i) => (
+                    <use
+                        xlinkHref={i > 7 ? '#lineWidth2' : '#lineWidth1'}
+                        id={`customWave${i}`}
+                        key={`customWave${i}`}
+                        x={xOffSet}
+                        width={566}
+                        height={27}
+                        y={waveMargin * i + yOffSet}
                     />
-                </use>
-            ))}
+                ))}
+                <animateTransform
+                    attributeName='transform'
+                    type="translate"
+                    dur="5s"
+                    repeatCount="indefinite"
+                    values={`${xOffSet} ; -200`}
+                    keyTimes="0;1"
+                />
+            </g>
         </svg>
     )
 }
