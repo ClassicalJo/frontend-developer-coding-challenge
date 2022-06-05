@@ -15,7 +15,7 @@ export default function Picture({ product }: AppProps): JSX.Element {
             </StyledSkeleton>
             <StyledProductPicture
                 done={done}
-                onLoad={() => setDone(true)}
+                onLoadingComplete={() => setDone(true)}
                 src={product.img.url}
                 width={280}
                 height={204}
